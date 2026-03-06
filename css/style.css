@@ -1540,6 +1540,55 @@ h3 {
     z-index: 1;
 }
 
+/* ---------- SERVIÇOS HERO ---------- */
+.services-hero {
+    position: relative;
+    background: url('../IMG/Hero_Servicos.png') no-repeat center center / cover;
+    padding: 180px 0 140px;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.services-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.85) 100%);
+    z-index: 1;
+}
+
+/* ---------- PORTFOLIO HERO ---------- */
+.portfolio-hero {
+    position: relative;
+    background: url('../IMG/Hero_Portfolio.png') no-repeat center center / cover;
+    padding: 180px 0 140px;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+}
+
+.portfolio-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.95) 100%);
+    z-index: 1;
+}
+
+.about-hero .container,
+.services-hero .container,
+.portfolio-hero .container {
+    position: relative;
+    z-index: 5;
+}
+
 .about-hero .container {
     position: relative;
     z-index: 2;

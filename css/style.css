@@ -1277,22 +1277,47 @@ h3 {
 
 .countdown-shell {
     display: inline-block;
-    background: rgba(255, 255, 255, 0.02);
-    padding: 25px 60px;
+    background: rgba(255, 0, 0, 0.05);
+    /* Sutil fundo avermelhado */
+    padding: 30px 80px;
     border-radius: 100px;
-    /* Pillow button shape */
-    border: 1px solid var(--primary);
+    border: 2px solid #FF0000;
+    /* Borda Vermelha de Alerta */
     margin-bottom: 40px;
     transition: all 0.4s var(--ease);
-    cursor: default;
-    box-shadow: 0 0 20px rgba(27, 139, 126, 0.1);
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+    animation: red-alert-pulse 2s infinite ease-in-out;
+}
+
+@keyframes red-alert-pulse {
+
+    0%,
+    100% {
+        border-color: #FF0000;
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+    }
+
+    50% {
+        border-color: #990000;
+        box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+    }
 }
 
 .countdown-shell:hover {
-    transform: translateY(-5px) scale(1.02);
-    background: rgba(27, 139, 126, 0.05);
-    box-shadow: 0 15px 40px rgba(27, 139, 126, 0.3);
-    border-color: var(--primary-light);
+    transform: translateY(-8px) scale(1.05);
+    background: #FF0000;
+    /* Preenchimento total no hover */
+    box-shadow: 0 20px 50px rgba(255, 0, 0, 0.8);
+    border-color: #FFFFFF;
+}
+
+.countdown-shell:hover .cd-item span,
+.countdown-shell:hover .cd-item p,
+.countdown-shell:hover .cd-separator {
+    color: white !important;
+    /* Texto branco no fundo vermelho pro contraste */
+    text-shadow: none;
 }
 
 .countdown-grid {
@@ -1304,42 +1329,45 @@ h3 {
 
 .cd-item span {
     display: block;
-    font-size: 5rem;
-    /* Large and impactful */
+    font-size: 5.5rem;
     font-weight: 900;
-    color: white;
+    color: #FF0000;
+    /* Números em Vermelho Alerta */
     line-height: 1;
     font-family: 'Inter', sans-serif;
+    transition: all 0.3s var(--ease);
 }
 
 .cd-item p {
-    font-size: 11px;
+    font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
     margin-top: 8px;
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s var(--ease);
 }
 
 .cd-separator {
-    font-size: 3.5rem;
+    font-size: 4rem;
     font-weight: 900;
-    color: var(--primary-light);
-    margin-top: -30px;
+    color: #FF0000;
+    margin-top: -35px;
+    transition: all 0.3s var(--ease);
 }
 
 .pulse-glow {
-    animation: pulse-glow 2s infinite ease-in-out;
+    animation: pulse-glow-red 1.5s infinite ease-in-out;
 }
 
-@keyframes pulse-glow {
+@keyframes pulse-glow-red {
 
     0%,
     100% {
-        text-shadow: 0 0 10px rgba(27, 139, 126, 0);
+        text-shadow: 0 0 10px rgba(255, 0, 0, 0);
     }
 
     50% {
-        text-shadow: 0 0 40px rgba(27, 139, 126, 0.8);
+        text-shadow: 0 0 25px rgba(255, 0, 0, 0.8);
     }
 }
 

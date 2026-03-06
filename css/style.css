@@ -30,7 +30,7 @@
     --radius-md: 16px;
     --radius-lg: 24px;
     --ease: cubic-bezier(.4, 0, .2, 1);
-    --nav-h: 80px;
+    --nav-h: 100px;
 }
 
 /* ---------- RESET & BASE ---------- */
@@ -224,7 +224,8 @@ h3 {
 }
 
 .nav-logo img {
-    height: 52px;
+    height: 75px;
+    max-height: calc(var(--nav-h) - 15px);
     width: auto;
     border-radius: 4px;
     /* Slight rounding for elegant integration */
@@ -964,7 +965,7 @@ h3 {
 }
 
 .footer img {
-    height: 55px;
+    height: 85px;
     border-radius: 4px;
     margin-bottom: 20px;
 }
@@ -1059,7 +1060,7 @@ h3 {
 
 @media (max-width: 768px) {
     :root {
-        --nav-h: 70px;
+        --nav-h: 80px;
     }
 
     .nav-menu {

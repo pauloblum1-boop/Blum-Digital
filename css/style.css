@@ -30,7 +30,7 @@
     --radius-md: 16px;
     --radius-lg: 24px;
     --ease: cubic-bezier(.4, 0, .2, 1);
-    --nav-h: 120px;
+    --nav-h: 140px;
 }
 
 /* ---------- RESET & BASE ---------- */
@@ -224,11 +224,10 @@ h3 {
 }
 
 .nav-logo img {
-    height: 80px;
-    max-height: calc(var(--nav-h) - 15px);
+    height: 110px;
     width: auto;
-    border-radius: 4px;
-    /* Slight rounding for elegant integration */
+    border-radius: 0;
+    display: block;
 }
 
 .nav-menu {
@@ -1060,7 +1059,7 @@ h3 {
 
 @media (max-width: 768px) {
     :root {
-        --nav-h: 100px;
+        --nav-h: 110px;
     }
 
     .nav-menu {

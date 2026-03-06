@@ -1275,48 +1275,48 @@ h3 {
     margin-bottom: 40px;
 }
 
-.countdown-shell {
+.emergency-countdown-btn {
     display: inline-block;
     background: rgba(255, 0, 0, 0.05);
-    /* Sutil fundo avermelhado */
-    padding: 30px 80px;
-    border-radius: 100px;
-    border: 2px solid #FF0000;
-    /* Borda Vermelha de Alerta */
-    margin-bottom: 40px;
+    padding: 40px 60px;
+    border-radius: var(--radius-lg);
+    border: 3px solid #FF0000;
+    text-decoration: none !important;
     transition: all 0.4s var(--ease);
-    cursor: pointer;
+    animation: emergency-pulse 2s infinite ease-in-out;
+    margin-top: 20px;
     box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
-    animation: red-alert-pulse 2s infinite ease-in-out;
+    width: 100%;
+    max-width: 600px;
 }
 
-@keyframes red-alert-pulse {
+@keyframes emergency-pulse {
 
     0%,
     100% {
         border-color: #FF0000;
-        box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.3);
+        transform: scale(1);
     }
 
     50% {
         border-color: #990000;
-        box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+        box-shadow: 0 0 35px rgba(255, 0, 0, 0.6);
+        transform: scale(1.02);
     }
 }
 
-.countdown-shell:hover {
-    transform: translateY(-8px) scale(1.05);
+.emergency-countdown-btn:hover {
     background: #FF0000;
-    /* Preenchimento total no hover */
-    box-shadow: 0 20px 50px rgba(255, 0, 0, 0.8);
+    box-shadow: 0 25px 60px rgba(255, 0, 0, 0.9);
     border-color: #FFFFFF;
 }
 
-.countdown-shell:hover .cd-item span,
-.countdown-shell:hover .cd-item p,
-.countdown-shell:hover .cd-separator {
+.emergency-countdown-btn:hover .cd-item span,
+.emergency-countdown-btn:hover .cd-item p,
+.emergency-countdown-btn:hover .cd-separator,
+.emergency-countdown-btn:hover .btn-bottom-label {
     color: white !important;
-    /* Texto branco no fundo vermelho pro contraste */
     text-shadow: none;
 }
 
@@ -1325,37 +1325,42 @@ h3 {
     justify-content: center;
     align-items: center;
     gap: 40px;
+    margin-bottom: 20px;
 }
 
 .cd-item span {
-    display: block;
     font-size: 5.5rem;
     font-weight: 900;
     color: #FF0000;
-    /* Números em Vermelho Alerta */
     line-height: 1;
-    font-family: 'Inter', sans-serif;
-    transition: all 0.3s var(--ease);
+    display: block;
 }
 
 .cd-item p {
     font-size: 13px;
     text-transform: uppercase;
-    letter-spacing: 3px;
-    margin-top: 8px;
-    color: rgba(255, 255, 255, 0.8);
-    transition: all 0.3s var(--ease);
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 5px;
 }
 
 .cd-separator {
     font-size: 4rem;
     font-weight: 900;
     color: #FF0000;
-    margin-top: -35px;
-    transition: all 0.3s var(--ease);
+    margin-top: -30px;
 }
 
-.pulse-glow {
+.btn-bottom-label {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 20px;
+}
+
+.pulse-glow-red {
     animation: pulse-glow-red 1.5s infinite ease-in-out;
 }
 

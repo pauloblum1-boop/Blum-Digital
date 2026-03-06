@@ -1104,3 +1104,7 @@ h3 {
         text-align: center;
     }
 }
+/* White Logo Filter */
+.nav-logo img, .footer-grid > div:first-child img, img[src*='Nova logo.png'] {
+    filter: brightness(0) invert(1);
+}

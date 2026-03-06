@@ -30,7 +30,7 @@
     --radius-md: 16px;
     --radius-lg: 24px;
     --ease: cubic-bezier(.4, 0, .2, 1);
-    --nav-h: 210px;
+    --nav-h: 190px;
 }
 
 /* ---------- RESET & BASE ---------- */
@@ -217,7 +217,7 @@ h3 {
 }
 
 .logo-main {
-    height: 220px !important;
+    height: 165px !important;
     width: auto !important;
     max-width: none !important;
     display: block;
@@ -244,7 +244,7 @@ h3 {
 }
 
 .nav-link {
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 600;
     color: rgba(255, 255, 255, 0.8);
     transition: color 0.2s;
@@ -1067,11 +1067,11 @@ h3 {
 
 @media (max-width: 768px) {
     :root {
-        --nav-h: 140px;
+        --nav-h: 130px;
     }
 
     .logo-main {
-        height: 110px !important;
+        height: 105px !important;
     }
 
     .nav-menu {

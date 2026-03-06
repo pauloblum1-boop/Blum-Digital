@@ -224,8 +224,9 @@ h3 {
 }
 
 .nav-logo img {
-    height: 110px;
-    width: auto;
+    height: 110px !important;
+    width: auto !important;
+    max-width: none !important;
     border-radius: 0;
     display: block;
 }

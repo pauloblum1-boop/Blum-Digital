@@ -30,7 +30,7 @@
     --radius-md: 16px;
     --radius-lg: 24px;
     --ease: cubic-bezier(.4, 0, .2, 1);
-    --nav-h: 130px;
+    --nav-h: 100px;
 }
 
 /* ---------- RESET & BASE ---------- */
@@ -217,7 +217,7 @@ h3 {
 }
 
 .logo-main {
-    height: 110px !important;
+    height: 80px !important;
     width: auto !important;
     max-width: none !important;
     display: block;
@@ -1067,11 +1067,11 @@ h3 {
 
 @media (max-width: 768px) {
     :root {
-        --nav-h: 100px;
+        --nav-h: 80px;
     }
 
     .logo-main {
-        height: 75px !important;
+        height: 60px !important;
     }
 
     .nav-menu {

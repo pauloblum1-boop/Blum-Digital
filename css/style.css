@@ -224,7 +224,7 @@ h3 {
 }
 
 .nav-logo img {
-    height: 42px;
+    height: 52px;
     width: auto;
     border-radius: 4px;
     /* Slight rounding for elegant integration */
@@ -964,7 +964,7 @@ h3 {
 }
 
 .footer img {
-    height: 45px;
+    height: 55px;
     border-radius: 4px;
     margin-bottom: 20px;
 }
@@ -1103,8 +1103,4 @@ h3 {
         grid-template-columns: 1fr;
         text-align: center;
     }
-}
-/* White Logo Filter */
-.nav-logo img, .footer-grid > div:first-child img, img[src*='Nova logo.png'] {
-    filter: brightness(0) invert(1);
 }

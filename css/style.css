@@ -3,6 +3,131 @@
    ================================================ */
 
 /* ---------- DESIGN TOKENS ---------- */
+/* ---------- CREATIVE DIFERENCIAIS + GLASSMORPHISM ---------- */
+.creative-diferenciais {
+    position: relative;
+    background: #050a0a;
+    padding: 140px 0;
+    overflow: hidden;
+    color: white;
+}
+
+#pixel-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.creative-diferenciais .container {
+    position: relative;
+    z-index: 2;
+}
+
+.diferenciais-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 35px;
+    margin-top: 60px;
+}
+
+.bf-card-premium {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 60px 40px;
+    border-radius: 20px;
+    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.bf-card-premium::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(27, 139, 126, 0.2) 0%, transparent 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.bf-card-premium:hover {
+    transform: translateY(-15px);
+    border-color: rgba(27, 139, 126, 0.8);
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(27, 139, 126, 0.2);
+}
+
+.bf-card-premium:hover::before {
+    opacity: 1;
+}
+
+.bf-icon-main {
+    width: 90px;
+    height: 90px;
+    background: rgba(27, 139, 126, 0.1);
+    color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 38px;
+    margin-bottom: 30px;
+    transition: all 0.5s ease;
+    border: 1px solid rgba(27, 139, 126, 0.2);
+    position: relative;
+    z-index: 2;
+}
+
+.bf-card-premium:hover .bf-icon-main {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 0 0 50px rgba(27, 139, 126, 0.6);
+}
+
+.bf-card-premium h3 {
+    font-size: 1.7rem;
+    font-weight: 850;
+    margin-bottom: 20px;
+    color: white;
+    letter-spacing: -0.5px;
+}
+
+.bf-card-premium p {
+    font-size: 1.05rem;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.8;
+}
+
+.bf-number-floating {
+    position: absolute;
+    top: 25px;
+    right: 30px;
+    font-size: 5rem;
+    font-weight: 900;
+    color: rgba(255, 255, 255, 0.03);
+    pointer-events: none;
+    transition: all 0.7s ease;
+}
+
+.bf-card-premium:hover .bf-number-floating {
+    color: rgba(27, 139, 126, 0.2);
+    transform: scale(1.1) translateY(10px);
+}
+
 :root {
     --primary: #1B8B7E;
     /* Nova Marca - Verde Água Sofisticado */

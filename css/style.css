@@ -217,8 +217,8 @@ h3 {
 }
 
 .logo-main {
-    height: 145px;
-    /* Slightly reduced as requested to fit perfectly */
+    height: 170px;
+    /* Maximum size to fit within the 180px navbar */
     width: auto;
     max-width: none;
     display: block;
@@ -238,8 +238,6 @@ h3 {
     display: flex;
     align-items: center;
     height: 100%;
-    margin-top: 5px;
-    /* Subtle top adjust for visual balance */
 }
 
 .nav-menu {
@@ -976,7 +974,7 @@ h3 {
 }
 
 .footer img.logo-main {
-    height: 120px;
+    height: 140px;
     width: auto;
     margin-bottom: 25px;
 }

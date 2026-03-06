@@ -1240,3 +1240,110 @@ h3 {
         grid-template-columns: 1fr;
     }
 }
+
+/* ---------- OFFERS ALERT & COUNTDOWN ---------- */
+.offers-alert {
+    background: linear-gradient(135deg, #000000 0%, #12635B 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.offer-container {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.offer-info h2 {
+    color: white;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 20px;
+}
+
+.offer-info p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.1rem;
+}
+
+.payment-terms {
+    margin-top: 40px;
+}
+
+.payment-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 20px 30px;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+.payment-badge i {
+    font-size: 24px;
+    color: var(--primary-light);
+}
+
+.fee-disclaimer {
+    margin-top: 10px;
+    font-size: 0.8rem !important;
+    opacity: 0.5;
+}
+
+.offer-countdown {
+    background: rgba(255, 255, 255, 0.03);
+    padding: 50px;
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+.countdown-title {
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 13px;
+    margin-bottom: 30px;
+    color: var(--primary-light);
+}
+
+.countdown-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.cd-item {
+    text-align: center;
+    min-width: 80px;
+}
+
+.cd-item span {
+    display: block;
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+    line-height: 1;
+}
+
+.cd-item p {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 5px;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.btn-full {
+    width: 100%;
+}
+
+@media (max-width: 992px) {
+    .offer-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}

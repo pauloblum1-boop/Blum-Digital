@@ -238,4 +238,36 @@ document.addEventListener('DOMContentLoaded', () => {
     init();
     animate();
 
+    /* ==================================================
+       6. EVERGREEN COUNTDOWN TIMER
+       ================================================== */
+    function startCountdown() {
+        const hoursEl = document.getElementById('cd-hours');
+        const minsEl = document.getElementById('cd-minutes');
+        const secsEl = document.getElementById('cd-seconds');
+
+        if (!hoursEl) return;
+
+        // Definimos uma oferta de 2 horas
+        let totalSeconds = (2 * 60 * 60) + (14 * 60) + 35; // 02:14:35 fixo pra começar e parecer real
+
+        const interval = setInterval(() => {
+            totalSeconds--;
+
+            if (totalSeconds < 0) {
+                totalSeconds = 2 * 60 * 60; // Reinicia pra manter a escassez rodando
+            }
+
+            const h = Math.floor(totalSeconds / 3600);
+            const m = Math.floor((totalSeconds % 3600) / 60);
+            const s = totalSeconds % 60;
+
+            hoursEl.innerText = h.toString().padStart(2, '0');
+            minsEl.innerText = m.toString().padStart(2, '0');
+            secsEl.innerText = s.toString().padStart(2, '0');
+        }, 1000);
+    }
+
+    startCountdown();
+
 });

@@ -224,7 +224,7 @@ h3 {
 }
 
 .nav-logo img {
-    height: 94px;
+    height: 80px;
     max-height: calc(var(--nav-h) - 15px);
     width: auto;
     border-radius: 4px;
@@ -965,7 +965,7 @@ h3 {
 }
 
 .footer img {
-    height: 106px;
+    height: 80px;
     border-radius: 4px;
     margin-bottom: 20px;
 }

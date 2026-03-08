@@ -395,12 +395,29 @@ document.addEventListener('DOMContentLoaded', () => {
         const slides = Array.from(track.children);
         const nextBtn = document.getElementById('nextBtn');
         const prevBtn = document.getElementById('prevBtn');
+        const dotsNav = document.getElementById('carouselDots');
         let currentIdx = 0;
+
+        // Criar dots
+        slides.forEach((_, i) => {
+            const dot = document.createElement('span');
+            if (i === 0) dot.classList.add('active');
+            dot.addEventListener('click', () => {
+                currentIdx = i;
+                updateCarousel();
+            });
+            dotsNav.appendChild(dot);
+        });
+
+        const dots = Array.from(dotsNav.children);
 
         const updateCarousel = () => {
             track.style.transform = `translateX(-${currentIdx * 100}%)`;
             slides.forEach((slide, index) => {
                 slide.classList.toggle('active', index === currentIdx);
+            });
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentIdx);
             });
         };
 
@@ -414,11 +431,20 @@ document.addEventListener('DOMContentLoaded', () => {
             updateCarousel();
         });
 
-        // Auto-play opcional
-        setInterval(() => {
+        // Auto-play
+        let autoPlay = setInterval(() => {
             currentIdx = (currentIdx + 1) % slides.length;
             updateCarousel();
         }, 8000);
+
+        // Reset auto-play on interaction
+        carousel.addEventListener('mouseenter', () => clearInterval(autoPlay));
+        carousel.addEventListener('mouseleave', () => {
+            autoPlay = setInterval(() => {
+                currentIdx = (currentIdx + 1) % slides.length;
+                updateCarousel();
+            }, 8000);
+        });
     }
 
     initPortfolioCarousel();

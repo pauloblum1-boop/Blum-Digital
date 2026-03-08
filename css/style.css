@@ -548,7 +548,7 @@ h3 {
 /* ---------- SOBRE (NATURAL E ELEGANTE) ---------- */
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.15fr 1fr;
     gap: 60px;
     align-items: center;
     margin-top: -30px;
@@ -574,16 +574,9 @@ h3 {
     height: 100%;
     object-fit: cover;
     display: block;
-    /* Super Tech Cinematic Refinement: Desaturating reds and shifting to silver/cool tones */
-    filter: contrast(1.15) brightness(0.9) saturate(0.7) sepia(0.1) hue-rotate(180deg) brightness(1.1) hue-rotate(-180deg);
-    /* Simplified cold filter chain */
-    filter: contrast(1.1) brightness(0.95) saturate(0.7) grayscale(0.15);
+    filter: saturate(1.1) brightness(1.05);
+    /* Leve realce nas cores */
     transition: all 0.6s var(--ease);
-}
-
-.ceo-portrait:hover {
-    filter: contrast(1.15) brightness(1) saturate(1);
-    transform: scale(1.03);
 }
 
 .about-img-box::after {
@@ -1658,7 +1651,7 @@ h3 {
 
 .about-grid.container-align {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1.15fr 1fr;
     gap: 80px;
     align-items: center;
     /* ALINHAMENTO VERTICAL CENTRAL */
@@ -1675,11 +1668,9 @@ h3 {
     width: 100%;
     height: auto;
     display: block;
+    filter: saturate(1.1) brightness(1.05);
+    /* Leve realce nas cores */
     transition: transform 0.5s var(--ease);
-}
-
-.portrait-wrapper:hover .ceo-portrait {
-    transform: scale(1.05);
 }
 
 .portrait-badge {

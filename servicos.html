@@ -109,8 +109,22 @@
         }
 
         .pricing-card-elite .badge-chosen {
-            background: #005C53;
-            /* Deep Teal flag */
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            background: #cc0000;
+            color: #ffffff;
+            padding: 10px 16px;
+            font-size: 11px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-radius: 50px;
+            transform: none;
+            white-space: nowrap;
+            box-shadow: 0 4px 15px rgba(204, 0, 0, 0.4);
+            animation: badge-float 2s infinite ease-in-out;
+            z-index: 10;
         }
 
         .pricing-card-elite .btn-outline {
@@ -123,17 +137,17 @@
             color: #ffffff;
         }
 
-        @keyframes badge-pulse {
+        @keyframes badge-float {
 
             0%,
             100% {
-                box-shadow: 0 0 8px rgba(204, 0, 0, 0.3);
-                transform: rotate(45deg) scale(1);
+                box-shadow: 0 4px 15px rgba(204, 0, 0, 0.4);
+                transform: translateY(0);
             }
 
             50% {
-                box-shadow: 0 0 20px rgba(204, 0, 0, 0.8);
-                transform: rotate(45deg) scale(1.05);
+                box-shadow: 0 8px 25px rgba(204, 0, 0, 0.7);
+                transform: translateY(-4px);
             }
         }
 
@@ -236,9 +250,7 @@
 
                     <!-- Plano 02: Imersão & Autoridade -->
                     <div class="pricing-card-elite featured">
-                        <div class="badge-chosen"
-                            style="background: #cc0000; animation: badge-pulse 2s infinite ease-in-out;">MELHOR CUSTO
-                            BENEFÍCIO</div>
+                        <div class="badge-chosen">MELHOR CUSTO BENEFÍCIO!</div>
                         <div class="pricing-header">
                             <span class="label" style="background: #50c878; color: #2b2e33; font-weight: bold;">Nível
                                 02</span>
@@ -294,11 +306,13 @@
                             <h3>Dominação de Mercado</h3>
                             <p class="plan-desc">O nível máximo de posicionamento digital. Transforme sua empresa em uma
                                 vitrine tecnológica de luxo.</p>
-                            <div class="price">R$ 3.500 <span>/ Investimento (Setup) + Gestão de Performance</span>
-                            </div>
                         </div>
                         <ul class="pricing-features">
-                            <li><i class="fa-solid fa-check-double"></i>
+                            <li><i class="fa-solid fa-check"></i>
+                                <div><strong>Tudo do Plano Imersão &amp; Autoridade:</strong> A base completa de
+                                    otimização e imersão incluída.</div>
+                            </li>
+                            <li><i class="fa-solid fa-check"></i>
                                 <div><strong>Ecossistema Digital Completo:</strong> A união perfeita entre tráfego,
                                     design e experiência imersiva.</div>
                             </li>
@@ -312,17 +326,42 @@
                             </li>
                             <li><i class="fa-solid fa-check"></i>
                                 <div><strong>Estratégia de Prova Social Ativa:</strong> Escala de avaliações 5 estrelas
-                                    e gestão de reputação.</div>
+                                    e gestão de reputação online.</div>
                             </li>
                             <li><i class="fa-solid fa-check"></i>
-                                <div><strong>Relatórios de Inteligência:</strong> Análise mensal de métricas de
-                                    conversão.</div>
+                                <div><strong>Estratégia Avançada de Citation Building:</strong> Cadastro da empresa
+                                    (NAP) em mais de 80 diretórios relevantes, ampliando drasticamente a autoridade e a
+                                    presença digital do seu negócio nos mecanismos de busca.</div>
+                            </li>
+                            <li><i class="fa-solid fa-check"></i>
+                                <div><strong>Relatórios de Inteligência Quinzenais:</strong> Análise quinzenal de
+                                    métricas de
+                                    conversão para ajuste contínuo e acelerado da estratégia de vendas.</div>
+                            </li>
+                            <li><i class="fa-solid fa-check"></i>
+                                <div><strong>Vídeo Aéreo com Drone:</strong> Captação cinematográfica aérea do seu
+                                    estabelecimento e região, gerando conteúdo de alto impacto para redes sociais, site
+                                    institucional e campanhas de tráfego pago, elevando a percepção de valor e
+                                    sofisticação da sua marca.</div>
                             </li>
                         </ul>
+                        <div class="price" style="margin-top: auto;">R$ 3.500,00 <span>/ Mensal</span></div>
                         <a href="https://wa.me/5548992212339?text=Olá Thiago, busco a Dominação de Mercado para o meu negócio."
                             class="btn btn-outline" target="_blank">AGENDAR CONSULTORIA VIP</a>
                     </div>
                 </div>
+
+                <!-- Parcelamento Centralizado -->
+                <div style="text-align: center; margin-top: 40px;">
+                    <div
+                        style="display: inline-flex; align-items: center; justify-content: center; gap: 12px; padding: 18px 35px; background: rgba(43,46,51,0.95); border: 1px solid #005C53; border-radius: 50px;">
+                        <i class="fa-solid fa-credit-card" style="color: #50c878; font-size: 1.3rem;"></i>
+                        <span style="color: #ffffff; font-size: 1rem; font-weight: 600;">Parcelamos todos os planos em
+                            até
+                            <strong style="color: #50c878;">12x</strong> no cartão</span>
+                    </div>
+                </div>
+
             </div>
             <!-- ========== URGENCY & PAYMENT (EXPRESS OFFER) ========== -->
             <section class="section offers-alert bg-dark">

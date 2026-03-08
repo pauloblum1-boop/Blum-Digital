@@ -254,7 +254,11 @@ document.addEventListener('DOMContentLoaded', () => {
             totalSeconds--;
 
             if (totalSeconds < 0) {
-                totalSeconds = 30 * 60; // Reinicia pra manter a escassez rodando
+                clearInterval(interval);
+                // Mensagem persuasiva automática ao finalizar o tempo
+                const autoMessage = encodeURIComponent("Olá, aqui é Paulo Daniel Blum. Notei que o tempo da nossa oferta de consultoria estratégica expirou enquanto você navegava. Na Blum Digital, valorizamos quem busca excelência. Como posso te ajudar a alcançar o sucesso financeiro através de uma Estratégia Digital de elite?");
+                window.location.href = `https://wa.me/5548992212339?text=${autoMessage}`;
+                return;
             }
 
             const m = Math.floor(totalSeconds / 60);

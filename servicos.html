@@ -123,6 +123,20 @@
             color: #ffffff;
         }
 
+        @keyframes badge-pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 8px rgba(204, 0, 0, 0.3);
+                transform: rotate(45deg) scale(1);
+            }
+
+            50% {
+                box-shadow: 0 0 20px rgba(204, 0, 0, 0.8);
+                transform: rotate(45deg) scale(1.05);
+            }
+        }
+
         @media (max-width: 768px) {
             .pricing-card-elite:hover {
                 transform: none !important;
@@ -222,26 +236,28 @@
 
                     <!-- Plano 02: Imersão & Autoridade -->
                     <div class="pricing-card-elite featured">
-                        <div class="badge-chosen">O Mais Atrativo</div>
+                        <div class="badge-chosen"
+                            style="background: #cc0000; animation: badge-pulse 2s infinite ease-in-out;">MELHOR CUSTO
+                            BENEFÍCIO</div>
                         <div class="pricing-header">
                             <span class="label" style="background: #50c878; color: #2b2e33; font-weight: bold;">Nível
                                 02</span>
                             <h3>Imersão & Autoridade</h3>
                             <p class="plan-desc">Para negócios que desejam oferecer uma experiência de visita antes
                                 mesmo do cliente sair de casa.</p>
-                            <div class="price">R$ 2.000 <span>/ Investimento (Setup) + Gestão de Autoridade</span></div>
+
                         </div>
                         <ul class="pricing-features">
-                            <li><i class="fa-solid fa-check-double"></i>
+                            <li><i class="fa-solid fa-check"></i>
                                 <div><strong>Tudo da Fundação Digital:</strong> A base completa de otimização incluída.
                                 </div>
                             </li>
                             <li><i class="fa-solid fa-check"></i>
                                 <div><strong>Tour Virtual Street View:</strong> O cliente caminha pelo seu
-                                    estabelecimento de forma fluida e realista no Google.</div>
+                                    estabelecimento de forma fluida e realista no Google. Até 15 fotos!</div>
                             </li>
                             <li><i class="fa-solid fa-check"></i>
-                                <div><strong>Site & Landing Page de Alta Conversão:</strong> Design minimalista focada
+                                <div><strong>Site & Landing Page de Alta Conversão:</strong> Design minimalista focado
                                     em leads qualificados.</div>
                             </li>
                             <li><i class="fa-solid fa-check"></i>
@@ -252,7 +268,20 @@
                                 <div><strong>Otimização de Conversão (CRO):</strong> Botões e design focados na redução
                                     de taxa de rejeição.</div>
                             </li>
+                            <li><i class="fa-solid fa-check"></i>
+                                <div><strong>Cadastro em 20 Diretórios:</strong> Aumentando ainda mais o poder de
+                                    alcance e influência. Fortalece a credibilidade da empresa e melhora o
+                                    posicionamento nos resultados de busca de forma potencializada e estratégica.</div>
+                            </li>
+                            <li><i class="fa-solid fa-check"></i>
+                                <div><strong>Alavancagem de Avaliações:</strong> Totem de PVC com adesivo de alta
+                                    qualidade. Dois modelos: um do Google Avaliações e outro personalizado com a
+                                    identidade visual da empresa, ambos com QR Code e sistema NFC para aproximação,
+                                    garantindo uma avaliação rápida e eficiente.</div>
+                            </li>
                         </ul>
+                        <div class="price" style="margin-top: auto;">R$ 2.000 <span>/ Investimento (Setup) + Gestão de
+                                Autoridade: R$ 500,00/mês (opcional)</span></div>
                         <a href="https://wa.me/5548992212339?text=Olá Thiago, o plano Imersão e Autoridade é perfeito para minha estratégia."
                             class="btn btn-gold" target="_blank" style="background: #50c878; color: #111;">GARANTIR
                             AUTORIDADE</a>

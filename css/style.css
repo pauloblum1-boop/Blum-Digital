@@ -1364,14 +1364,14 @@ h3 {
 /* ---------- PORTFOLIO SECTION ENHANCED ---------- */
 .case-showcase-premium {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 50px;
     align-items: center;
     background: white;
-    padding: 60px;
+    padding: 30px;
     border-radius: var(--radius-lg);
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
-    margin-bottom: 100px;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
+    margin-bottom: 120px;
     position: relative;
     overflow: hidden;
 }
@@ -1409,10 +1409,10 @@ h3 {
 
 .carousel-slide img {
     width: 100%;
-    aspect-ratio: 16/10;
-    object-fit: contain;
-    background: #f1f5f9;
+    aspect-ratio: 16/11;
+    object-fit: cover;
     display: block;
+    border-radius: var(--radius-md);
 }
 
 .slide-caption {

@@ -139,6 +139,9 @@
     --accent-gold: #FFFFFF;
     /* Pure White for Clean Aesthetics */
     --accent-gold-hover: #E5E7EB;
+    /* New Strategic Colors */
+    --deep-teal: #003D4C;
+    --emerald-green: #50C878;
     --bg-light: #F8FAFC;
     --bg-white: #FFFFFF;
     --text-dark: #0F172A;
@@ -320,6 +323,28 @@ h3 {
 
 .btn-outline-light:hover {
     background: rgba(255, 255, 255, 0.05);
+}
+
+/* ---------- PREMIUM GLOW EFFECT ---------- */
+.btn-glow {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-glow:hover {
+    box-shadow: 0 0 25px var(--emerald-green);
+    transform: translateY(-3px);
+    background: var(--emerald-green);
+    color: #000;
+}
+
+.pricing-card.featured .btn-gold {
+    background: var(--emerald-green);
+    color: #000;
+}
+
+.pricing-card.featured .btn-gold:hover {
+    box-shadow: 0 0 30px var(--emerald-green);
 }
 
 /* ---------- NAVBAR ---------- */

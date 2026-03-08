@@ -244,8 +244,10 @@ document.addEventListener('DOMContentLoaded', () => {
     function startCountdown() {
         const minsEl = document.getElementById('cd-minutes');
         const secsEl = document.getElementById('cd-seconds');
+        const countdownBtn = document.querySelector('.emergency-countdown-btn');
+        const btnLabel = document.querySelector('.btn-bottom-label');
 
-        if (!minsEl) return;
+        if (!minsEl || !countdownBtn) return;
 
         // Definimos uma oferta de 30 minutos (1800 segundos)
         let totalSeconds = 30 * 60;
@@ -255,9 +257,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (totalSeconds < 0) {
                 clearInterval(interval);
-                // Mensagem persuasiva automática ao finalizar o tempo
-                const autoMessage = encodeURIComponent("Olá, aqui é Paulo Daniel Blum. Notei que o tempo da nossa oferta de consultoria estratégica expirou enquanto você navegava. Na Blum Digital, valorizamos quem busca excelência. Como posso te ajudar a alcançar o sucesso financeiro através de uma Estratégia Digital de elite?");
-                window.location.href = `https://wa.me/5548992212339?text=${autoMessage}`;
+
+                // Mudar estado para Lista de Espera
+                if (btnLabel) {
+                    btnLabel.innerHTML = 'Lista de Espera / Próxima Turma <i class="fa-solid fa-clock"></i>';
+                }
+
+                // Atualizar o link do WhatsApp para o estado expirado
+                const expiredMessage = encodeURIComponent("Olá, Daniel. Perdi o prazo da oferta, mas quero entrar na lista de espera para o próximo ciclo de projetos.");
+                countdownBtn.href = `https://wa.me/5548992212339?text=${expiredMessage}`;
+
+                // Reset visual dos números (opcional, deixar em 00:00)
+                minsEl.innerText = '00';
+                secsEl.innerText = '00';
                 return;
             }
 

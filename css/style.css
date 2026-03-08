@@ -1397,8 +1397,8 @@ h3 {
 @media (min-width: 1200px) {
     .case-showcase-premium {
         display: grid;
-        grid-template-columns: 1.15fr 0.85fr;
-        min-height: 850px;
+        grid-template-columns: 1.4fr 0.6fr;
+        min-height: 950px;
     }
 }
 
@@ -1413,7 +1413,8 @@ h3 {
 .case-visual-premium {
     position: relative;
     background: #000;
-    padding: 60px;
+    padding: 30px;
+    /* Reduced and harmonic padding */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1451,18 +1452,22 @@ h3 {
 
 .glass-content {
     position: relative;
-    height: 550px;
+    height: 650px;
+    /* Increased height for impact */
+    background: #000;
     overflow: hidden;
 }
 
 .carousel-slide img {
     width: 100%;
-    height: auto;
+    height: calc(100% + 65px);
+    /* Force fill with top crop */
+    object-fit: cover;
+    object-position: top;
     display: block;
     margin-top: -65px;
-    /* Precision crop */
-    transition: transform 1.2s cubic-bezier(0.19, 1, 0.22, 1);
-    filter: brightness(1.1) contrast(1.1);
+    transition: transform 1.5s var(--ease);
+    filter: brightness(1.05) contrast(1.05);
 }
 
 .carousel-slide:hover img {
@@ -1471,7 +1476,8 @@ h3 {
 
 /* Luxury Content Side */
 .case-info-luxury {
-    padding: 100px 80px;
+    padding: 80px 60px;
+    /* Adjusted for better balance with bigger image */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1633,20 +1639,39 @@ h3 {
     display: block;
 }
 
-/* Carousel Control Luxe */
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 30px;
+    pointer-events: none;
+    z-index: 20;
+}
+
 .carousel-nav button {
-    width: 54px;
-    height: 54px;
-    background: rgba(255, 255, 255, 0.9);
+    pointer-events: auto;
+    width: 60px;
+    /* Bigger buttons */
+    height: 60px;
+    background: rgba(255, 255, 255, 0.95);
     border: none;
     border-radius: 50%;
     color: #000;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s var(--ease);
 }
 
 .carousel-nav button:hover {
     background: #50c878;
-    transform: scale(1.1) translateY(-5%);
+    color: #fff;
+    transform: scale(1.1) translateY(-50%);
 }
 
 .carousel-dots span {

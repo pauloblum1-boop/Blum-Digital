@@ -384,4 +384,43 @@ document.addEventListener('DOMContentLoaded', () => {
 
     initPixelEffect();
 
+    /* ==================================================
+       8. PORTFOLIO CAROUSEL
+       ================================================== */
+    function initPortfolioCarousel() {
+        const carousel = document.getElementById('fine-carousel');
+        if (!carousel) return;
+
+        const track = carousel.querySelector('.carousel-track');
+        const slides = Array.from(track.children);
+        const nextBtn = document.getElementById('nextBtn');
+        const prevBtn = document.getElementById('prevBtn');
+        let currentIdx = 0;
+
+        const updateCarousel = () => {
+            track.style.transform = `translateX(-${currentIdx * 100}%)`;
+            slides.forEach((slide, index) => {
+                slide.classList.toggle('active', index === currentIdx);
+            });
+        };
+
+        nextBtn.addEventListener('click', () => {
+            currentIdx = (currentIdx + 1) % slides.length;
+            updateCarousel();
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIdx = (currentIdx - 1 + slides.length) % slides.length;
+            updateCarousel();
+        });
+
+        // Auto-play opcional
+        setInterval(() => {
+            currentIdx = (currentIdx + 1) % slides.length;
+            updateCarousel();
+        }, 8000);
+    }
+
+    initPortfolioCarousel();
+
 });

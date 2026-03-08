@@ -1363,46 +1363,188 @@ h3 {
     color: var(--primary);
 }
 
-/* ---------- PORTFOLIO SECTION ---------- */
-.case-study {
-    margin-bottom: 100px;
-}
-
-.case-grid {
+/* ---------- PORTFOLIO SECTION ENHANCED ---------- */
+.case-showcase-premium {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 80px;
     align-items: center;
+    background: white;
+    padding: 80px;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-strong);
+    margin-bottom: 120px;
+    position: relative;
+    overflow: hidden;
 }
 
-.case-content h2 {
-    margin-bottom: 30px;
-}
-
-.case-info {
-    margin-top: 40px;
-}
-
-.case-item {
-    margin-bottom: 25px;
-}
-
-.case-item h4 {
-    color: var(--primary);
-    text-transform: uppercase;
-    font-size: 13px;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-}
-
-@media (max-width: 768px) {
-    .pricing-card.featured {
-        transform: none;
-    }
-
-    .case-grid {
+@media (max-width: 992px) {
+    .case-showcase-premium {
         grid-template-columns: 1fr;
+        padding: 40px;
+        gap: 40px;
     }
+}
+
+.case-visual {
+    position: relative;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.15);
+}
+
+/* Custom Carousel */
+.custom-carousel {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.85, 0, 0.15, 1);
+}
+
+.carousel-slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slide-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+    color: white;
+    padding: 30px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.carousel-slide.active .slide-caption {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.carousel-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-50%);
+    padding: 0 20px;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.carousel-nav button {
+    width: 50px;
+    height: 50px;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--secondary);
+    font-size: 18px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    pointer-events: auto;
+    transition: all 0.3s ease;
+}
+
+.carousel-nav button:hover {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.1);
+}
+
+.case-info-premium {
+    position: relative;
+    z-index: 2;
+}
+
+.case-header {
+    margin-bottom: 40px;
+}
+
+.case-tag {
+    display: inline-block;
+    padding: 8px 16px;
+    background: rgba(27, 139, 126, 0.1);
+    color: var(--primary);
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 50px;
+    margin-bottom: 20px;
+}
+
+.case-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    line-height: 1.1;
+    margin-bottom: 20px;
+    color: var(--secondary);
+    letter-spacing: -2px;
+}
+
+.case-desc {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    line-height: 1.8;
+}
+
+.case-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.step-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.step-num {
+    width: 32px;
+    height: 32px;
+    background: var(--secondary);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.step-content h4 {
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary);
+    margin-bottom: 5px;
+}
+
+.step-content p {
+    font-size: 0.95rem;
+    color: var(--text-dark);
 }
 
 /* ---------- OFFERS ALERT & COUNTDOWN ---------- */

@@ -399,68 +399,69 @@ document.addEventListener('DOMContentLoaded', () => {
     revealElements.forEach(el => revealObserver.observe(el));
 
     /* ==================================================
-       9. PORTFOLIO CAROUSEL (Crossfade Dynamic)
+       9. PORTFOLIO CAROUSEL (Universal Crossfade Engine)
        ================================================== */
-    function initPortfolioCarousel() {
-        const carousel = document.getElementById('fine-carousel');
-        if (!carousel) return;
+    function initPortfolioCarousels() {
+        const carousels = document.querySelectorAll('.custom-carousel');
 
-        const track = carousel.querySelector('.carousel-track');
-        const slides = Array.from(track.children);
-        const nextBtn = document.getElementById('nextBtn');
-        const prevBtn = document.getElementById('prevBtn');
-        const dotsNav = document.getElementById('carouselDots');
-        let currentIdx = 0;
+        carousels.forEach((carousel, index) => {
+            const track = carousel.querySelector('.carousel-track');
+            const slides = Array.from(track.children);
+            const nextBtn = carousel.querySelector('.next');
+            const prevBtn = carousel.querySelector('.prev');
+            const dotsNav = carousel.querySelector('.carousel-dots');
+            let currentIdx = 0;
 
-        // Criar dots
-        slides.forEach((_, i) => {
-            const dot = document.createElement('span');
-            if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => {
-                currentIdx = i;
-                updateCarousel();
+            if (!track || !nextBtn || !prevBtn || !dotsNav) return;
+
+            // Criar dots dinamicamente
+            slides.forEach((_, i) => {
+                const dot = document.createElement('span');
+                if (i === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => {
+                    currentIdx = i;
+                    updateCarousel();
+                });
+                dotsNav.appendChild(dot);
             });
-            dotsNav.appendChild(dot);
-        });
 
-        const dots = Array.from(dotsNav.children);
+            const dots = Array.from(dotsNav.children);
 
-        const updateCarousel = () => {
-            // No translateX for crossfade logic - transitions are handled in CSS via .active
-            slides.forEach((slide, index) => {
-                slide.classList.toggle('active', index === currentIdx);
-            });
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === currentIdx);
-            });
-        };
+            const updateCarousel = () => {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === currentIdx);
+                });
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === currentIdx);
+                });
+            };
 
-        nextBtn.addEventListener('click', () => {
-            currentIdx = (currentIdx + 1) % slides.length;
-            updateCarousel();
-        });
-
-        prevBtn.addEventListener('click', () => {
-            currentIdx = (currentIdx - 1 + slides.length) % slides.length;
-            updateCarousel();
-        });
-
-        // Auto-play
-        let autoPlay = setInterval(() => {
-            currentIdx = (currentIdx + 1) % slides.length;
-            updateCarousel();
-        }, 8000);
-
-        // Reset auto-play on interaction
-        carousel.addEventListener('mouseenter', () => clearInterval(autoPlay));
-        carousel.addEventListener('mouseleave', () => {
-            autoPlay = setInterval(() => {
+            nextBtn.addEventListener('click', () => {
                 currentIdx = (currentIdx + 1) % slides.length;
                 updateCarousel();
-            }, 8000);
+            });
+
+            prevBtn.addEventListener('click', () => {
+                currentIdx = (currentIdx - 1 + slides.length) % slides.length;
+                updateCarousel();
+            });
+
+            // Auto-play independente com leve offset para rítmo natural
+            let autoPlay = setInterval(() => {
+                currentIdx = (currentIdx + 1) % slides.length;
+                updateCarousel();
+            }, 8000 + (index * 500));
+
+            carousel.addEventListener('mouseenter', () => clearInterval(autoPlay));
+            carousel.addEventListener('mouseleave', () => {
+                autoPlay = setInterval(() => {
+                    currentIdx = (currentIdx + 1) % slides.length;
+                    updateCarousel();
+                }, 8000);
+            });
         });
     }
 
-    initPortfolioCarousel();
+    initPortfolioCarousels();
 
 });

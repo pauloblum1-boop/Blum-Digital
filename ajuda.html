@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central de Ajuda | Blum Digital</title>
+    <meta name="robots" content="noindex, follow">
+    <link rel="icon" href="IMG/Logo preta favicon.png" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css?v=2.8">
+
+    <style>
+        .help-section {
+            padding: 120px 0;
+            background: #0a0a0a;
+            color: #fff;
+            min-height: 80vh;
+        }
+
+        .help-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .help-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .help-header h1 {
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .help-header p {
+            font-size: 1.25rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .help-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .help-card {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.4s var(--ease);
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .help-card:hover {
+            background: rgba(80, 200, 120, 0.05);
+            border-color: rgba(80, 200, 120, 0.3);
+            transform: translateY(-10px);
+        }
+
+        .help-card i {
+            font-size: 2.5rem;
+            color: var(--primary-light);
+            margin-bottom: 20px;
+        }
+
+        .help-card h3 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 15px;
+        }
+
+        .help-card p {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.5);
+            line-height: 1.6;
+        }
+
+        .contact-box {
+            margin-top: 80px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 60px;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .contact-box h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ========== NAVBAR ========== -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="IMG/Logo_Blum_DEFINITIVO.2 sem fundo.png" alt="Blum Digital" class="logo-main"
+                    fetchpriority="high" onerror="this.src='IMG/Faviquinho.png';">
+            </a>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav class="nav-menu" id="navMenu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="sobre.html" class="nav-link">Sobre</a>
+                <a href="servicos.html" class="nav-link">Serviços</a>
+                <a href="portfolio.html" class="nav-link">Portfólio</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="index.html#contato" class="nav-link">Contato</a>
+                <a href="index.html#faq" class="nav-link">FAQ</a>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: var(--nav-h);">
+        <section class="help-section">
+            <div class="container help-content">
+                <div class="help-header">
+                    <h1>Central de Ajuda</h1>
+                    <p>Como podemos acelerar seu resultado hoje?</p>
+                </div>
+
+                <div class="help-grid">
+                    <a href="index.html#faq" class="help-card">
+                        <i class="fa-solid fa-circle-question"></i>
+                        <h3>Dúvidas Frequentes</h3>
+                        <p>Respostas rápidas sobre SEO, Tráfego Pago e Ecossistemas Digitais.</p>
+                    </a>
+                    <a href="servicos.html" class="help-card">
+                        <i class="fa-solid fa-briefcase"></i>
+                        <h3>Nossas Soluções</h3>
+                        <p>Entenda em detalhes como cada serviço da Blum Digital funciona.</p>
+                    </a>
+                    <a href="https://wa.me/5548992212339" class="help-card" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <h3>Suporte Direto</h3>
+                        <p>Fale com um especialista agora mesmo via WhatsApp.</p>
+                    </a>
+                </div>
+
+                <div class="contact-box">
+                    <h2>Não encontrou o que procurava?</h2>
+                    <p style="color: rgba(255,255,255,0.6); margin-bottom: 30px;">Estamos disponíveis para atendimentos
+                        estratégicos e suporte técnico avançado.</p>
+                    <a href="index.html#contato" class="btn btn-gold btn-glow">ENVIAR UMA MENSAGEM</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <img src="IMG/Logo_Blum_DEFINITIVO.2 sem fundo.png" alt="Blum Digital" class="logo-main"
+                        style="height: 110px !important; width: auto !important; max-width: none !important; display: block; filter: brightness(1.3) contrast(1.3);"
+                        onerror="this.src='IMG/Faviquinho.png';">
+                    <p style="margin-top: 10px; font-size: 0.95rem;">
+                        A verdadeira engenharia por trás do crescimento exponencial.
+                    </p>
+                </div>
+                <div>
+                    <h3>Institucional</h3>
+                    <a href="index.html">Home</a>
+                    <a href="sobre.html">A Blum Digital</a>
+                    <a href="servicos.html">Nossas Soluções</a>
+                    <a href="portfolio.html">Portfólio de Cases</a>
+                    <a href="blog.html">Blog Executivo</a>
+                </div>
+                <div>
+                    <h3>Informações Legais</h3>
+                    <a href="termos-de-uso.html">Termos de Uso</a>
+                    <a href="politica-privacidade.html">Política de Privacidade</a>
+                    <a href="ajuda.html">Central de Ajuda</a>
+                </div>
+                <div>
+                    <h3>Redes de Contato</h3>
+                    <a href="https://instagram.com/digitalblum" target="_blank" rel="noopener"><i
+                            class="fa-brands fa-instagram"></i> Instagram</a>
+                    <a href="https://www.facebook.com/profile.php?id=61585496251523" target="_blank" rel="noopener"><i
+                            class="fa-brands fa-facebook"></i> Facebook</a>
+                    <a href="https://wa.me/5548992212339" target="_blank" rel="noopener"><i
+                            class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                    <a href="mailto:pdanielblum@gmail.com"><i class="fa-regular fa-envelope"></i> Enviar Email</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Blum Digital | Criciúma, SC | Seg-Sex 09:00-18:00 | Todos os Direitos Reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

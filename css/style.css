@@ -1443,8 +1443,8 @@ h3 {
 @media (min-width: 1200px) {
     .case-showcase-premium {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        /* Absolute Balance */
+        grid-template-columns: 0.9fr 1.1fr;
+        /* Visual column at ~45% of total width */
         gap: 60px;
         align-items: flex-start;
         padding: 100px 0;
@@ -1464,15 +1464,16 @@ h3 {
     display: flex;
     flex-direction: column;
     gap: 40px;
-    align-items: center;
+    align-items: stretch;
+    /* Stretch to occupy the 45% column fully */
     width: 100%;
 }
 
 .glass-browser {
     width: 100%;
-    background: #000;
-    border-radius: 16px;
-    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: #0d0d0d;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
     position: relative;
     overflow: hidden;
@@ -1497,9 +1498,13 @@ h3 {
 
 .glass-content {
     position: relative;
-    height: 700px;
-    /* Restored balance height */
-    background: #000;
+    height: 600px;
+    /* Adjusted height for an elegant ratio */
+    background: #111;
+    /* Graphite Grey background */
+    padding: 30px;
+    /* Inset padding so images don't touch edges */
+    overflow: hidden;
 }
 
 /* Carousel Logic Handled in Absolute Section */
@@ -1594,10 +1599,10 @@ h3 {
 
 /* Strategic Verdict (Impact CEO) */
 .ceo-verdict-box {
-    margin-top: 40px;
-    padding: 35px;
+    margin-top: 0;
+    padding: 30px;
     background: rgba(255, 255, 255, 0.02);
-    border-radius: 20px;
+    border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
     gap: 25px;
@@ -1605,6 +1610,7 @@ h3 {
     position: relative;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     width: 100%;
+    /* Spans the same 45% width as the galery above */
 }
 
 .ceo-verdict-box::before {
@@ -1764,12 +1770,13 @@ h3 {
 .carousel-slide img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center top;
+    object-fit: contain;
+    /* Ligeiramente menor within the padded container */
+    object-position: center;
     display: block;
-    filter: brightness(1.05);
-    /* Slight lift */
-    transition: transform 1.2s ease;
+    border-radius: 10px;
+    /* Smooth rounded borders */
+    transition: opacity 0.8s ease;
 }
 
 .carousel-slide.active img {

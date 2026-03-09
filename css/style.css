@@ -1575,11 +1575,10 @@ h3 {
     gap: 30px;
 }
 
-.lux-num {
-    font-size: 12px;
-    font-weight: 900;
-    width: 30px;
-    height: 30px;
+.lux-icon {
+    font-size: 16px;
+    width: 40px;
+    height: 40px;
     border: 1px solid var(--primary);
     border-radius: 50%;
     display: flex;
@@ -1587,6 +1586,13 @@ h3 {
     justify-content: center;
     color: var(--primary);
     flex-shrink: 0;
+    transition: all 0.3s var(--ease);
+}
+
+.lux-step:hover .lux-icon {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.1);
 }
 
 .lux-text h4 {

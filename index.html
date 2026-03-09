@@ -32,7 +32,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -233,7 +237,7 @@
         <div class="container nav-container">
             <a href="#hero" class="nav-logo">
                 <img src="IMG/Logo_Blum_DEFINITIVO.2 sem fundo.png" alt="Blum Digital" class="logo-main"
-                    onerror="this.src='IMG/Faviquinho.png';">
+                    fetchpriority="high" onerror="this.src='IMG/Faviquinho.png';">
             </a>
             <button class="hamburger" id="hamburger" aria-label="Menu">
                 <i class="fa-solid fa-bars"></i>

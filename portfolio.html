@@ -13,7 +13,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+        rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet">
+    </noscript>
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -28,7 +32,7 @@
         <div class="container nav-container">
             <a href="index.html" class="nav-logo">
                 <img src="IMG/Logo_Blum_DEFINITIVO.2 sem fundo.png" alt="Blum Digital" class="logo-main"
-                    onerror="this.src='IMG/Faviquinho.png';">
+                    fetchpriority="high" onerror="this.src='IMG/Faviquinho.png';">
             </a>
             <button class="hamburger" id="hamburger" aria-label="Menu">
                 <i class="fa-solid fa-bars"></i>
@@ -76,7 +80,8 @@
                                 <div class="custom-carousel" id="fine-carousel">
                                     <div class="carousel-track">
                                         <div class="carousel-slide active">
-                                            <img src="IMG/aqui_1.png" alt="Ecossistema Digital Fine Conceito">
+                                            <img src="IMG/aqui_1.png" alt="Ecossistema Digital Fine Conceito"
+                                                fetchpriority="high" loading="eager">
                                             <div class="slide-caption">Design & Conversão</div>
                                         </div>
                                         <div class="carousel-slide">
@@ -99,7 +104,7 @@
                             </div>
                         </div>
                         <div class="ceo-verdict-box">
-                            <img src="IMG/daniel_ceo.jpg" alt="Daniel Blum" class="ceo-mini-img">
+                            <img src="IMG/daniel_ceo.jpg" alt="Daniel Blum" class="ceo-mini-img" loading="lazy">
                             <div class="ceo-verdict-content">
                                 <p class="ceo-verdict-quote">"Na Fine Conceito, nossa missão foi alinhar a sofisticação
                                     da marca com uma engenharia de vendas implacável. O resultado é um posicionamento

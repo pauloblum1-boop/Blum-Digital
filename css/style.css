@@ -1454,8 +1454,17 @@ h3 {
 @media (max-width: 1200px) {
     .case-showcase-premium {
         grid-template-columns: 1fr;
-        padding: 40px 24px;
-        gap: 50px;
+        padding: 60px 24px;
+        gap: 40px;
+    }
+
+    .case-visual-premium {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .ceo-verdict-box {
+        text-align: left;
     }
 }
 
@@ -1665,6 +1674,15 @@ h3 {
 @media (max-width: 768px) {
     .case-metrics-elite {
         grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .case-metrics-elite {
+        grid-template-columns: 1fr;
+        /* Stack vertically on small phones */
+        gap: 15px;
     }
 }
 

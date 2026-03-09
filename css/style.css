@@ -1444,24 +1444,11 @@ h3 {
     .case-showcase-premium {
         display: grid;
         grid-template-columns: 0.9fr 1.1fr;
-        /* Precisely 45% / 55% split */
         gap: 80px;
         align-items: center;
         padding: 120px 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
-
-    .case-showcase-premium.case-reverse {
-        grid-template-columns: 1.1fr 0.9fr;
-    }
-
-    .case-showcase-premium.case-reverse .case-visual-premium {
-        grid-column: 2;
-    }
-
-    .case-showcase-premium.case-reverse .case-info-luxury {
-        grid-column: 1;
-        padding-right: 40px;
+        scroll-margin-top: 100px;
     }
 }
 
@@ -1473,54 +1460,50 @@ h3 {
     }
 
     .case-showcase-premium {
-        grid-template-columns: 1fr;
-        padding: 40px 20px;
+        grid-template-columns: 1fr !important;
+        padding: 60px 20px;
         gap: 40px;
+        scroll-margin-top: 80px;
     }
 
     .case-visual-premium {
         max-width: 100%;
         margin: 0;
     }
+}
 
-    .case-info-luxury {
-        color: #ffffff !important;
-    }
+/* Case Navigation UI */
+.case-navigation-overlay {
+    margin-top: 35px;
+    display: flex;
+    justify-content: flex-start;
+}
 
-    .case-title-luxury {
-        color: #ffffff !important;
-        font-size: 2.5rem !important;
-    }
+.next-case-trigger,
+.prev-case-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 28px;
+    background: rgba(80, 200, 120, 0.08);
+    border: 1px solid rgba(80, 200, 120, 0.25);
+    border-radius: 50px;
+    color: #50c878;
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: all 0.4s var(--ease);
+    text-decoration: none;
+    cursor: pointer;
+}
 
-    .case-desc-luxury {
-        color: rgba(255, 255, 255, 0.8) !important;
-    }
-
-    .lux-text h4 {
-        color: #ffffff !important;
-    }
-
-    .lux-text p {
-        color: rgba(255, 255, 255, 0.7) !important;
-    }
-
-    .ceo-verdict-box {
-        background: rgba(255, 255, 255, 0.05);
-        color: #ffffff;
-        text-align: left;
-    }
-
-    .ceo-verdict-quote {
-        color: #ffffff !important;
-    }
-
-    .ceo-signature {
-        color: var(--primary-light) !important;
-    }
-
-    .met-lab {
-        color: rgba(255, 255, 255, 0.6) !important;
-    }
+.next-case-trigger:hover,
+.prev-case-trigger:hover {
+    background: #50c878;
+    color: #000;
+    transform: translateX(8px);
+    box-shadow: 0 15px 30px rgba(80, 200, 120, 0.2);
 }
 
 .case-visual-premium {

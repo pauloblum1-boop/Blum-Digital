@@ -1452,20 +1452,33 @@ h3 {
 
 .glass-content {
     position: relative;
-    height: 650px;
-    /* Increased height for impact */
+    height: 700px;
+    /* Enhanced height for global impact */
     background: #000;
+    overflow: hidden;
+}
+
+.carousel-track {
+    display: flex;
+    height: 100%;
+    /* Force track to fill container */
+}
+
+.carousel-slide {
+    min-width: 100%;
+    height: 100%;
+    /* Force slide to fill track */
+    position: relative;
     overflow: hidden;
 }
 
 .carousel-slide img {
     width: 100%;
-    height: calc(100% + 65px);
-    /* Force fill with top crop */
+    height: 100%;
+    /* Total immersion: filling the container */
     object-fit: cover;
-    object-position: top;
+    object-position: top center;
     display: block;
-    margin-top: -65px;
     transition: transform 1.5s var(--ease);
     filter: brightness(1.05) contrast(1.05);
 }
@@ -1588,12 +1601,13 @@ h3 {
 }
 
 .ceo-mini-img {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid #000;
+    border: 3px solid var(--primary);
     box-shadow: 0 10px 30px rgba(80, 200, 120, 0.3);
+    flex-shrink: 0;
 }
 
 .ceo-verdict-quote {

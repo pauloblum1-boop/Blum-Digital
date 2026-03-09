@@ -1397,8 +1397,10 @@ h3 {
 @media (min-width: 1200px) {
     .case-showcase-premium {
         display: grid;
-        grid-template-columns: 1.4fr 0.6fr;
-        min-height: 950px;
+        grid-template-columns: 1.25fr 0.75fr;
+        /* Perfect geometric balance (62% / 38%) */
+        min-height: 800px;
+        align-items: stretch;
     }
 }
 
@@ -1413,8 +1415,8 @@ h3 {
 .case-visual-premium {
     position: relative;
     background: #000;
-    padding: 30px;
-    /* Reduced and harmonic padding */
+    padding: 20px;
+    /* Refined breathing room */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1452,8 +1454,8 @@ h3 {
 
 .glass-content {
     position: relative;
-    height: 700px;
-    /* Enhanced height for global impact */
+    height: 650px;
+    /* Harmonized for perfect narrative alignment */
     background: #000;
     overflow: hidden;
 }

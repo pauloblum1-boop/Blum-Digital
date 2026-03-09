@@ -1443,11 +1443,11 @@ h3 {
 @media (min-width: 1200px) {
     .case-showcase-premium {
         display: grid;
-        grid-template-columns: 1.3fr 0.7fr;
-        /* Optimized balance for the new structure */
+        grid-template-columns: 1.6fr 0.4fr;
+        /* Massive emphasis on the visual side */
         min-height: 1000px;
-        align-items: stretch;
-        /* Aligned for modular flexibility */
+        align-items: center;
+        /* Centered focus */
     }
 }
 
@@ -1462,11 +1462,11 @@ h3 {
 .case-visual-premium {
     position: relative;
     background: #000;
-    padding: 80px 15px;
-    /* Minimal side padding for maximum mockup scale */
+    padding: 80px 0;
+    /* Zero side padding for unconstrained orbital scale */
     display: flex;
     flex-direction: column;
-    gap: 60px;
+    gap: 80px;
     align-items: center;
     justify-content: flex-start;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
@@ -1474,7 +1474,8 @@ h3 {
 
 /* Luxury Glass Browser */
 .glass-browser {
-    width: 100%;
+    width: 100% !important;
+    max-width: none !important;
     background: rgba(25, 25, 25, 0.8);
     backdrop-filter: blur(30px);
     border-radius: 24px;
@@ -1482,9 +1483,10 @@ h3 {
     box-shadow: 0 60px 120px rgba(0, 0, 0, 0.9), 0 0 60px rgba(80, 200, 120, 0.2);
     overflow: hidden;
     position: relative;
-    transform: scale(1.05);
-    /* Dominant presence */
+    transform: scale(1.2) !important;
+    /* Bold Scale for maximum impact */
     transition: all 0.8s cubic-bezier(0.2, 0, 0, 1);
+    z-index: 5;
 }
 
 .glass-browser:hover {
@@ -1611,7 +1613,8 @@ h3 {
 
 /* Strategic Verdict (Impact CEO) */
 .ceo-verdict-box {
-    margin-top: 0;
+    margin-top: 60px;
+    /* Space from the massive carousel above */
     padding: 40px;
     background: rgba(255, 255, 255, 0.02);
     border-radius: 24px;
@@ -1622,6 +1625,8 @@ h3 {
     position: relative;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
     width: 100%;
+    max-width: 90%;
+    /* Keeping it harmonic with the scaled carousel */
 }
 
 .ceo-verdict-box::before {
@@ -1677,6 +1682,11 @@ h3 {
     font-weight: 950;
     color: #50c878;
     line-height: 1;
+}
+
+.case-cta-elite {
+    margin-top: 80px;
+    /* Enhanced breathing room for high-conversion flow */
 }
 
 .met-lab {

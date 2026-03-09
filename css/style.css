@@ -1418,8 +1418,12 @@ h3 {
     padding: 20px;
     /* Refined breathing room */
     display: flex;
+    flex-direction: column;
+    /* Stack vertically for clarity */
+    gap: 40px;
+    /* Space between mockup and verdict */
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -1579,7 +1583,8 @@ h3 {
 
 /* Strategic Verdict (Impact CEO) */
 .ceo-verdict-box {
-    margin-top: 80px;
+    margin-top: 0;
+    /* Remove top margin when placed under carousel */
     padding: 40px;
     background: rgba(255, 255, 255, 0.02);
     border-radius: 24px;
@@ -1589,6 +1594,8 @@ h3 {
     align-items: center;
     position: relative;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    /* Ensure it fills column */
 }
 
 .ceo-verdict-box::before {

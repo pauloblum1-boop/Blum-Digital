@@ -1444,7 +1444,7 @@ h3 {
     .case-showcase-premium {
         display: grid;
         grid-template-columns: 0.9fr 1.1fr;
-        /* Visual column at ~45% of total width */
+        /* Precisely 45% / 55% split */
         gap: 60px;
         align-items: flex-start;
         padding: 100px 0;
@@ -1463,9 +1463,8 @@ h3 {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
     align-items: stretch;
-    /* Stretch to occupy the 45% column fully */
     width: 100%;
 }
 
@@ -1474,9 +1473,10 @@ h3 {
     background: #0d0d0d;
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 1);
     position: relative;
     overflow: hidden;
+    margin-bottom: 30px;
 }
 
 .glass-header {
@@ -1498,12 +1498,10 @@ h3 {
 
 .glass-content {
     position: relative;
-    height: 600px;
-    /* Adjusted height for an elegant ratio */
+    height: 550px;
+    /* Optimized height for the 45% column */
     background: #111;
-    /* Graphite Grey background */
-    padding: 30px;
-    /* Inset padding so images don't touch edges */
+    padding: 20px;
     overflow: hidden;
 }
 
@@ -1610,7 +1608,6 @@ h3 {
     position: relative;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     width: 100%;
-    /* Spans the same 45% width as the galery above */
 }
 
 .ceo-verdict-box::before {
@@ -1739,15 +1736,18 @@ h3 {
     border-radius: 5px;
 }
 
-/* Custom Carousel */
+/* Custom Carousel High-Fidelity Fix */
 .custom-carousel {
     position: relative;
     width: 100%;
+    height: 100%;
+    /* Crucial Fix: forces images to appear */
 }
 
 .carousel-track {
     position: relative;
     height: 100%;
+    width: 100%;
 }
 
 .carousel-slide {
@@ -1771,12 +1771,12 @@ h3 {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    /* Ligeiramente menor within the padded container */
     object-position: center;
     display: block;
     border-radius: 10px;
-    /* Smooth rounded borders */
     transition: opacity 0.8s ease;
+    opacity: 1 !important;
+    /* Ensure visibility */
 }
 
 .carousel-slide.active img {

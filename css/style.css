@@ -1452,19 +1452,60 @@ h3 {
 }
 
 @media (max-width: 1200px) {
+    .section-portfolio-masterpiece {
+        background: #0a0a0a !important;
+        color: #ffffff !important;
+        padding: 60px 0;
+    }
+
     .case-showcase-premium {
         grid-template-columns: 1fr;
-        padding: 60px 24px;
+        padding: 40px 20px;
         gap: 40px;
     }
 
     .case-visual-premium {
-        max-width: 600px;
-        margin: 0 auto;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .case-info-luxury {
+        color: #ffffff !important;
+    }
+
+    .case-title-luxury {
+        color: #ffffff !important;
+        font-size: 2.5rem !important;
+    }
+
+    .case-desc-luxury {
+        color: rgba(255, 255, 255, 0.8) !important;
+    }
+
+    .lux-text h4 {
+        color: #ffffff !important;
+    }
+
+    .lux-text p {
+        color: rgba(255, 255, 255, 0.7) !important;
     }
 
     .ceo-verdict-box {
+        background: rgba(255, 255, 255, 0.05);
+        color: #ffffff;
         text-align: left;
+    }
+
+    .ceo-verdict-quote {
+        color: #ffffff !important;
+    }
+
+    .ceo-signature {
+        color: var(--primary-light) !important;
+    }
+
+    .met-lab {
+        color: rgba(255, 255, 255, 0.6) !important;
     }
 }
 

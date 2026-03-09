@@ -1444,66 +1444,63 @@ h3 {
     .case-showcase-premium {
         display: grid;
         grid-template-columns: 0.9fr 1.1fr;
-        gap: 80px;
-        align-items: center;
-        padding: 120px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        scroll-margin-top: 100px;
+        /* Precisely 45% / 55% split */
+        gap: 60px;
+        align-items: flex-start;
+        padding: 100px 0;
     }
 }
 
 @media (max-width: 1200px) {
-    .section-portfolio-masterpiece {
-        background: #0a0a0a !important;
-        color: #ffffff !important;
-        padding: 60px 0;
-    }
-
     .case-showcase-premium {
-        grid-template-columns: 1fr !important;
-        padding: 60px 20px;
+        grid-template-columns: 1fr;
+        padding: 60px 24px;
         gap: 40px;
-        scroll-margin-top: 80px;
     }
 
     .case-visual-premium {
-        max-width: 100%;
-        margin: 0;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .ceo-verdict-box {
+        text-align: left;
     }
 }
 
-/* Case Navigation UI */
-.case-navigation-overlay {
-    margin-top: 35px;
+/* Elite Case Navigation */
+.case-scroll-trigger {
     display: flex;
     justify-content: flex-start;
+    margin-top: 15px;
 }
 
-.next-case-trigger,
-.prev-case-trigger {
+.next-case-btn {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    padding: 14px 28px;
-    background: rgba(80, 200, 120, 0.08);
-    border: 1px solid rgba(80, 200, 120, 0.25);
+    gap: 10px;
+    padding: 12px 25px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 50px;
-    color: #50c878;
+    color: var(--primary-light);
     font-size: 13px;
-    font-weight: 800;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    transition: all 0.4s var(--ease);
+    letter-spacing: 1px;
+    transition: all 0.3s var(--ease);
     text-decoration: none;
-    cursor: pointer;
 }
 
-.next-case-trigger:hover,
-.prev-case-trigger:hover {
-    background: #50c878;
-    color: #000;
-    transform: translateX(8px);
-    box-shadow: 0 15px 30px rgba(80, 200, 120, 0.2);
+.next-case-btn:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.case-showcase-premium {
+    scroll-margin-top: 50px;
 }
 
 .case-visual-premium {

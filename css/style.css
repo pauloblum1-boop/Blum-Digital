@@ -1400,8 +1400,8 @@ h3 {
         grid-template-columns: 1.3fr 0.7fr;
         /* Optimized balance for the new structure */
         min-height: 1000px;
-        align-items: center;
-        /* Centered for visual harmony */
+        align-items: stretch;
+        /* Aligned for modular flexibility */
     }
 }
 
@@ -1416,13 +1416,13 @@ h3 {
 .case-visual-premium {
     position: relative;
     background: #000;
-    padding: 60px 40px;
+    padding: 80px 30px;
+    /* Vertically matching text side (80px) and wide for 90% mockup width */
     display: flex;
     flex-direction: column;
-    gap: 50px;
-    /* Precise, elegant gap as requested */
+    gap: 60px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -1433,9 +1433,12 @@ h3 {
     backdrop-filter: blur(20px);
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 50px 100px rgba(27, 139, 126, 0.15);
+    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8), 0 0 40px rgba(80, 200, 120, 0.1);
+    /* Pronounced Depth and subtle glow */
     overflow: hidden;
     position: relative;
+    transform: scale(1.02);
+    /* More imposing presence */
 }
 
 .glass-header {
@@ -1457,7 +1460,7 @@ h3 {
 
 .glass-content {
     position: relative;
-    height: 620px;
+    height: 650px;
     /* High-impact height for perfect balance */
     background: #000;
     overflow: hidden;

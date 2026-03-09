@@ -1400,7 +1400,8 @@ h3 {
         grid-template-columns: 1.3fr 0.7fr;
         /* Optimized balance for the new structure */
         min-height: 1000px;
-        align-items: stretch;
+        align-items: center;
+        /* Centered for visual harmony */
     }
 }
 

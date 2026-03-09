@@ -1475,16 +1475,21 @@ h3 {
 /* Luxury Glass Browser */
 .glass-browser {
     width: 100%;
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: 0 50px 100px rgba(0, 0, 0, 0.8), 0 0 40px rgba(80, 200, 120, 0.1);
-    /* Pronounced Depth and subtle glow */
+    background: rgba(25, 25, 25, 0.8);
+    backdrop-filter: blur(30px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 60px 120px rgba(0, 0, 0, 0.9), 0 0 60px rgba(80, 200, 120, 0.2);
     overflow: hidden;
     position: relative;
-    transform: scale(1.02);
-    /* More imposing presence */
+    transform: scale(1.05);
+    /* Dominant presence */
+    transition: all 0.8s cubic-bezier(0.2, 0, 0, 1);
+}
+
+.glass-browser:hover {
+    transform: scale(1.07) translateY(-10px);
+    box-shadow: 0 80px 150px rgba(0, 0, 0, 1), 0 0 100px rgba(80, 200, 120, 0.3);
 }
 
 .glass-header {
@@ -1506,10 +1511,12 @@ h3 {
 
 .glass-content {
     position: relative;
-    height: 720px;
-    /* Enhanced height for maximum visual impact */
+    height: 750px;
+    /* Monumental height for absolute authority */
     background: #000;
     overflow: hidden;
+    box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.5);
+    /* Inner depth */
 }
 
 .carousel-track {
@@ -1531,14 +1538,18 @@ h3 {
     height: 100%;
     /* Total immersion: filling the container */
     object-fit: cover;
-    object-position: top center;
+    object-position: center 15%;
+    /* Strategic crop to hide browser bars */
     display: block;
-    transition: transform 1.5s var(--ease);
-    filter: brightness(1.05) contrast(1.05);
+    transform: scale(1.05);
+    /* Pre-zoom for impact */
+    transition: transform 2s cubic-bezier(0.2, 0, 0, 1), opacity 1s ease;
+    filter: brightness(1.1) contrast(1.1) saturate(1.1);
 }
 
 .carousel-slide:hover img {
-    transform: scale(1.05);
+    transform: scale(1.04);
+    /* Enhanced immersive zoom */
 }
 
 /* Luxury Content Side */
@@ -1792,19 +1803,18 @@ h3 {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 20%;
-    /* Nudge to hide browser tabs at the very top */
+    object-position: center 15%;
+    /* Strategic crop to hide browser bars */
     display: block;
-    transform: scale(0.98);
-    /* Initial zoom-out for entrada */
-    transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1);
-    filter: brightness(1.02) contrast(1.02);
-    /* More natural and elegant */
+    transform: scale(1.05);
+    /* Pre-zoom for impact */
+    transition: transform 2s cubic-bezier(0.2, 0, 0, 1), opacity 1s ease;
+    filter: brightness(1.1) contrast(1.1) saturate(1.1);
 }
 
 .carousel-slide.active img {
     transform: scale(1);
-    /* Smooth Zoom-in on entry */
+    /* Smooth cinematic landing */
 }
 
 .carousel-slide:hover img {

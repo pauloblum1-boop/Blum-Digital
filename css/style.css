@@ -2283,9 +2283,28 @@ h3 {
 }
 
 /* ========== PROPOSAL PAGES (FUNIL CONSULTIVO) ========== */
+body.proposal-page {
+    background-color: #050a0a !important;
+    color: #ffffff;
+}
+
+body.proposal-page .section {
+    background-color: transparent !important;
+}
+
+body.proposal-page .navbar {
+    background: rgba(5, 10, 10, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+body.proposal-page .navbar .nav-link,
+body.proposal-page .navbar .logo-main {
+    filter: brightness(0) invert(1);
+}
+
 .proposal-hero {
     padding: 160px 0 80px;
-    background: radial-gradient(circle at 50% 50%, rgba(27, 139, 126, 0.1) 0%, transparent 70%);
+    background: #050a0a radial-gradient(circle at 50% 50%, rgba(27, 139, 126, 0.15) 0%, transparent 70%);
 }
 
 .proposal-price-box {

@@ -1443,11 +1443,11 @@ h3 {
 @media (min-width: 1200px) {
     .case-showcase-premium {
         display: grid;
-        grid-template-columns: 1.2fr 0.8fr;
-        /* Superior Visual Balance */
-        gap: 80px;
-        align-items: center;
-        padding: 120px 0;
+        grid-template-columns: 1fr 1fr;
+        /* Absolute Balance */
+        gap: 60px;
+        align-items: flex-start;
+        padding: 100px 0;
     }
 }
 
@@ -1463,8 +1463,9 @@ h3 {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 50px;
+    gap: 40px;
     align-items: center;
+    width: 100%;
 }
 
 .glass-browser {
@@ -1496,8 +1497,8 @@ h3 {
 
 .glass-content {
     position: relative;
-    height: 650px;
-    /* High-fidelity height */
+    height: 700px;
+    /* Restored balance height */
     background: #000;
 }
 
@@ -1505,8 +1506,8 @@ h3 {
 
 /* Luxury Content Side */
 .case-info-luxury {
-    padding: 80px 60px;
-    /* Adjusted for better balance with bigger image */
+    padding: 80px 40px;
+    /* More room for the metrics grid */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1648,11 +1649,14 @@ h3 {
 .case-metrics-elite {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    /* Matrix of authority */
-    gap: 40px;
+    gap: 30px;
     margin-top: 50px;
     padding-top: 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+    text-align: center;
+    justify-items: center;
+    align-items: start;
 }
 
 @media (max-width: 768px) {
@@ -1662,9 +1666,9 @@ h3 {
 }
 
 .met-val {
-    font-size: 2.5rem;
-    /* Slightly smaller for 5-item density */
-    font-weight: 900;
+    font-size: 2rem;
+    /* Balanced size for 6 items */
+    font-weight: 800;
     color: #50c878;
     line-height: 1;
 }

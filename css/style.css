@@ -1468,35 +1468,46 @@ h3 {
     }
 }
 
-/* Elite Case Navigation */
+/* Elite Case Navigation - Visibility Restoration */
 .case-scroll-trigger {
     display: flex;
     justify-content: flex-start;
-    margin-top: 15px;
+    margin-top: 25px;
 }
 
 .next-case-btn {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 25px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 12px;
+    padding: 14px 28px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 50px;
+    color: #ffffff !important;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    text-decoration: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.next-case-btn i {
     color: var(--primary-light);
     font-size: 13px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: all 0.3s var(--ease);
-    text-decoration: none;
 }
 
 .next-case-btn:hover {
     background: var(--primary);
-    color: white;
-    transform: translateY(3px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    color: #ffffff !important;
+    transform: translateY(-5px);
+    border-color: var(--primary-light);
+    box-shadow: 0 20px 40px rgba(27, 139, 126, 0.4);
+}
+
+.next-case-btn:hover i {
+    color: #ffffff;
 }
 
 .case-showcase-premium {

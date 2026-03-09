@@ -1646,24 +1646,32 @@ h3 {
 
 /* Elite Metrics Area */
 .case-metrics-elite {
-    display: flex;
-    gap: 60px;
-    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* Matrix of authority */
+    gap: 40px;
+    margin-top: 50px;
     padding-top: 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+@media (max-width: 768px) {
+    .case-metrics-elite {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 .met-val {
-    font-size: 3.2rem;
-    /* Even more impact */
-    font-weight: 950;
+    font-size: 2.5rem;
+    /* Slightly smaller for 5-item density */
+    font-weight: 900;
     color: #50c878;
     line-height: 1;
 }
 
 .case-cta-elite {
-    margin-top: 80px;
-    /* Enhanced breathing room for high-conversion flow */
+    margin-top: 60px;
+    /* Tighter connection with metrics above */
 }
 
 .met-lab {

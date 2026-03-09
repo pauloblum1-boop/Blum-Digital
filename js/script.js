@@ -385,7 +385,21 @@ document.addEventListener('DOMContentLoaded', () => {
     initPixelEffect();
 
     /* ==================================================
-       8. PORTFOLIO CAROUSEL
+       8. REVEAL ON SCROLL (Global Entrance)
+       ================================================== */
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, { threshold: 0.15 });
+
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    /* ==================================================
+       9. PORTFOLIO CAROUSEL (Crossfade Dynamic)
        ================================================== */
     function initPortfolioCarousel() {
         const carousel = document.getElementById('fine-carousel');
@@ -412,7 +426,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const dots = Array.from(dotsNav.children);
 
         const updateCarousel = () => {
-            track.style.transform = `translateX(-${currentIdx * 100}%)`;
+            // No translateX for crossfade logic - transitions are handled in CSS via .active
             slides.forEach((slide, index) => {
                 slide.classList.toggle('active', index === currentIdx);
             });

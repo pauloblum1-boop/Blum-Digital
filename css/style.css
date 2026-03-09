@@ -2297,9 +2297,12 @@ body.proposal-page .navbar {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-body.proposal-page .navbar .nav-link,
-body.proposal-page .navbar .logo-main {
+body.proposal-page .navbar .nav-link {
     filter: brightness(0) invert(1);
+}
+
+body.proposal-page .navbar .logo-main {
+    /* Logo original preservada */
 }
 
 .proposal-hero {
@@ -2321,11 +2324,13 @@ body.proposal-page .navbar .logo-main {
 
 .old-price {
     text-decoration: line-through;
-    color: rgba(255, 255, 255, 0.2);
+    text-decoration-color: #ef4444;
+    color: #ef4444;
     font-size: 1.8rem;
     display: block;
-    margin-bottom: 10px;
-    font-weight: 300;
+    margin-bottom: 15px;
+    font-weight: 500;
+    opacity: 0.8;
 }
 
 .new-price {

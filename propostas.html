@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta Comercial | Blum Digital</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="IMG/Logo preta favicon.png" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css?v=3.5">
+
+    <style>
+        /* Gate Overlay */
+        #password-gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #1f4d45;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        #password-gate.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .gate-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 50px 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(80, 200, 120, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .gate-container img {
+            width: 120px;
+            margin-bottom: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        .gate-container h2 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .gate-container p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.3s;
+            text-align: center;
+        }
+
+        .password-input:focus {
+            border-color: #50c878;
+        }
+
+        .gate-error {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: none;
+            font-weight: 600;
+        }
+
+        /* Content Protected Styles */
+        #protected-content {
+            display: none;
+        }
+
+        .welcome-section {
+            background: linear-gradient(135deg, #1f4d45 0%, #0d2e28 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            border-bottom: 4px solid #50c878;
+        }
+
+        .welcome-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .welcome-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .welcome-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            text-align: left;
+            padding: 30px;
+            background: rgba(0,0,0,0.2);
+            border-left: 4px solid #50c878;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .financial-summary {
+            background: #0f172a;
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 700px;
+            margin: 60px auto;
+            border: 1px solid rgba(80, 200, 120, 0.3);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .financial-summary .total-price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #50c878;
+            margin-bottom: 10px;
+        }
+
+        .financial-summary .installment {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 30px;
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(80, 200, 120, 0.1);
+            border-radius: 50px;
+            border: 1px solid #50c878;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .bonus-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+
+        .bonus-card:hover {
+            transform: translateY(-5px);
+            border-color: #50c878;
+        }
+
+        .bonus-card i {
+            font-size: 3rem;
+            color: #1f4d45;
+            margin-bottom: 20px;
+        }
+
+        /* Elite Cards */
+        .pricing-card-elite {
+            background: linear-gradient(145deg, #0f172a 0%, #050a0a 100%);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            color: #ffffff;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .pricing-card-elite::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .pricing-card-elite:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(80, 200, 120, 0.1);
+            border-color: rgba(80, 200, 120, 0.3);
+            z-index: 5;
+        }
+        
+        .pricing-card-elite:hover::before { background: #50c878; }
+        .pricing-card-elite .pricing-header { margin-bottom: 30px; }
+        .pricing-card-elite h3 { font-size: 2.2rem; margin-bottom: 15px; font-weight: 800; color: #fff;}
+        .pricing-features { list-style: none; padding: 0; margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;}
+        .pricing-features li { display: flex; gap: 15px; margin-bottom: 15px; align-items: flex-start;}
+        .pricing-features i { color: #50c878; margin-top: 4px; }
+        
+        .featured { border-color: rgba(80, 200, 120, 0.3); }
+        .featured::before { background: #50c878; }
+    </style>
+</head>
+
+<body>
+    <!-- PASSWORD GATE -->
+    <div id="password-gate">
+        <div class="gate-container">
+            <img src="IMG/Logo_Blum_DEFINITIVO.2 sem fundo.png" alt="Blum Digital">
+            <h2>Área Restrita</h2>
+            <p>Insira a senha de acesso à proposta comercial.</p>
+            <div class="gate-error" id="gate-error">Senha incorreta.</div>
+            <input type="password" id="gate-pwd" class="password-input" placeholder="Sua senha..." onkeypress="handleEnter(event)">
+            <button onclick="checkPassword()" class="btn btn-gold btn-glow" style="width: 100%; background: #50c878; color: #111; padding: 15px; border-radius: 50px; font-weight: 800; cursor: pointer; border: none; font-size: 1rem;">ACESSAR PROPOSTA</button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT (PROTECTED) -->
+    <div id="protected-content">
+        <!-- ========== NAVBAR ========== -->
+        <header class="navbar" id="navbar">
+            <div class="container nav-container">
+                <a href="index.html" class="nav-logo">
+                    <img src="IMG/Logo_Blum_DEFINITIVO.2 sem fundo.png" alt="Blum Digital" class="logo-main">
+                </a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <nav class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="sobre.html" class="nav-link">Sobre</a>
+                    <a href="servicos.html" class="nav-link">Serviços</a>
+                    <a href="portfolio.html" class="nav-link">Portfólio</a>
+                    <a href="propostas.html" class="nav-link active">Propostas Comerciais</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="index.html#faq" class="nav-link">FAQ</a>
+                </nav>
+            </div>
+        </header>
+
+        <main style="padding-top: var(--nav-h);">
+            
+            <!-- WELCOME SECTION -->
+            <section class="welcome-section">
+                <div class="welcome-container">
+                    <span class="label" style="background: rgba(80, 200, 120, 0.2); color: #50c878; letter-spacing: 2px; text-transform: uppercase; padding: 5px 15px; border-radius: 4px; display: inline-block; margin-bottom: 20px;">Planejamento Estratégico Exclusivo</span>
+                    <h1 class="welcome-title">Bem-vinda ao seu novo ecossistema digital, Ásia Express.</h1>
+                    
+                    <div class="welcome-text">
+                        <p><strong>Olá, Diana! É um prazer receber você aqui.</strong> Este ambiente foi criado exclusivamente para apresentar o planejamento estratégico da Blum Digital para o Ásia Express.</p>
+                        <p style="margin-top: 15px;">Mais do que posts em redes sociais, o que você verá abaixo é a fundação para que o restaurante se torne a maior referência gastronômica de Criciúma no Google e no Instagram. Analisamos cada detalhe para "arrumar a casa" e garantir que seu investimento traga o máximo de retorno possível.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PLANS SECTION -->
+            <section class="section bg-light">
+                <div class="container">
+                    <div class="text-center" style="margin-bottom: 60px;">
+                        <h2 style="font-size: 2.5rem; color: #1f4d45;">1. Social Media & Curadoria Visual</h2>
+                        <p>A vitrine que desperta o desejo dos seus clientes diariamente.</p>
+                    </div>
+
+                    <div class="pricing-grid">
+                        <!-- Plano Essencial -->
+                        <div class="pricing-card-elite">
+                            <div class="pricing-header">
+                                <span class="label" style="background: rgba(80, 200, 120, 0.1); color: #50c878; padding: 5px 10px; border-radius: 5px;">SOCIAL MEDIA</span>
+                                <h3>Plano Essencial</h3>
+                                <p style="font-size: 2.5rem; color: #50c878; font-weight: 800; margin: 15px 0;">R$ 1.000<span style="font-size: 1rem; color: #aaa;">/mês</span></p>
+                                <p style="color: rgba(255,255,255,0.7);">A manutenção profissional e estética minimalista para a sua presença no Instagram.</p>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fa-solid fa-check"></i> <div><strong>8 posts estratégicos mensais</strong></div></li>
+                                <li><i class="fa-solid fa-check"></i> <div>Stories semanais dinâmicos</div></li>
+                                <li><i class="fa-solid fa-check"></i> <div>Design Bauhaus focado em elegância</div></li>
+                                <li><i class="fa-solid fa-check"></i> <div>Copywriting & Legendas Persuasivas</div></li>
+                            </ul>
+                        </div>
+
+                        <!-- Plano Profissional -->
+                        <div class="pricing-card-elite featured">
+                            <div class="badge-chosen" style="position: absolute; top: 20px; right: 20px; background: #50c878; color: #000; padding: 5px 15px; font-weight: bold; border-radius: 5px; font-size: 0.8rem;">A ESCOLHA DA AGÊNCIA</div>
+                            <div class="pricing-header">
+                                <span class="label" style="background: rgba(80, 200, 120, 0.1); color: #50c878; padding: 5px 10px; border-radius: 5px;">SOCIAL MEDIA</span>
+                                <h3>Plano Profissional</h3>
+                                <p style="font-size: 2.5rem; color: #50c878; font-weight: 800; margin: 15px 0;">R$ 1.800<span style="font-size: 1rem; color: #aaa;">/mês</span></p>
+                                <p style="color: rgba(255,255,255,0.7);">O formato agressivo focado em alcance, vídeos e posicionamento acelerado.</p>
+                            </div>
+                            <ul class="pricing-features">
+                                <li><i class="fa-solid fa-check"></i> <div><strong>12 posts/mês de alto impacto</strong></div></li>
+                                <li><i class="fa-solid fa-check"></i> <div><strong>4 Reels com edição Premium</strong> da Blum Digital</div></li>
+                                <li><i class="fa-solid fa-check"></i> <div>Stories frequentes com alto nível de engajamento</div></li>
+                                <li><i class="fa-solid fa-check"></i> <div>Calendário Editorial Completo Mensal</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- COMBO EXPANSÃO SECTION -->
+            <section class="section" style="background: url('IMG/asia%202_files/asia%20a.jpg') center/cover no-repeat; position: relative;">
+                <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(15, 23, 42, 0.9);"></div>
+                <div class="container text-center" style="position: relative; z-index: 2;">
+                    <h2 style="font-size: 2.5rem; color: #fff; margin-bottom: 20px;">2. Combo de Expansão (Gold)</h2>
+                    <p style="color: rgba(255,255,255,0.8); max-width: 700px; margin: 0 auto 40px; font-size: 1.1rem;">A estrutura definitiva de performance dentro e fora do Instagram. Sua base técnica e conversão máxima.</p>
+                    
+                    <div style="background: rgba(255,255,255,0.05); border: 1px solid rgba(80,200,120,0.3); padding: 50px; border-radius: 20px; max-width: 800px; margin: 0 auto; backdrop-filter: blur(10px);">
+                        <p style="font-size: 3rem; font-weight: 900; color: #50c878; margin-bottom: 10px;">R$ 1.885,00</p>
+                        <p style="text-transform: uppercase; letter-spacing: 2px; color: #aaa; font-weight: 700; margin-bottom: 30px;">(Taxa Única de Setup e Lançamento)</p>
+                        
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; text-align: left; margin-bottom: 40px;">
+                            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px;">
+                                <i class="fa-solid fa-vr-cardboard" style="color: #50c878; font-size: 2rem; margin-bottom: 15px;"></i>
+                                <h4 style="color: #fff; margin-bottom: 5px;">Tour Virtual 360º</h4>
+                                <p style="color: #aaa; font-size: 0.9rem;">Imersão via Google Street View</p>
+                            </div>
+                            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px;">
+                                <i class="fa-solid fa-laptop-code" style="color: #50c878; font-size: 2rem; margin-bottom: 15px;"></i>
+                                <h4 style="color: #fff; margin-bottom: 5px;">Site Premium</h4>
+                                <p style="color: #aaa; font-size: 0.9rem;">Landing page de alta conversão estruturada</p>
+                            </div>
+                            <div style="background: rgba(0,0,0,0.3); padding: 20px; border-radius: 10px;">
+                                <i class="fa-solid fa-magnifying-glass-chart" style="color: #50c878; font-size: 2rem; margin-bottom: 15px;"></i>
+                                <h4 style="color: #fff; margin-bottom: 5px;">Google Meu Negócio</h4>
+                                <p style="color: #aaa; font-size: 0.9rem;">Setup e estruturação SEO local</p>
+                            </div>
+                        </div>
+
+                        <div style="background: rgba(80,200,120,0.1); padding: 20px; border-radius: 10px; border-left: 4px solid #50c878; text-align: left;">
+                            <h4 style="color: #fff; margin-top: 0;">Serviços Recorrentes Aderidos:</h4>
+                            <p style="color: #ddd; margin: 0; line-height: 1.6;"><strong>Gestão de Tráfego:</strong> R$ 1.000,00/mês (Valor Exclusivo)<br>
+                            <strong>Hospedagem & Manutenção (Site/GMN):</strong> Inclusos sem custo adicional (Economia de R$ 450,00/mês)</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BÔNUS SECTION -->
+            <section class="section bg-light">
+                <div class="container">
+                    <div class="text-center" style="margin-bottom: 50px;">
+                        <span class="label" style="background: #1f4d45; color: white;">EXCLUSIVO</span>
+                        <h2 style="font-size: 2.5rem; color: #1f4d45; margin-top: 15px;">Bônus Especiais</h2>
+                        <p>O arsenal para dominarmos Criciúma juntos.</p>
+                    </div>
+
+                    <div class="bonus-grid">
+                        <div class="bonus-card">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                            <h3 style="color: #1f4d45; margin-bottom: 10px;">4x Totens NFC (Google)</h3>
+                            <p style="color: #666;">Totens de PVC com aproximação (NFC) nas mesas para impulsionar avaliações 5 estrelas no Google Meu Negócio.</p>
+                        </div>
+                        <div class="bonus-card">
+                            <i class="fa-brands fa-instagram"></i>
+                            <h3 style="color: #1f4d45; margin-bottom: 10px;">2x Totens Redes Sociais</h3>
+                            <p style="color: #666;">Direcionadores físicos para que os clientes do salão sigam rapidamente o Ásia Express no Instagram e TikTok.</p>
+                        </div>
+                        <div class="bonus-card" style="border: 2px solid #50c878; background: rgba(80,200,120,0.02);">
+                            <i class="fa-solid fa-helicopter-symbol" style="color: #50c878;"></i>
+                            <h3 style="color: #1f4d45; margin-bottom: 10px;">Gravação Cinematográfica (Drone)</h3>
+                            <p style="color: #666;">Aero-vídeo profissional destacando a localização e a grandiosidade da fachada no centro de Criciúma.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- FINANCIAL CLOSING SECTION -->
+            <section class="section">
+                <div class="container">
+                    <div class="financial-summary">
+                        <h2 style="font-size: 2rem; margin-bottom: 10px;">Investimento Inicial <br><span style="font-size: 1rem; color: #aaa; font-weight: normal;">(Setup Gold + Gestão Tráfego + Social Media Essencial)</span></h2>
+                        <div class="total-price">R$ 3.885,00</div>
+                        <div class="installment">
+                            <i class="fa-solid fa-credit-card" style="margin-right: 10px;"></i>
+                            Parcelamento em até 12x sem acréscimo
+                        </div>
+                        
+                        <div style="border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px; margin-top: 10px;">
+                            <p style="font-size: 1.1rem; color: #ddd; margin-bottom: 5px;">Detalhamento da recorrência mensal a partir do 2º mês:</p>
+                            <p style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0;">R$ 2.450,00</p>
+                            <p style="font-size: 0.9rem; color: #888; margin-top: 5px;">(Gestão de Tráfego + Social Media Essencial Incluso + Suporte GMN e Site)</p>
+                        </div>
+
+                        <a href="https://wa.me/5548992212339?text=Olá, Daniel! Olharei a proposta e gostaria de avançar!!" target="_blank" class="btn btn-gold btn-glow" style="background: #50c878; color: #111; font-weight: 800; padding: 20px 40px; border-radius: 50px; font-size: 1.2rem; display: inline-block; margin-top: 40px; text-decoration: none;">
+                            <i class="fa-solid fa-rocket"></i> VAMOS ESCALAR O ÁSIA EXPRESS!
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ========== FOOTER ========== -->
+        <footer class="footer">
+            <div class="container text-center">
+                <img src="IMG/Logo_Blum_DEFINITIVO.2 sem fundo.png" alt="Blum Digital" class="logo-main" style="height: 80px; filter: brightness(1.3) contrast(1.3); margin-bottom: 20px;">
+                <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">&copy; 2026 Blum Digital. Proposta Autenticada.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JS LOGIC FOR GATE -->
+    <script>
+        function checkPassword() {
+            var input = document.getElementById("gate-pwd").value;
+            var errorMsg = document.getElementById("gate-error");
+            
+            // Senha requirida: Asia2026$
+            if (input === "Asia2026$") {
+                document.getElementById("password-gate").classList.add("hidden");
+                document.getElementById("protected-content").style.display = "block";
+                window.scrollTo(0,0);
+            } else {
+                errorMsg.style.display = "block";
+                document.getElementById("gate-pwd").style.borderColor = "#ff6b6b";
+            }
+        }
+
+        function handleEnter(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        }
+    </script>
+</body>
+</html>

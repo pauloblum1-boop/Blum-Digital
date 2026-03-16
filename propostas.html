@@ -232,6 +232,7 @@
             overflow: hidden;
             color: #ffffff;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            padding-top: 60px; /* Aligns content inside the cards when absolute badge is Present */
         }
 
         .pricing-card-elite::before {
@@ -355,7 +356,7 @@
 
                         <!-- Plano Profissional -->
                         <div class="pricing-card-elite featured">
-                            <div style="background: #50c878; color: #111; padding: 12px 20px; font-weight: 900; border-radius: 8px; font-size: 1.1rem; text-align: center; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 25px; box-shadow: 0 5px 15px rgba(80, 200, 120, 0.3);">MODELO MAIS REQUISITADO!</div>
+                            <div style="position: absolute; top: 0; left: 0; right: 0; background: #50c878; color: #111; padding: 12px 20px; font-weight: 900; font-size: 1.1rem; text-align: center; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(80, 200, 120, 0.3); z-index: 10;">MODELO MAIS REQUISITADO!</div>
                             <div class="pricing-header">
                                 <span class="label" style="background: rgba(80, 200, 120, 0.1); color: #50c878; padding: 5px 10px; border-radius: 5px;">SOCIAL MEDIA</span>
                                 <h3>Plano Profissional</h3>

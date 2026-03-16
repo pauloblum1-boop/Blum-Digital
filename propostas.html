@@ -489,7 +489,7 @@
                                 <strong>R$ 1.885,00</strong>
                             </div>
                             <div style="display: flex; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 15px; padding-bottom: 15px;">
-                                <span>Primeiro Mês Gestão de Tráfego</span>
+                                <span>Primeiro Mês Gestão de Tráfego Pago (Google Ads)</span>
                                 <strong>R$ 1.000,00</strong>
                             </div>
                             <div style="display: flex; justify-content: space-between;">
@@ -655,9 +655,14 @@
         }
     </script>
 
+    <!-- EmailJS SDK (free) -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
     <script src="js/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+
+            /* ========== 1. PERSISTENT COUNTDOWN (localStorage) ========== */
             function startProposalCountdown() {
                 const daysEl = document.getElementById('prop-cd-days');
                 const hoursEl = document.getElementById('prop-cd-hours');
@@ -668,44 +673,99 @@
 
                 if (!daysEl) return;
 
-                // 3 days in seconds
-                let totalSeconds = 3 * 24 * 60 * 60;
+                const STORAGE_KEY = 'proposta_asia_countdown_end';
+                const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
 
-                const interval = setInterval(() => {
-                    totalSeconds--;
+                // First visit? Set the deadline
+                let endTime = localStorage.getItem(STORAGE_KEY);
+                if (!endTime) {
+                    endTime = Date.now() + THREE_DAYS_MS;
+                    localStorage.setItem(STORAGE_KEY, endTime);
+                } else {
+                    endTime = parseInt(endTime, 10);
+                }
 
-                    if (totalSeconds < 0) {
-                        clearInterval(interval);
+                function updateDisplay() {
+                    const now = Date.now();
+                    let remaining = Math.floor((endTime - now) / 1000);
 
-                        if (btnLabel) {
-                            btnLabel.innerHTML = 'OFERTA EXPIRADA — SOLICITAR REVISÃO <i class="fa-solid fa-lock"></i>';
-                            btnLabel.style.color = '#ff6b6b';
-                            btnLabel.style.background = 'rgba(255, 107, 107, 0.1)';
-                            linkBtn.style.borderColor = 'rgba(255, 107, 107, 0.3)';
-                        }
-
-                        const expiredMessage = encodeURIComponent("Olá, Daniel. Perdi o prazo dos 15% OFF, mas gostaria de avançar com a proposta no valor padrão.");
-                        linkBtn.href = `https://wa.me/5548992212339?text=${expiredMessage}`;
-
+                    if (remaining <= 0) {
+                        clearInterval(ticker);
                         daysEl.innerText = '00';
                         hoursEl.innerText = '00';
                         minsEl.innerText = '00';
                         secsEl.innerText = '00';
+
+                        if (btnLabel) {
+                            btnLabel.innerHTML = 'OFERTA EXPIRADA \u2014 SOLICITAR REVIS\u00c3O <i class="fa-solid fa-lock"></i>';
+                            btnLabel.style.color = '#ff6b6b';
+                            btnLabel.style.background = 'rgba(255, 107, 107, 0.1)';
+                            linkBtn.style.borderColor = 'rgba(255, 107, 107, 0.3)';
+                        }
+                        const expiredMsg = encodeURIComponent('Ol\u00e1, Daniel. Perdi o prazo dos 15% OFF, mas gostaria de avan\u00e7ar com a proposta no valor padr\u00e3o.');
+                        linkBtn.href = 'https://wa.me/5548992212339?text=' + expiredMsg;
                         return;
                     }
 
-                    const d = Math.floor(totalSeconds / (3600 * 24));
-                    const h = Math.floor((totalSeconds % (3600 * 24)) / 3600);
-                    const m = Math.floor((totalSeconds % 3600) / 60);
-                    const s = totalSeconds % 60;
+                    const d = Math.floor(remaining / 86400);
+                    const h = Math.floor((remaining % 86400) / 3600);
+                    const m = Math.floor((remaining % 3600) / 60);
+                    const s = remaining % 60;
 
                     daysEl.innerText = d.toString().padStart(2, '0');
                     hoursEl.innerText = h.toString().padStart(2, '0');
                     minsEl.innerText = m.toString().padStart(2, '0');
                     secsEl.innerText = s.toString().padStart(2, '0');
-                }, 1000);
+                }
+
+                updateDisplay();
+                const ticker = setInterval(updateDisplay, 1000);
             }
+
             startProposalCountdown();
+
+            /* ========== 2. VISITOR TRACKING + EMAIL NOTIFICATION ========== */
+            (function notifyVisit() {
+                const VISIT_KEY = 'proposta_asia_notified';
+                // Only notify once per visitor session
+                if (sessionStorage.getItem(VISIT_KEY)) return;
+
+                const visitData = {
+                    page: 'Proposta \u00c1sia Express',
+                    timestamp: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }),
+                    device: /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
+                    referrer: document.referrer || 'Acesso direto'
+                };
+
+                // Tag the visit in localStorage for analytics
+                const visits = JSON.parse(localStorage.getItem('proposta_visits') || '[]');
+                visits.push(visitData);
+                localStorage.setItem('proposta_visits', JSON.stringify(visits));
+
+                // EmailJS: Send notification email
+                // To activate: create free account at emailjs.com, then replace the 3 IDs below
+                try {
+                    if (typeof emailjs !== 'undefined') {
+                        emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+                        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                            visitor_time: visitData.timestamp,
+                            visitor_device: visitData.device,
+                            visitor_referrer: visitData.referrer,
+                            cta_link: 'https://digitalblum.com/propostas.html',
+                            message: '\ud83d\udea8 A proposta do \u00c1sia Express foi visualizada! Dispositivo: ' + visitData.device + ' | Hora: ' + visitData.timestamp
+                        }).then(function() {
+                            console.log('Notifica\u00e7\u00e3o enviada com sucesso.');
+                        }).catch(function(err) {
+                            console.log('EmailJS pendente de configura\u00e7\u00e3o:', err);
+                        });
+                    }
+                } catch(e) {
+                    console.log('EmailJS n\u00e3o configurado ainda.');
+                }
+
+                sessionStorage.setItem(VISIT_KEY, 'true');
+            })();
+
         });
     </script>
 </body>

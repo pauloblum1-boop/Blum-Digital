@@ -1,0 +1,431 @@
+    <style>
+        :root {
+            --deep-teal: #1F4D45;
+            --medium-green: #2E6A5F;
+            --light-gray: #F2F4F5;
+            --soft-black: #0F0F10;
+            --white: #FFFFFF;
+            --korean-gold: #D4AF37;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light-gray);
+            color: var(--soft-black);
+            line-height: 1.6;
+        }
+
+        /* Munsal Pattern - Traditional Korean Window */
+        .munsal-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(var(--deep-teal) 1px, transparent 1px),
+                linear-gradient(90deg, var(--deep-teal) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.03;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .page {
+            width: 210mm;
+            height: 296mm;
+            margin: 20px auto;
+            background: var(--white);
+            position: relative;
+            overflow: hidden;
+            box-sizing: border-box;
+            page-break-after: always;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        /* CAPA */
+        .page-cover {
+            background-color: var(--light-gray);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .cover-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 110mm;
+            background-color: var(--deep-teal);
+            overflow: hidden;
+        }
+
+        .cover-top img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            filter: grayscale(100%);
+        }
+
+        .cover-line {
+            position: absolute;
+            left: 20mm;
+            top: 110mm;
+            width: 3mm;
+            height: 100mm;
+            background-color: var(--medium-green);
+        }
+
+        .cover-content {
+            z-index: 10;
+            padding: 0 40px;
+        }
+
+        .hangul-title {
+            font-size: 18px;
+            color: var(--white);
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            opacity: 0.8;
+            position: absolute;
+            top: 40mm;
+            width: 100%;
+            left: 0;
+        }
+
+        .cover-title {
+            font-size: 44px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--soft-black);
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+        }
+
+        .cover-subtitle {
+            font-size: 26px;
+            font-weight: 300;
+            color: var(--soft-black);
+            border-top: 1px solid var(--medium-green);
+            display: inline-block;
+            padding-top: 15px;
+            margin-top: 15px;
+        }
+
+        .cover-footer {
+            position: absolute;
+            bottom: 20mm;
+            width: 100%;
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--deep-teal);
+        }
+
+        /* INTERNAL PAGES */
+        .page-header {
+            background-color: var(--deep-teal);
+            height: 45mm;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            position: relative;
+        }
+
+        .page-header .hangul-small {
+            font-size: 14px;
+            letter-spacing: 3px;
+            opacity: 0.5;
+            margin-bottom: 5px;
+        }
+
+        .page-header h2 {
+            font-size: 32px;
+            font-weight: 800;
+            margin: 0;
+            letter-spacing: -1px;
+        }
+
+        .page-content {
+            padding: 25mm 20mm;
+            z-index: 5;
+            position: relative;
+        }
+
+        .grid-proposal {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .plan-box {
+            margin-bottom: 40px;
+            border-left: 4px solid var(--medium-green);
+            padding-left: 20px;
+        }
+
+        .plan-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--deep-teal);
+            margin-bottom: 10px;
+        }
+
+        .plan-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--medium-green);
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            padding-left: 25px;
+            position: relative;
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        li::before {
+            content: "□";
+            position: absolute;
+            left: 0;
+            color: var(--medium-green);
+            font-weight: bold;
+        }
+
+        .img-container {
+            width: 100%;
+            height: 60mm;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            border: 1px solid var(--light-gray);
+        }
+
+        .img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .note {
+            font-style: italic;
+            font-size: 13px;
+            margin-top: 30px;
+            color: #666;
+            border-top: 1px solid var(--light-gray);
+            padding-top: 10px;
+        }
+
+        .bonus-highlight {
+            background-color: var(--deep-teal);
+            color: var(--white);
+            padding: 40px;
+            border-radius: 0;
+            margin-top: 40px;
+            position: relative;
+        }
+
+        .bonus-highlight::after {
+            content: "";
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+            bottom: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .bonus-highlight h3 {
+            font-size: 28px;
+            font-weight: 800;
+            margin-top: 0;
+            color: var(--medium-green);
+        }
+
+        .page-footer {
+            position: absolute;
+            bottom: 15mm;
+            width: 100%;
+            text-align: center;
+            font-size: 12px;
+            color: var(--soft-black);
+            opacity: 0.6;
+            font-weight: 600;
+        }
+
+        @media print {
+            body { background: none; }
+            .page { 
+                box-shadow: none; 
+                margin: 0; 
+                border: none; 
+                width: 210mm;
+                height: 297mm;
+            }
+            .munsal-bg { opacity: 0.05; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- PÁGINA 1: CAPA -->
+    <div class="page page-cover">
+        <div class="munsal-bg"></div>
+        <div class="cover-top">
+            <img src="IMG/asia 2_files/asia a.jpg" alt="Asia Express Context">
+            <div class="hangul-title">아시아 익스프레스</div>
+        </div>
+        <div class="cover-line"></div>
+        <div class="cover-content">
+            <h1 class="cover-title">Planejamento Estratégico de<br>Posicionamento Digital</h1>
+            <p class="cover-subtitle">Preparado para: Ásia Express</p>
+        </div>
+        <div class="cover-footer">
+            PAULO DANIEL BLUM | BLUM DIGITAL (digitalblum.com)
+        </div>
+    </div>
+
+    <!-- PÁGINA 2: SOCIAL MEDIA -->
+    <div class="page">
+        <div class="munsal-bg"></div>
+        <div class="page-header">
+            <div class="hangul-small">소셜 미디어</div>
+            <h2>Social Media</h2>
+        </div>
+        <div class="page-content">
+            <div class="grid-proposal">
+                <div>
+                    <div class="plan-box">
+                        <div class="plan-title">Plano Essencial</div>
+                        <div class="plan-price">R$ 1.000/mês</div>
+                        <ul>
+                            <li>8 posts/mês estratégicos</li>
+                            <li>Stories semanais dinâmicos</li>
+                            <li>Design Bauhaus & Legendas Persuasivas</li>
+                        </ul>
+                    </div>
+
+                    <div class="plan-box">
+                        <div class="plan-title">Plano Profissional</div>
+                        <div class="plan-price">R$ 1.800/mês</div>
+                        <ul>
+                            <li>12 posts/mês de alto impacto</li>
+                            <li>Stories frequentes com engajamento</li>
+                            <li>4 Reels com edição Premium da Blum</li>
+                            <li>Calendário Editorial completo</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="img-container">
+                        <img src="IMG/asia 2_files/asia a.jpg" alt="Asia Express Social">
+                    </div>
+                    <p class="note">Nota: Vídeos captados pelo cliente e editados com a curadoria visual da Blum Digital.</p>
+                </div>
+            </div>
+        </div>
+        <div class="page-footer">
+            BLUM DIGITAL © 2026 - PÁGINA 2
+        </div>
+    </div>
+
+    <!-- PÁGINA 3: GOOGLE E PERFORMANCE -->
+    <div class="page">
+        <div class="munsal-bg"></div>
+        <div class="page-header">
+            <div class="hangul-small">구글 및 성능</div>
+            <h2>Google e Performance</h2>
+        </div>
+        <div class="page-content">
+            <div class="grid-proposal">
+                <div>
+                    <div class="img-container" style="height: 120mm;">
+                        <img src="IMG/asia%202_files/asia%20b.jpg" alt="Performance Asia">
+                    </div>
+                </div>
+                <div>
+                    <div class="plan-box">
+                        <div class="plan-title">Gestão de Tráfego</div>
+                        <div class="plan-price">R$ 1.000/mês (Valor especial)</div>
+                        <ul>
+                            <li>Campanhas em Google Ads</li>
+                            <li>Foco em topo de busca em Criciúma</li>
+                            <li>Otimização constante de ROI</li>
+                        </ul>
+                    </div>
+
+                    <div class="plan-box">
+                        <div class="plan-title">Combo de Expansão (Gold)</div>
+                        <div class="plan-price">Setup Único: R$ 1.885</div>
+                        <ul>
+                            <li>Tour Virtual 360º de Imersão</li>
+                            <li>Site Landing Page Exclusiva</li>
+                            <li>Otimização avançada de GMN</li>
+                        </ul>
+                        <p style="font-size: 14px; margin-top: 10px;"><strong>Manut. Mensal:</strong> R$ 450 (Hospedagem + Gestão)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-footer">
+            BLUM DIGITAL © 2026 - PÁGINA 3
+        </div>
+    </div>
+
+    <!-- PÁGINA 4: BÔNUS E FECHAMENTO -->
+    <div class="page">
+        <div class="munsal-bg"></div>
+        <div class="page-header">
+            <div class="hangul-small">보너스 및 종료</div>
+            <h2>Bônus e Fechamento</h2>
+        </div>
+        <div class="page-content">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px;">
+                <div>
+                    <div class="plan-box">
+                        <div class="plan-title">Bônus Exclusivos:</div>
+                        <ul>
+                            <li>4 Totens NFC de Avaliação Google</li>
+                            <li>2 Totens de Redes Sociais</li>
+                            <li>Linktree Profissional customizado</li>
+                        </ul>
+                    </div>
+                </div>
+                <div>
+                    <div class="img-container" style="height: 40mm;">
+                        <img src="IMG/Logo_Blum_DEFINITIVO.2 sem fundo.png" alt="Blum Logo" style="object-fit: contain; background: var(--light-gray); padding: 20px;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="bonus-highlight">
+                <h3>SUPER BÔNUS:</h3>
+                <p style="font-size: 18px; line-height: 1.4;">Ao fechar o Combo Completo, garantimos a **Gravação Aérea com Drone** da localização privilegiada do Ásia Express no centro de Criciúma.</p>
+            </div>
+            
+            <div style="margin-top: 40px; text-align: center; border-top: 1px solid var(--light-gray); padding-top: 20px;">
+                <p style="font-weight: 700; color: var(--deep-teal);">VAMOS ESCALAR O ÁSIA EXPRESS?</p>
+            </div>
+        </div>
+        <div class="page-footer">
+            BLUM DIGITAL © 2026 - PÁGINA 4
+        </div>
+    </div>
+
+</body>
+</html>

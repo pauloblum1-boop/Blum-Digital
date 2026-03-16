@@ -655,9 +655,6 @@
         }
     </script>
 
-    <!-- EmailJS SDK (free) -->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-
     <script src="js/script.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -726,42 +723,35 @@
 
             /* ========== 2. VISITOR TRACKING + EMAIL NOTIFICATION ========== */
             (function notifyVisit() {
-                const VISIT_KEY = 'proposta_asia_notified';
-                // Only notify once per visitor session
+                const VISIT_KEY = 'proposta_asia_notified_v2';
                 if (sessionStorage.getItem(VISIT_KEY)) return;
 
                 const visitData = {
-                    page: 'Proposta \u00c1sia Express',
+                    title: '🚨 NOVO ACESSO: Proposta Ásia Express',
                     timestamp: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }),
                     device: /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
-                    referrer: document.referrer || 'Acesso direto'
+                    referrer: document.referrer || 'Acesso direto',
+                    link: window.location.href
                 };
 
-                // Tag the visit in localStorage for analytics
-                const visits = JSON.parse(localStorage.getItem('proposta_visits') || '[]');
-                visits.push(visitData);
-                localStorage.setItem('proposta_visits', JSON.stringify(visits));
-
-                // EmailJS: Send notification email
-                // To activate: create free account at emailjs.com, then replace the 3 IDs below
-                try {
-                    if (typeof emailjs !== 'undefined') {
-                        emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
-                        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
-                            visitor_time: visitData.timestamp,
-                            visitor_device: visitData.device,
-                            visitor_referrer: visitData.referrer,
-                            cta_link: 'https://digitalblum.com/propostas.html',
-                            message: '\ud83d\udea8 A proposta do \u00c1sia Express foi visualizada! Dispositivo: ' + visitData.device + ' | Hora: ' + visitData.timestamp
-                        }).then(function() {
-                            console.log('Notifica\u00e7\u00e3o enviada com sucesso.');
-                        }).catch(function(err) {
-                            console.log('EmailJS pendente de configura\u00e7\u00e3o:', err);
-                        });
-                    }
-                } catch(e) {
-                    console.log('EmailJS n\u00e3o configurado ainda.');
-                }
+                // FormSubmit.co: Direct email notification to the user
+                fetch("https://formsubmit.co/ajax/pdanielblum@gmail.com", {
+                    method: "POST",
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        _subject: "🚨 ACESSO DETECTADO: Ásia Express",
+                        "Data/Hora": visitData.timestamp,
+                        "Dispositivo": visitData.device,
+                        "Origem": visitData.referrer,
+                        "URL": visitData.link,
+                        _captcha: "false"
+                    })
+                })
+                .then(response => console.log('Notificação de acesso enviada.'))
+                .catch(error => console.log('Erro ao notificar acesso.'));
 
                 sessionStorage.setItem(VISIT_KEY, 'true');
             })();

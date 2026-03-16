@@ -481,10 +481,74 @@
                             <p style="font-size: 1.6rem; font-weight: 800; color: #fff; margin: 0;">R$ 2.450,00</p>
                             <p style="font-size: 0.9rem; color: #888; margin-top: 5px;">(Gestão de Tráfego + Social Media Essencial + Suporte GMN e Site)</p>
                         </div>
+                        </div>
 
-                        <a href="https://wa.me/5548992212339?text=Olá, Daniel! Olharei a proposta e gostaria de avançar!!" target="_blank" class="btn btn-gold btn-glow" style="background: #50c878; color: #111; font-weight: 800; padding: 20px 40px; border-radius: 50px; font-size: 1.2rem; display: inline-block; margin-top: 40px; text-decoration: none;">
-                            <i class="fa-solid fa-rocket"></i> VAMOS ESCALAR O ÁSIA EXPRESS!
-                        </a>
+                        <!-- COUNTDOWN OFFER -->
+                        <div class="offer-countdown-box" style="margin-top: 50px; background: rgba(255,107,107,0.05); border: 1px solid rgba(255,107,107,0.3); border-radius: 20px; padding: 40px; text-align: center; box-shadow: 0 20px 40px rgba(0,0,0,0.2);">
+                            <p style="color: #ff6b6b; font-weight: 900; letter-spacing: 1px; margin-bottom: 25px; font-size: 1.2rem; text-transform: uppercase;"><i class="fa-solid fa-clock"></i> Oferta de Decisão Rápida</p>
+                            <p style="color: #fff; font-size: 1.15rem; margin-bottom: 30px;">Aproveite <strong style="color: #50c878; font-weight: 900; border-bottom: 2px solid #50c878;">15% OFF</strong> no setup inicial (Economia de R$ 282,75) aceitando esta proposta dentro do prazo abaixo.</p>
+
+                            <a href="https://wa.me/5548992212339?text=Olá, Daniel! Olhei a proposta detalhada e quero aproveitar os 15% de desconto no setup inicial para o Ásia Express!" id="countdown-link-btn"
+                                target="_blank" style="display: block; background: linear-gradient(135deg, #0f172a, #050a0a); border: 1px solid rgba(80, 200, 120, 0.4); border-radius: 15px; padding: 30px 15px; text-decoration: none; box-shadow: 0 10px 30px rgba(80, 200, 120, 0.15); transition: all 0.3s ease;">
+                                
+                                <style>
+                                    #countdown-link-btn:hover {
+                                        transform: translateY(-5px);
+                                        box-shadow: 0 15px 40px rgba(80, 200, 120, 0.3);
+                                        border-color: #50c878;
+                                    }
+                                    .cd-metric {
+                                        text-align: center;
+                                        min-width: 60px;
+                                    }
+                                    .cd-metric span {
+                                        display: block; 
+                                        font-size: clamp(2rem, 5vw, 3rem); 
+                                        font-weight: 900; 
+                                        color: #ff6b6b; 
+                                        text-shadow: 0 0 20px rgba(255, 107, 107, 0.4);
+                                    }
+                                    .cd-metric p {
+                                        color: #aaa; 
+                                        font-size: 0.75rem; 
+                                        text-transform: uppercase; 
+                                        margin-top: 5px;
+                                        letter-spacing: 1px;
+                                    }
+                                    .cd-sep {
+                                        font-size: clamp(1.5rem, 4vw, 2.5rem); 
+                                        color: rgba(255,255,255,0.2); 
+                                        font-weight: 900; 
+                                        margin-top: -20px;
+                                    }
+                                </style>
+
+                                <div id="proposal-countdown" style="display: flex; justify-content: center; align-items: center; gap: clamp(5px, 2vw, 15px); margin-bottom: 25px;">
+                                    <div class="cd-metric">
+                                        <span id="prop-cd-days">03</span>
+                                        <p>Dias</p>
+                                    </div>
+                                    <div class="cd-sep">:</div>
+                                    <div class="cd-metric">
+                                        <span id="prop-cd-hours">00</span>
+                                        <p>Horas</p>
+                                    </div>
+                                    <div class="cd-sep">:</div>
+                                    <div class="cd-metric">
+                                        <span id="prop-cd-minutes">00</span>
+                                        <p>Mins</p>
+                                    </div>
+                                    <div class="cd-sep">:</div>
+                                    <div class="cd-metric">
+                                        <span id="prop-cd-seconds">00</span>
+                                        <p>Segs</p>
+                                    </div>
+                                </div>
+                                <div id="countdown-btn-text" style="background: rgba(80, 200, 120, 0.1); padding: 15px; border-radius: 50px; color: #50c878; font-weight: 800; letter-spacing: 1px; font-size: clamp(0.9rem, 2vw, 1.1rem); text-transform: uppercase;">
+                                    ACEITAR PROPOSTA COM 15% OFF <i class="fa-solid fa-bolt" style="margin-left: 5px;"></i>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -557,6 +621,60 @@
                 checkPassword();
             }
         }
+    </script>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            function startProposalCountdown() {
+                const daysEl = document.getElementById('prop-cd-days');
+                const hoursEl = document.getElementById('prop-cd-hours');
+                const minsEl = document.getElementById('prop-cd-minutes');
+                const secsEl = document.getElementById('prop-cd-seconds');
+                const btnLabel = document.getElementById('countdown-btn-text');
+                const linkBtn = document.getElementById('countdown-link-btn');
+
+                if (!daysEl) return;
+
+                // 3 days in seconds
+                let totalSeconds = 3 * 24 * 60 * 60;
+
+                const interval = setInterval(() => {
+                    totalSeconds--;
+
+                    if (totalSeconds < 0) {
+                        clearInterval(interval);
+
+                        if (btnLabel) {
+                            btnLabel.innerHTML = 'OFERTA EXPIRADA — SOLICITAR REVISÃO <i class="fa-solid fa-lock"></i>';
+                            btnLabel.style.color = '#ff6b6b';
+                            btnLabel.style.background = 'rgba(255, 107, 107, 0.1)';
+                            linkBtn.style.borderColor = 'rgba(255, 107, 107, 0.3)';
+                        }
+
+                        const expiredMessage = encodeURIComponent("Olá, Daniel. Perdi o prazo dos 15% OFF, mas gostaria de avançar com a proposta no valor padrão.");
+                        linkBtn.href = `https://wa.me/5548992212339?text=${expiredMessage}`;
+
+                        daysEl.innerText = '00';
+                        hoursEl.innerText = '00';
+                        minsEl.innerText = '00';
+                        secsEl.innerText = '00';
+                        return;
+                    }
+
+                    const d = Math.floor(totalSeconds / (3600 * 24));
+                    const h = Math.floor((totalSeconds % (3600 * 24)) / 3600);
+                    const m = Math.floor((totalSeconds % 3600) / 60);
+                    const s = totalSeconds % 60;
+
+                    daysEl.innerText = d.toString().padStart(2, '0');
+                    hoursEl.innerText = h.toString().padStart(2, '0');
+                    minsEl.innerText = m.toString().padStart(2, '0');
+                    secsEl.innerText = s.toString().padStart(2, '0');
+                }, 1000);
+            }
+            startProposalCountdown();
+        });
     </script>
 </body>
 </html>

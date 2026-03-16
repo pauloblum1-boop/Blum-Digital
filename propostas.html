@@ -54,8 +54,11 @@
         }
 
         .gate-container img {
-            width: 120px;
-            margin-bottom: 20px;
+            width: 180px;
+            max-width: 80%;
+            height: auto;
+            margin: 0 auto 25px auto;
+            display: block;
             filter: brightness(0) invert(1);
         }
 
@@ -280,7 +283,7 @@
     <!-- PASSWORD GATE -->
     <div id="password-gate">
         <div class="gate-container">
-            <img src="IMG/Logo_Blum_DEFINITIVO.2 sem fundo.png" alt="Blum Digital">
+            <img src="IMG/Logo_Blum_DEFINITIVO.2%20sem%20fundo.png" alt="Blum Digital" onerror="this.src='IMG/Logo%20branca%20sem%20fundo.png';">
             <h2>Área Restrita</h2>
             <p>Insira a senha de acesso à proposta comercial.</p>
             <div class="gate-error" id="gate-error">Senha incorreta.</div>

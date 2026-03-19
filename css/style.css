@@ -1443,7 +1443,7 @@ h3 {
     flex-direction: column;
     background: #0a0a0a;
     border-radius: 40px;
-    margin-bottom: 200px;
+    margin-bottom: 30px;
     position: relative;
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 100px 200px rgba(0, 0, 0, 0.8);
@@ -1453,8 +1453,8 @@ h3 {
 @media (min-width: 1200px) {
     .case-showcase-premium {
         display: grid;
-        grid-template-columns: 0.9fr 1.1fr;
-        /* Precisely 45% / 55% split */
+        grid-template-columns: 1.3fr 0.7fr;
+        /* Precisely 65% / 35% split */
         gap: 60px;
         align-items: flex-start;
         padding: 100px 0;
@@ -1525,8 +1525,9 @@ h3 {
 /* Elite Case Navigation - Visibility Restoration */
 .case-scroll-trigger {
     display: flex;
-    justify-content: flex-start;
-    margin-top: 25px;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 150px;
 }
 
 .next-case-btn {

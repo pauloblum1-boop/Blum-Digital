@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposta Comercial | Blum Digital</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="IMG/Logo preta favicon.png" type="image/png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css?v=3.5">
+
+    <style>
+        /* Gate Overlay */
+        #password-gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #1f4d45;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        #password-gate.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+        }
+
+        .gate-container {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 50px 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(80, 200, 120, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .gate-container img {
+            width: 180px;
+            max-width: 80%;
+            height: auto;
+            margin: 0 auto 25px auto;
+            display: block;
+        }
+
+        .gate-container h2 {
+            color: #ffffff;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .gate-container p {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 30px;
+            font-size: 0.95rem;
+        }
+
+        .password-input {
+            width: 100%;
+            padding: 15px 20px;
+            border-radius: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            background: rgba(0, 0, 0, 0.2);
+            color: #fff;
+            font-size: 1rem;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border-color 0.3s;
+            text-align: center;
+        }
+
+        .password-input:focus {
+            border-color: #50c878;
+        }
+
+        .gate-error {
+            color: #ff6b6b;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            display: none;
+            font-weight: 600;
+        }
+
+        /* Content Protected Styles */
+        #protected-content {
+            display: none;
+        }
+
+        .welcome-section {
+            position: relative;
+            background: url('IMG/Avila 2.jpg') center/cover no-repeat;
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            border-bottom: 4px solid #50c878;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .welcome-section::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.55) 0%, rgba(5, 5, 5, 0.65) 100%);
+            z-index: -1;
+        }
+
+        .korean-watermark {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: clamp(8rem, 15vw, 20rem);
+            font-weight: 900;
+            color: rgba(255, 255, 255, 0.07);
+            white-space: nowrap;
+            z-index: -1;
+            pointer-events: none;
+            letter-spacing: 1vw;
+            user-select: none;
+        }
+
+        .welcome-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .welcome-title {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            font-weight: 800;
+            margin-bottom: 25px;
+            letter-spacing: -1px;
+            line-height: 1.2;
+        }
+
+        .welcome-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 30px;
+            text-align: left;
+            padding: 30px;
+            background: rgba(0,0,0,0.2);
+            border-left: 4px solid #50c878;
+            border-radius: 0 15px 15px 0;
+        }
+
+        .financial-summary {
+            background: #0f172a;
+            color: white;
+            padding: 60px 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 700px;
+            margin: 60px auto;
+            border: 1px solid rgba(80, 200, 120, 0.3);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+        }
+
+        .financial-summary .total-price {
+            font-size: 4rem;
+            font-weight: 900;
+            color: #50c878;
+            margin-bottom: 10px;
+        }
+
+        .financial-summary .installment {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 30px;
+            display: inline-block;
+            padding: 10px 20px;
+            background: rgba(80, 200, 120, 0.1);
+            border-radius: 50px;
+            border: 1px solid #50c878;
+        }
+
+        .bonus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .bonus-card {
+            background: #fff;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #eee;
+            transition: transform 0.3s;
+        }
+
+        .bonus-card:hover {
+            transform: translateY(-5px);
+            border-color: #50c878;
+        }
+
+        .bonus-card i {
+            font-size: 3rem;
+            color: #1f4d45;
+            margin-bottom: 20px;
+        }
+
+        /* V2 Responsive Grid for Bonuses */
+        .bonus-grid-v2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .bonus-card-v2 {
+            background: #fff;
+            padding: 35px 25px;
+            border-radius: 20px;
+            text-align: center;
+            border: 1px solid rgba(95, 167, 155, 0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+
+        .bonus-card-v2:hover {
+            transform: translateY(-5px);
+            border-color: #5fa79b;
+            box-shadow: 0 10px 25px rgba(95, 167, 155, 0.25);
+        }
+
+        .bonus-card-v2 i {
+            font-size: 2.2rem;
+            color: #5fa79b;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: rgba(95, 167, 155, 0.1);
+            border-radius: 50%;
+        }
+
+        @media (max-width: 768px) {
+            .bonus-grid-v2 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Elite Cards */
+        .pricing-card-elite {
+            background: linear-gradient(145deg, #0f172a 0%, #050a0a 100%);
+            padding: 40px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            color: #ffffff;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            padding-top: 60px; /* Aligns content inside the cards when absolute badge is Present */
+        }
+
+        .pricing-card-elite::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .pricing-card-elite:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(80, 200, 120, 0.1);
+            border-color: rgba(80, 200, 120, 0.3);
+            z-index: 5;
+        }
+        
+        .pricing-card-elite:hover::before { background: #50c878; }
+        .pricing-card-elite .pricing-header { margin-bottom: 30px; }
+        .pricing-card-elite h3 { font-size: 2.2rem; margin-bottom: 15px; font-weight: 800; color: #fff;}
+        .pricing-features { list-style: none; padding: 0; margin-top: 30px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 30px;}
+        .pricing-features li { display: flex; gap: 15px; margin-bottom: 15px; align-items: flex-start;}
+        .pricing-features i { color: #50c878; margin-top: 4px; }
+        
+        .featured { border-color: rgba(80, 200, 120, 0.3); }
+        .featured::before { background: #50c878; }
+        .pricing-grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .pricing-grid-2 {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- PASSWORD GATE -->
+    <div id="password-gate">
+        <div class="gate-container">
+            <img src="IMG/Logo_Blum_DEFINITIVO.2 sem fundo.png" alt="Blum Digital"
+                style="filter: brightness(1.3) contrast(1.3);"
+                onerror="this.src='IMG/Faviquinho.png';">
+            <h2>Área Restrita</h2>
+            <p>Insira a senha de acesso à proposta comercial.</p>
+            <div class="gate-error" id="gate-error">Senha incorreta.</div>
+            <input type="password" id="gate-pwd" class="password-input" placeholder="Sua senha..." onkeypress="handleEnter(event)">
+            <button onclick="checkPassword()" class="btn btn-gold btn-glow" style="width: 100%; background: #50c878; color: #111; padding: 15px; border-radius: 50px; font-weight: 800; cursor: pointer; border: none; font-size: 1rem;">ACESSAR PROPOSTA</button>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT (PROTECTED) -->
+    <div id="protected-content">
+        <!-- ========== NAVBAR ========== -->
+        <header class="navbar" id="navbar">
+            <div class="container nav-container">
+                <a href="index.html" class="nav-logo">
+                    <img src="IMG/Logo_Blum_DEFINITIVO.2 sem fundo.png" alt="Blum Digital" class="logo-main">
+                </a>
+                <button class="hamburger" id="hamburger" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <nav class="nav-menu" id="navMenu">
+                    <a href="index.html" class="nav-link">Home</a>
+                    <a href="sobre.html" class="nav-link">Sobre</a>
+                    <a href="servicos.html" class="nav-link">Serviços</a>
+                    <a href="portfolio.html" class="nav-link">Portfólio</a>
+                    <a href="propostas.html" class="nav-link active">Propostas Comerciais</a>
+                    <a href="blog.html" class="nav-link">Blog</a>
+                    <a href="index.html#faq" class="nav-link">FAQ</a>
+                </nav>
+            </div>
+        </header>
+
+        <main style="padding-top: var(--nav-h);">
+            
+            <!-- WELCOME SECTION -->
+            <section class="welcome-section" style="background: url('IMG/Avila 1.jpg') center/cover no-repeat;">
+                <div class="korean-watermark" style="font-size: clamp(6rem, 10vw, 15rem); color: rgba(255, 255, 255, 0.04);">CORTINAS & PERSIANAS</div>
+                <div class="welcome-container">
+                    <span class="label" style="background: rgba(80, 200, 120, 0.2); color: #50c878; letter-spacing: 2px; text-transform: uppercase; padding: 5px 15px; border-radius: 4px; display: inline-block; margin-bottom: 20px;">Planejamento Estratégico Exclusivo</span>
+                    <h1 class="welcome-title">O fim do amadorismo. O início da dominação absoluta.</h1>
+                    
+                    <div class="welcome-text">
+                        <p><strong>Olá, Gustavo Ávila! É um prazer receber você aqui.</strong> Este ambiente foi criado exclusivamente para apresentar o planejamento técnico elaborado pela Blum Digital para o seu negócio.</p>
+                        <p style="margin-top: 15px;">Hoje, a grande maioria dos clientes de alto poder aquisitivo pesquisa no Google e no Instagram antes de fechar qualquer projeto de decoração. O objetivo desta estrutura é posicionar a Ávila Cortinas e Persianas como a autoridade inquestionável em toda a região, fazendo o digital trabalhar por você e eliminando objeções antes mesmo do cliente iniciar a conversa.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 1. OPORTUNIDADE E CONTEXTO -->
+            <section class="section bg-light text-center">
+                <div class="container" style="max-width: 800px;">
+                    <h2 style="font-size: 2.2rem; color: #1f4d45; margin-bottom: 20px;">O Poder do Ecossistema Conectado</h2>
+                    <p style="font-size: 1.15rem; color: #555; line-height: 1.8; margin-bottom: 20px;">A estratégia que desenhamos cria um <strong>ciclo inevitável de autoridade</strong>: O cliente encontra sua empresa no topo do Google com um perfil impecável, faz um tour pelo seu espaço, acessa seu Site Premium e clica no WhatsApp já decidido a comprar.</p>
+                    <p style="font-size: 1.15rem; color: #555; line-height: 1.8;"><strong>O resultado?</strong> O digital faz o trabalho pesado de impressionar o cliente para que você possa focar apenas em fechar a venda.</p>
+                </div>
+            </section>
+
+            <!-- 2. O PLANO GOLD -->
+            <section class="section" style="background: linear-gradient(135deg, #0f172a 0%, #050a0a 100%); color: white; border-top: 1px solid rgba(255,255,255,0.05); position: relative; overflow: hidden;">
+                <div class="container text-center" style="position: relative; z-index: 2;">
+                    <span class="label" style="background: rgba(255, 215, 0, 0.15); color: #ffd700; padding: 6px 15px; border-radius: 5px; font-size: 0.85rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; display: inline-block;">A FUNDAÇÃO</span>
+                    <h2 style="font-size: clamp(2rem, 5vw, 2.5rem); margin-bottom: 20px;">Plano Gold (Imersão e Autoridade)</h2>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 1.1rem; max-width: 700px; margin: 0 auto 50px;">A infraestrutura técnica completa para profissionalizar sua presença no maior buscador do mundo e transformar visitantes em clientes reais.</p>
+                    
+                    <div class="pricing-card-elite" style="text-align: left; max-width: 900px; margin: 0 auto;">
+                        <ul class="pricing-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; border-top: none; margin-top: 0; padding-top: 0;">
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Google Meu Negócio Otimizado:</strong> Auditoria completa, higienização de dados, curadoria visual e Copywriting focado em vendas.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Ativação de Diretórios:</strong> Cadastro e padronização em plataformas relevantes da região.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Totem NFC + QR Code:</strong> Tecnologia física para multiplicar suas avaliações 5 estrelas no espaço da loja.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>SEO On-Page Avançado:</strong> Programação estratégica no código para aparecer no Google organicamente (URLs amigáveis, tags, schema).</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Website de Alta Conversão:</strong> Design moderno, mobile-first, extremamente rápido e com jornada focada no WhatsApp.</div></li>
+                            <li><i class="fa-solid fa-check"></i> <div><strong>Tour Virtual Street View (Padrão):</strong> Integração com ecossistema Google para aumentar a confiança.</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. UPGRADE PREMIUM -->
+            <section class="section" style="background: url('IMG/Avila 3.jpg') center/cover fixed no-repeat; position: relative;">
+                <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: linear-gradient(135deg, rgba(80, 200, 120, 0.95), rgba(30, 80, 50, 0.98));"></div>
+                <div class="container text-center" style="position: relative; z-index: 2;">
+                    <h2 style="font-size: clamp(2rem, 5vw, 2.8rem); color: #fff; margin-bottom: 20px;">Upgrade: Tour Virtual Interativo 360º</h2>
+                    <p style="color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto 40px; font-size: 1.15rem;">A diferença entre apenas mostrar o seu espaço e <strong>realmente impressionar</strong> o cliente Premium.</p>
+                    
+                    <div style="background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.2); padding: clamp(25px, 5vw, 40px); border-radius: 20px; max-width: 800px; margin: 0 auto; backdrop-filter: blur(10px); text-align: left;">
+                        <ul style="list-style: none; padding: 0; margin-bottom: 30px;">
+                            <li style="color: #fff; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 15px;"><i class="fa-solid fa-vr-cardboard" style="color: #50c878; font-size: 1.5rem;"></i> Navegação Imersiva VIP inspirada em grandes projetos (Construção Civil/Estádios)</li>
+                            <li style="color: #fff; padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; gap: 15px;"><i class="fa-solid fa-music" style="color: #50c878; font-size: 1.5rem;"></i> Música ambiente e locução personalizada para reter a atenção</li>
+                            <li style="color: #fff; padding: 12px 0; display: flex; align-items: center; gap: 15px;"><i class="fa-solid fa-hand-pointer" style="color: #50c878; font-size: 1.5rem;"></i> Menu Lateral Interativo e Pontos de Informação Clicáveis nos produtos</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 4. RASTREAMENTO DE DADOS -->
+            <section class="section bg-light" style="padding-bottom: 20px;">
+                <div class="container text-center">
+                    <h2 style="font-size: 2.2rem; color: #1f4d45; margin-bottom: 20px;">Rastreamento e Inteligência (Data Drive)</h2>
+                    <p style="color: #666; font-size: 1.05rem; max-width: 800px; margin: 0 auto 30px;">Instalamos sensores invisíveis (Google Analytics, Tag Manager, Pixel da Meta e Pixel Google Ads) para rastrear o comportamento anonimizado de quem entra no seu site. Decisões baseadas em números, não em achismos.</p>
+                </div>
+            </section>
+
+            <!-- 5. TRÁFEGO PAGO -->
+            <section class="section" style="background: #fff; border-top: 1px solid #eee;">
+                <div class="container text-center">
+                    <span style="background: rgba(255, 107, 107, 0.1); color: #ff6b6b; padding: 6px 15px; border-radius: 5px; font-size: 0.85rem; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; display: inline-block;">ACELERAÇÃO DE VENDAS</span>
+                    <h2 style="font-size: clamp(2rem, 5vw, 2.5rem); color: #1f4d45; margin-bottom: 20px;">Tráfego Pago (Google Ads & Meta Ads)</h2>
+                    <p style="color: #666; font-size: 1.1rem; max-width: 700px; margin: 0 auto 40px;">Criação e otimização milimétrica de campanhas focadas puramente em atrair contatos qualificados e orçamento para a loja.</p>
+                    
+                    <div style="background: #fafafa; border: 1px solid #eaeaea; border-radius: 20px; padding: clamp(25px, 5vw, 40px); display: inline-block; text-align: left; box-shadow: 0 10px 30px rgba(0,0,0,0.03);">
+                        <p style="text-decoration: line-through; color: #aaa; font-size: 1.2rem; margin-bottom: 5px;">De R$ 1.500,00/mês</p>
+                        <p style="font-size: clamp(2rem, 6vw, 3rem); font-weight: 900; color: #ff6b6b; margin-bottom: 5px; white-space: nowrap;">Por R$&nbsp;1.200,00<span style="font-size: 1rem; color: #666;">/mês</span></p>
+                        <p style="color: #666; font-size: 0.95rem;">(Valor Especial Adquirindo Junto com o Plano Gold)</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 6. BÔNUS SECTION -->
+            <section class="section bg-light" id="bonus-section" style="border-top: 1px solid #eee;">
+                <div class="container">
+                    <div class="text-center" style="margin-bottom: 50px;">
+                        <span class="label" style="background: #1f4d45; color: white; letter-spacing: 2px;">ARSENAL ESTRATÉGICO</span>
+                        <h2 style="font-size: clamp(1.8rem, 4vw, 2.5rem); color: #1f4d45; margin-top: 15px;">6 Bônus Exclusivos Blum Digital</h2>
+                        <p style="font-weight: 700; color: #5fa79b; font-size: 1.1rem;">(Investimento Zero nesta Rodada)</p>
+                    </div>
+
+                    <div class="bonus-grid-v2">
+                        <div class="bonus-card-v2">
+                            <i class="fa-solid fa-mobile-screen"></i>
+                            <h3 style="color: #1f4d45; margin-bottom: 10px; font-size: 1.15rem;">8x Totens Personalizados</h3>
+                            <p style="color: #666; font-size: 0.95rem;">4 de aproximação (NFC) nas mesas/balcão para disparar avaliações 5 estrelas no Google Meu Negócio, e 4 físicos direcionando para o Instagram.</p>
+                        </div>
+                        <div class="bonus-card-v2">
+                            <i class="fa-solid fa-helicopter"></i>
+                            <h3 style="color: #1f4d45; margin-bottom: 10px; font-size: 1.15rem;">Gravação Externa (Drone)</h3>
+                            <p style="color: #666; font-size: 0.95rem;">Aero-vídeo profissional destacando a grandiosidade e acessibilidade da fachada da R. Henrique Lage.</p>
+                        </div>
+                        <div class="bonus-card-v2">
+                            <i class="fa-solid fa-bolt"></i>
+                            <h3 style="color: #1f4d45; margin-bottom: 10px; font-size: 1.15rem;">Pack Ofertas Relâmpago</h3>
+                            <p style="color: #666; font-size: 0.95rem;">Templates pré-prontos de alta conversão para você disparar e alavancar vendas rapidamente em dias específicos.</p>
+                        </div>
+                        <div class="bonus-card-v2">
+                            <i class="fa-solid fa-comment-dots"></i>
+                            <h3 style="color: #1f4d45; margin-bottom: 10px; font-size: 1.15rem;">Manual de SAC</h3>
+                            <p style="color: #666; font-size: 0.95rem;">Scripts de vendas e quebra de objeções prontos para WhatsApp, Direct e comentários nas redes sociais.</p>
+                        </div>
+                        <div class="bonus-card-v2">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <h3 style="color: #1f4d45; margin-bottom: 10px; font-size: 1.15rem;">Monitoramento GMB Check</h3>
+                            <p style="color: #666; font-size: 0.95rem;">Raio-X que monitora a sua autoridade real no Google e a distância que você está frente aos seus concorrentes locais.</p>
+                        </div>
+                        <div class="bonus-card-v2">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <h3 style="color: #1f4d45; margin-bottom: 10px; font-size: 1.15rem;">Suporte Técnico Prioritário</h3>
+                            <p style="color: #666; font-size: 0.95rem;">Acesso direto à direção Blum Digital para blindagem e resolução relâmpago de qualquer impecílio digital.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 7. FECHAMENTO FINANCEIRO -->
+            <section class="section" style="background: linear-gradient(145deg, #0a0f18 0%, #030508 100%);">
+                <div class="container">
+                    <div class="financial-summary" style="margin: 0 auto; box-shadow: 0 40px 80px rgba(80, 200, 120, 0.1);">
+                        <h2 style="font-size: 2.2rem; margin-bottom: 40px;">Projeção de Investimento</h2>
+                        
+                        <div style="text-align: left; background: rgba(0,0,0,0.4); padding: clamp(20px, 4vw, 30px); border-radius: 15px; margin-bottom: 30px; font-size: clamp(1rem, 3vw, 1.15rem); border: 1px solid rgba(80,200,120,0.2);">
+                            
+                            <h4 style="color: #50c878; margin-bottom: 15px; border-bottom: 1px solid rgba(80,200,120,0.3); padding-bottom: 10px;">SETUP INICIAL (Base + Desenvolvimento)</h4>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: #fff;">
+                                <span>1. Implantação do Plano Gold</span>
+                                <strong style="white-space: nowrap;">R$&nbsp;1.879,00</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 25px; color: rgba(255,255,255,0.7); font-size: 0.95em;">
+                                <span>2. Upgrade Premium Tour 360 (Opcional)</span>
+                                <strong style="white-space: nowrap;">+ R$&nbsp;800,00</strong>
+                            </div>
+                            
+                            <h4 style="color: #50c878; margin-bottom: 15px; border-bottom: 1px solid rgba(80,200,120,0.3); padding-bottom: 10px;">RECORRÊNCIA MENSAL (Manutenção)</h4>
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 10px; color: #fff;">
+                                <span>1. Consultoria, Relatórios Inteligentes e Hospedagem</span>
+                                <strong style="white-space: nowrap;">R$&nbsp;497,00/mês</strong>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; color: #fff;">
+                                <span>2. Gestão de Tráfego Pago Master (Opcional)</span>
+                                <strong style="white-space: nowrap;">R$&nbsp;1.200,00/mês</strong>
+                            </div>
+                        </div>
+
+                        <div class="installment" style="background: rgba(80, 200, 120, 0.15); border: 1px solid #50c878; margin-top: 10px; margin-bottom: 0;">
+                            <i class="fa-solid fa-handshake" style="margin-right: 10px; color: #50c878;"></i>
+                            Setup Base parcelável em 10x s/ acréscimo
+                        </div>
+
+                        <!-- COUNTDOWN OFFER -->
+                        <div class="offer-countdown-box" style="margin-top: 60px; background: rgba(80, 200, 120, 0.05); border: 1px solid rgba(80, 200, 120, 0.2); border-radius: 20px; padding: clamp(25px, 5vw, 40px); text-align: center;">
+                            <p style="color: #50c878; font-weight: 900; letter-spacing: 1px; margin-bottom: 25px; font-size: 1.25rem; text-transform: uppercase;"><i class="fa-solid fa-hourglass-half"></i> Disparador de Prioridade</p>
+                            <p style="color: #ddd; font-size: 1.15rem; margin-bottom: 35px;">A autorização para reserva de equipe de desenvolvimento e captura perante nossa fila de clientes é confirmada via aceite no link abaixo.</p>
+
+                            <a href="https://wa.me/5548992212339?text=Olá, Daniel! Acabei de mapear toda a proposta estrutural para a Ávila Cortinas. Vamos avançar com o Setup do Plano Gold e o Tour Virtual!" id="countdown-link-btn"
+                                target="_blank" style="display: block; background: #50c878; color: #111; border-radius: 15px; padding: 25px 15px; text-decoration: none; box-shadow: 0 10px 30px rgba(80, 200, 120, 0.4); transition: transform 0.3s ease; font-weight: 900; font-size: clamp(1rem, 3vw, 1.25rem); text-transform: uppercase;">
+                                APROVAR PROPOSTA <i class="fa-brands fa-whatsapp" style="margin-left: 8px;"></i>
+                            </a>
+                            <a href="https://wa.me/5548992212339" style="display: block; color: rgba(255,255,255,0.5); font-size: 0.95rem; margin-top: 20px; font-weight: 600; text-decoration: underline;">Tenho algumas dúvidas, falar no WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- ========== 10. FOOTER PREMIUM ========== -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <div>
+                        <img src="IMG/Logo_Blum_DEFINITIVO.2 sem fundo.png" alt="Blum Digital" class="logo-main"
+                            style="height: 110px !important; width: auto !important; max-width: none !important; display: block; filter: brightness(1.3) contrast(1.3);"
+                            onerror="this.src='IMG/Faviquinho.png';">
+                        <p style="margin-top: 10px; font-size: 0.95rem;">
+                            A verdadeira engenharia por trás do crescimento exponencial para empresas B2B e High Ticket.
+                        </p>
+                    </div>
+                    <div>
+                        <h3>Institucional</h3>
+                        <a href="index.html">Home</a>
+                        <a href="sobre.html">A Blum Digital</a>
+                        <a href="servicos.html">Nossas Soluções</a>
+                        <a href="portfolio.html">Portfólio de Cases</a>
+                        <a href="blog.html">Blog Executivo</a>
+                    </div>
+                    <div>
+                        <h3>Informações Legais</h3>
+                        <a href="termos-de-uso.html">Termos de Uso</a>
+                        <a href="politica-privacidade.html">Política de Privacidade</a>
+                        <a href="ajuda.html">Central de Ajuda</a>
+                    </div>
+                    <div>
+                        <h3>Redes de Contato</h3>
+                        <a href="https://instagram.com/digitalblum" target="_blank" rel="noopener"><i
+                                class="fa-brands fa-instagram"></i> Instagram</a>
+                        <a href="https://www.facebook.com/profile.php?id=61585496251523" target="_blank" rel="noopener"><i
+                                class="fa-brands fa-facebook"></i> Facebook</a>
+                        <a href="https://wa.me/5548992212339" target="_blank" rel="noopener"><i
+                                class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+                        <a href="mailto:pdanielblum@gmail.com"><i class="fa-regular fa-envelope"></i> Enviar Email</a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2026 Blum Digital | Criciúma, SC | Seg-Sex 09:00-18:00 | Todos os Direitos Reservados.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JS LOGIC FOR GATE -->
+    <script>
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('auth') === 'ok') {
+                document.getElementById("password-gate").classList.add("hidden");
+                document.getElementById("protected-content").style.display = "block";
+            }
+        };
+
+        function checkPassword() {
+            var input = document.getElementById("gate-pwd").value;
+            var errorMsg = document.getElementById("gate-error");
+            
+            // Senha requirida: Avila2026$
+            if (input === "Avila2026$") {
+                document.getElementById("password-gate").classList.add("hidden");
+                document.getElementById("protected-content").style.display = "block";
+                window.scrollTo(0,0);
+            } else {
+                errorMsg.style.display = "block";
+                document.getElementById("gate-pwd").style.borderColor = "#ff6b6b";
+            }
+        }
+
+        function handleEnter(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        }
+    </script>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            /* ========== 1. PERSISTENT COUNTDOWN (localStorage) ========== */
+            function startProposalCountdown() {
+                const daysEl = document.getElementById('prop-cd-days');
+                const hoursEl = document.getElementById('prop-cd-hours');
+                const minsEl = document.getElementById('prop-cd-minutes');
+                const secsEl = document.getElementById('prop-cd-seconds');
+                const btnLabel = document.getElementById('countdown-btn-text');
+                const linkBtn = document.getElementById('countdown-link-btn');
+
+                if (!daysEl) return;
+
+                const STORAGE_KEY = 'proposta_asia_countdown_end';
+                const THREE_DAYS_MS = 3 * 24 * 60 * 60 * 1000;
+
+                // First visit? Set the deadline
+                let endTime = localStorage.getItem(STORAGE_KEY);
+                if (!endTime) {
+                    endTime = Date.now() + THREE_DAYS_MS;
+                    localStorage.setItem(STORAGE_KEY, endTime);
+                } else {
+                    endTime = parseInt(endTime, 10);
+                }
+
+                function updateDisplay() {
+                    const now = Date.now();
+                    let remaining = Math.floor((endTime - now) / 1000);
+
+                    if (remaining <= 0) {
+                        clearInterval(ticker);
+                        daysEl.innerText = '00';
+                        hoursEl.innerText = '00';
+                        minsEl.innerText = '00';
+                        secsEl.innerText = '00';
+
+                        if (btnLabel) {
+                            btnLabel.innerHTML = 'OFERTA EXPIRADA \u2014 SOLICITAR REVIS\u00c3O <i class="fa-solid fa-lock"></i>';
+                            btnLabel.style.color = '#ff6b6b';
+                            btnLabel.style.background = 'rgba(255, 107, 107, 0.1)';
+                            linkBtn.style.borderColor = 'rgba(255, 107, 107, 0.3)';
+                        }
+                        const expiredMsg = encodeURIComponent('Ol\u00e1, Daniel. Perdi o prazo dos 15% OFF, mas gostaria de avan\u00e7ar com a proposta no valor padr\u00e3o.');
+                        linkBtn.href = 'https://wa.me/5548992212339?text=' + expiredMsg;
+                        return;
+                    }
+
+                    const d = Math.floor(remaining / 86400);
+                    const h = Math.floor((remaining % 86400) / 3600);
+                    const m = Math.floor((remaining % 3600) / 60);
+                    const s = remaining % 60;
+
+                    daysEl.innerText = d.toString().padStart(2, '0');
+                    hoursEl.innerText = h.toString().padStart(2, '0');
+                    minsEl.innerText = m.toString().padStart(2, '0');
+                    secsEl.innerText = s.toString().padStart(2, '0');
+                }
+
+                updateDisplay();
+                const ticker = setInterval(updateDisplay, 1000);
+            }
+
+            startProposalCountdown();
+
+            /* ========== 2. VISITOR TRACKING + EMAIL NOTIFICATION ========== */
+            (function notifyVisit() {
+                const VISIT_KEY = 'proposta_avila_notified';
+                if (sessionStorage.getItem(VISIT_KEY)) return;
+
+                const visitData = {
+                    title: '🚨 NOVO ACESSO: Proposta Ávila Cortinas e Persianas',
+                    timestamp: new Date().toLocaleString('pt-BR', { timeZone: 'America/Sao_Paulo' }),
+                    device: /Mobi|Android/i.test(navigator.userAgent) ? 'Mobile' : 'Desktop',
+                    referrer: document.referrer || 'Acesso direto',
+                    link: window.location.href
+                };
+
+                // FormSubmit.co: Direct email notification to the user
+                fetch("https://formsubmit.co/ajax/pdanielblum@gmail.com", {
+                    method: "POST",
+                    headers: { 
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        _subject: "🚨 ACESSO DETECTADO: Ávila Cortinas",
+                        "Data/Hora": visitData.timestamp,
+                        "Dispositivo": visitData.device,
+                        "Origem": visitData.referrer,
+                        "URL": visitData.link,
+                        _captcha: "false"
+                    })
+                })
+                .then(response => console.log('Notificação enviada.'))
+                .catch(error => console.log('Erro ao notificar.'));
+
+                sessionStorage.setItem(VISIT_KEY, 'true');
+            })();
+
+        });
+    </script>
+</body>
+</html>

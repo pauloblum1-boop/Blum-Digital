@@ -705,11 +705,14 @@
             var input = document.getElementById("gate-pwd").value;
             var errorMsg = document.getElementById("gate-error");
             
-            // Senha requirida: Asia2026$
+            // Validador Universal de Propostas
             if (input === "Asia2026$") {
                 document.getElementById("password-gate").classList.add("hidden");
                 document.getElementById("protected-content").style.display = "block";
                 window.scrollTo(0,0);
+            } else if (input === "Avila2026$") {
+                // Redireciona com flag de autenticação local para a proposta separada
+                window.location.href = "proposta-avila.html?auth=ok";
             } else {
                 errorMsg.style.display = "block";
                 document.getElementById("gate-pwd").style.borderColor = "#ff6b6b";

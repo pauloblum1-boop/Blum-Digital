@@ -2072,7 +2072,11 @@ h3 {
 .about-hero {
     position: relative;
     background: url('../IMG/Hero_Sobre.png') no-repeat center center / cover;
-    padding: 180px 0 140px;
+    padding: 120px 0;
+    min-height: calc(100vh - var(--nav-h));
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
     text-align: center;
     overflow: hidden;
@@ -2093,7 +2097,11 @@ h3 {
 .services-hero {
     position: relative;
     background: url('../IMG/Hero_Servicos.png') no-repeat center center / cover;
-    padding: 180px 0 140px;
+    padding: 120px 0;
+    min-height: calc(100vh - var(--nav-h));
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
     text-align: center;
     overflow: hidden;
@@ -2114,7 +2122,11 @@ h3 {
 .portfolio-hero {
     position: relative;
     background: url('../IMG/Hero_Portfolio.png') no-repeat center center / cover;
-    padding: 180px 0 140px;
+    padding: 120px 0;
+    min-height: calc(100vh - var(--nav-h));
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: white;
     text-align: center;
     overflow: hidden;
@@ -2136,8 +2148,8 @@ h3 {
     position: relative;
     background: url('../IMG/Hero_Blog.png') no-repeat bottom center / cover;
     background-attachment: fixed;
-    padding: calc(var(--nav-h) + 160px) 0 160px;
-    min-height: 70vh;
+    padding: 120px 0;
+    min-height: calc(100vh - var(--nav-h));
     display: flex;
     align-items: center;
     justify-content: center;

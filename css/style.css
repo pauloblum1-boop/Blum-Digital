@@ -479,6 +479,10 @@ h3 {
     position: relative;
     padding-top: calc(var(--nav-h) + 120px);
     padding-bottom: 140px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: var(--secondary);
     background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.85)),
         url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2000&auto=format&fit=crop');

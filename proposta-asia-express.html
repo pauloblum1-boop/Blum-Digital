@@ -2,8 +2,51 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proposta Comercial - Ásia Express</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        .site-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: #0f0f10;
+            z-index: 9999;
+            padding: 0 24px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            box-sizing: border-box;
+        }
+        .site-nav a {
+            color: rgba(255,255,255,0.75);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        .site-nav a:hover { color: #fff; }
+        .site-nav .nav-logo-text {
+            font-weight: 800;
+            color: #fff;
+            margin-right: auto;
+            font-size: 1rem;
+            letter-spacing: -0.5px;
+        }
+        .site-nav .nav-socio-link {
+            color: #50C878 !important;
+            font-weight: 700;
+        }
+        @media print {
+            .site-nav { display: none; }
+            body { padding-top: 0 !important; }
+        }
         :root {
             --deep-teal: #1F4D45;
             --medium-green: #2E6A5F;
@@ -16,7 +59,7 @@
         body {
             font-family: 'Inter', sans-serif;
             margin: 0;
-            padding: 0;
+            padding-top: 60px;
             background-color: var(--light-gray);
             color: var(--soft-black);
             line-height: 1.6;
@@ -287,6 +330,16 @@
     </style>
 </head>
 <body>
+
+    <!-- NAVBAR -->
+    <nav class="site-nav">
+        <a href="index.html" class="nav-logo-text">Blum Digital</a>
+        <a href="index.html">Home</a>
+        <a href="servicos.html">Serviços</a>
+        <a href="socio-digital.html" class="nav-socio-link">Sócio Digital</a>
+        <a href="propostas.html">Propostas</a>
+        <a href="blog.html">Blog</a>
+    </nav>
 
     <!-- PÁGINA 1: CAPA -->
     <div class="page page-cover">

@@ -1818,9 +1818,12 @@ h1, h2, h3, h4, h5, h6 {
       rgba(11,6,24,.6) 100%
     );
   }
-  /* No mobile o leão fica centralizado (no desktop fica à direita) */
-  .h-slide--pos-right {
-    object-position: 68% center;
+  /* No mobile/tablet o leão fica visível à direita */
+  .h-slide--pos-right,
+  .h-slide--pos-hero00,
+  .h-slide--pos-hero01,
+  .h-slide--pos-hero03 {
+    object-position: 82% center;
   }
 }
 

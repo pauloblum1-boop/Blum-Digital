@@ -160,6 +160,7 @@
 }
 </script>
   <!-- ?????????????????????????????????????????????????????? -->
+  <link rel="preload" as="image" href="/assets/img/herosocio.webp" fetchpriority="high" />
 </head>
 
 <body class="font-body bg-dark text-white overflow-x-hidden" style="background:#0A0A0F;">
@@ -218,7 +219,7 @@
     style="top: 80px; left: 16px; right: 16px;"
   >
     <div class="px-6 pt-5 pb-4 border-b border-border">
-      <img src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
+      <img loading="eager" src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
     </div>
     <nav class="flex flex-col px-6 py-4 gap-1">
       <a @click="open=false" href="/" class="mobile-nav-item">Início</a>
@@ -356,7 +357,7 @@
 <section id="sd-hero" class="sd-hero" aria-label="Hero Sócio Digital">
 
   <!-- Imagem de fundo hero -->
-  <img src="/assets/img/herosocio.webp" alt="" role="presentation"
+  <img loading="eager" srcset="/assets/img/herosocio-480w.webp 480w, /assets/img/herosocio-960w.webp 960w, /assets/img/herosocio.webp 1440w" sizes="(max-width:480px) 480px, (max-width:960px) 960px, 1440px" src="/assets/img/herosocio.webp" alt="" role="presentation"
     style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:65% center;z-index:0;animation:imgBreath 8s ease-in-out infinite;opacity:0.55;" />
   <!-- Overlay gradiente esquerda para legibilidade -->
   <div style="position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(10,10,15,0.97) 0%,rgba(10,10,15,0.90) 30%,rgba(10,10,15,0.60) 55%,rgba(10,10,15,0.15) 75%,transparent 100%),linear-gradient(180deg,rgba(10,10,15,0.5) 0%,transparent 20%,transparent 80%,rgba(10,10,15,0.6) 100%);pointer-events:none;"></div>

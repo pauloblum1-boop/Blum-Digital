@@ -476,6 +476,7 @@
 }
 </script>
   <!-- ══════════════════════════════════════════════════════ -->
+  <link rel="preload" as="image" href="/assets/img/heroblog.webp" fetchpriority="high" />
 </head>
 
 <body class="font-body bg-cream text-ink overflow-x-hidden">
@@ -516,7 +517,7 @@
     class="pointer-events-auto lg:hidden absolute bg-white rounded-3xl shadow-2xl border border-border overflow-hidden"
     style="top: 80px; left: 16px; right: 16px;">
     <div class="px-6 pt-5 pb-4 border-b border-border">
-      <img src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
+      <img loading="eager" src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
     </div>
     <nav class="flex flex-col px-6 py-4 gap-1">
       <a @click="open=false" href="/" class="mobile-nav-item">Início</a>
@@ -535,7 +536,7 @@
 
 <!-- ════════════════════════════════ HERO INTERNO ══ -->
 <section class="inner-hero">
-  <img src="/assets/img/heroblog.webp" alt="" role="presentation"
+  <img loading="eager" srcset="/assets/img/heroblog-480w.webp 480w, /assets/img/heroblog-960w.webp 960w, /assets/img/heroblog.webp 1440w" sizes="(max-width:480px) 480px, (max-width:960px) 960px, 1440px" src="/assets/img/heroblog.webp" alt="" role="presentation"
     style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0;animation:imgBreath 8s ease-in-out infinite;" />
   <div class="inner-hero-overlay" aria-hidden="true"></div>
   <div class="inner-hero-mesh" aria-hidden="true"></div>
@@ -572,7 +573,7 @@
 
     <a href="/blog/5-razoes-empresas-criciuma-perdem-clientes-google" class="featured-card reveal" style="display:grid;text-decoration:none;">
       <div class="featured-thumb">
-        <img src="/assets/img/card1.webp" alt="5 razões pelas quais empresas perdem clientes no Google" />
+        <img loading="lazy" srcset="/assets/img/card1-480w.webp 480w, /assets/img/card1-960w.webp 960w, /assets/img/card1.webp 1440w" sizes="(max-width:480px) 480px, (max-width:960px) 960px, 1440px" src="/assets/img/card1.webp" alt="5 razões pelas quais empresas perdem clientes no Google" />
         <span class="featured-badge">✦ Destaque</span>
       </div>
       <div class="featured-body">
@@ -580,7 +581,7 @@
         <h2 class="featured-title">5 razões pelas quais empresas de Criciúma perdem clientes para o concorrente no Google — e como reverter isso</h2>
         <p class="featured-excerpt">Perfil incompleto, sem avaliações, sem fotos atualizadas. Esses são apenas alguns dos erros que empurram seus clientes direto para o concorrente. Veja o que mudar hoje.</p>
         <div class="featured-meta">
-          <img src="/assets/img/daniel_ceo.webp" alt="Paulo Daniel Blum" />
+          <img loading="lazy" src="/assets/img/daniel_ceo.webp" alt="Paulo Daniel Blum" />
           <div>
             <span style="font-weight:600;font-size:.8125rem;color:rgba(255,255,255,.75);display:block;">Paulo Daniel Blum</span>
             <span style="font-size:.75rem;color:rgba(255,255,255,.35);">18 Mai 2026 &bull; 7 min de leitura</span>
@@ -669,7 +670,7 @@
               <h3 class="blog-sl-title" x-text="post.title"></h3>
               <p class="blog-sl-excerpt" x-text="post.excerpt"></p>
               <div class="blog-sl-meta">
-                <img src="/assets/img/daniel_ceo.webp" alt="Paulo Daniel Blum" />
+                <img loading="lazy" src="/assets/img/daniel_ceo.webp" alt="Paulo Daniel Blum" />
                 <div>
                   <span class="blog-sl-meta-name">Paulo Daniel Blum</span>
                   <span class="blog-sl-meta-date" x-text="post.date + ' · ' + post.time + ' de leitura'"></span>

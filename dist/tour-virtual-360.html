@@ -166,6 +166,7 @@
 }
 </script>
   <!-- ═.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.— -->
+  <link rel="preload" as="image" href="/assets/img/hero360.webp" fetchpriority="high" />
 </head>
 
 <body class="font-body bg-cream text-ink overflow-x-hidden">
@@ -224,7 +225,7 @@
     style="top: 80px; left: 16px; right: 16px;"
   >
     <div class="px-6 pt-5 pb-4 border-b border-border">
-      <img src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
+      <img loading="eager" src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
     </div>
     <nav class="flex flex-col px-6 py-4 gap-1">
       <a @click="open=false" href="/" class="mobile-nav-item">Início</a>
@@ -247,7 +248,7 @@
 
 <!-- ═.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.══.— HERO INTERNO ═.══.— -->
 <section class="inner-hero">
-  <img src="/assets/img/hero360.webp" alt="" role="presentation"
+  <img loading="eager" srcset="/assets/img/hero360-480w.webp 480w, /assets/img/hero360-960w.webp 960w, /assets/img/hero360.webp 1440w" sizes="(max-width:480px) 480px, (max-width:960px) 960px, 1440px" src="/assets/img/hero360.webp" alt="" role="presentation"
     style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:65% center;z-index:0;animation:imgBreath 8s ease-in-out infinite;" />
   <div class="inner-hero-overlay" aria-hidden="true"></div>
   <div class="inner-hero-mesh" aria-hidden="true"></div>

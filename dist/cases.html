@@ -149,6 +149,7 @@
 }
 </script>
   <!-- ══════════════════════════════════════════════════════ -->
+  <link rel="preload" as="image" href="/assets/img/casosdesucesso.webp" fetchpriority="high" />
 </head>
 
 <body class="font-body bg-cream text-ink overflow-x-hidden">
@@ -196,7 +197,7 @@
     class="pointer-events-auto lg:hidden absolute bg-white rounded-3xl shadow-2xl border border-border overflow-hidden"
     style="top: 80px; left: 16px; right: 16px;">
     <div class="px-6 pt-5 pb-4 border-b border-border">
-      <img src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
+      <img loading="eager" src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
     </div>
     <nav class="flex flex-col px-6 py-4 gap-1">
       <a @click="open=false" href="/" class="mobile-nav-item">Início</a>
@@ -216,7 +217,7 @@
 
 <!-- ════════════════════════════════ HERO ══ -->
 <section class="inner-hero" id="cs-hero">
-  <img src="/assets/img/casosdesucesso.webp" alt="" role="presentation"
+  <img loading="lazy" srcset="/assets/img/casosdesucesso-480w.webp 480w, /assets/img/casosdesucesso-960w.webp 960w, /assets/img/casosdesucesso.webp 1440w" sizes="(max-width:480px) 480px, (max-width:960px) 960px, 1440px" src="/assets/img/casosdesucesso.webp" alt="" role="presentation"
     style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center center;z-index:0;animation:imgBreath 8s ease-in-out infinite;" />
   <div class="inner-hero-overlay" aria-hidden="true"></div>
   <div class="inner-hero-mesh" aria-hidden="true"></div>
@@ -326,7 +327,7 @@
       <a href="/cases/avila-cortinas-e-persianas" class="cs-card-link" aria-label="Ver case completo da Ávila Cortinas e Persianas">
       <article class="cs-card cs-card--clickable reveal" data-filtros="google seo site posicionamento">
         <div class="cs-img-wrap" style="position:relative;overflow:hidden;">
-          <img src="/assets/img/avilafaixada.webp" alt="Ávila Cortinas e Persianas — fachada da loja" class="cs-img cs-img--hover" style="object-position:center 30%;">
+          <img loading="lazy" srcset="/assets/img/avilafaixada-480w.webp 480w, /assets/img/avilafaixada-960w.webp 960w, /assets/img/avilafaixada.webp 1440w" sizes="(max-width:480px) 480px, (max-width:960px) 960px, 1440px" src="/assets/img/avilafaixada.webp" alt="Ávila Cortinas e Persianas — fachada da loja" class="cs-img cs-img--hover" style="object-position:center 30%;">
           <div class="cs-img-shine" aria-hidden="true"></div>
           <span style="position:absolute;top:14px;right:14px;z-index:2;font-size:0.6875rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 13px;border-radius:99px;background:rgba(255,122,24,0.18);color:#FFAB60;border:1px solid rgba(255,122,24,0.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);">Case completo →</span>
         </div>

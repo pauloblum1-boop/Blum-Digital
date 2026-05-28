@@ -167,6 +167,7 @@
 }
 </script>
   <!-- ?????????????????????????????????????????????????????? -->
+  <link rel="preload" as="image" href="/assets/img/hero-bg.webp" fetchpriority="high" />
 </head>
 
 <body class="font-body bg-cream text-ink overflow-x-hidden">
@@ -225,7 +226,7 @@
     style="top: 80px; left: 16px; right: 16px;"
   >
     <div class="px-6 pt-5 pb-4 border-b border-border">
-      <img src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
+      <img loading="eager" src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
     </div>
     <nav class="flex flex-col px-6 py-4 gap-1">
       <a @click="open=false" href="/" class="mobile-nav-item">Início</a>
@@ -248,7 +249,7 @@
 
 <!-- ???????????????????????????????? HERO INTERNO ?? -->
 <section class="inner-hero">
-  <img src="/assets/img/hero-bg2.webp" alt="" role="presentation" class="inner-hero-bg inner-hero-bg--authority" loading="eager" />
+  <img srcset="/assets/img/hero-bg2-480w.webp 480w, /assets/img/hero-bg2-960w.webp 960w, /assets/img/hero-bg2.webp 1440w" sizes="(max-width:480px) 480px, (max-width:960px) 960px, 1440px" src="/assets/img/hero-bg2.webp" alt="" role="presentation" class="inner-hero-bg inner-hero-bg--authority" loading="eager" />
   <div class="inner-hero-overlay" aria-hidden="true"></div>
   <div class="inner-hero-mesh" aria-hidden="true"></div>
   <div class="container-wrap" style="max-width:none;margin-left:0;padding-left:clamp(60px,10%,180px);padding-right:0;">
@@ -291,7 +292,7 @@
         <div class="name-box">
           <p class="name-box-quote">"Authority significa autoridade. Este plano foi pensado para empresas que não querem apenas estar presentes no digital, mas serem percebidas como referência, transmitindo confiança, valor e profissionalismo em cada ponto de contato com o cliente."</p>
           <div class="mt-6 pt-5 border-t border-white/10 flex items-center gap-3">
-            <img src="/assets/img/daniel_ceo.webp" alt="Paulo Daniel Blum" class="ceo-avatar" />
+            <img loading="lazy" src="/assets/img/daniel_ceo.webp" alt="Paulo Daniel Blum" class="ceo-avatar" />
             <div>
               <p class="ceo-name">Paulo Daniel Blum</p>
               <p class="ceo-role">CEO &amp; Fundador - BLUM Digital</p>

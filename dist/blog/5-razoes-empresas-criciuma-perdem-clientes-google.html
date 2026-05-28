@@ -315,7 +315,7 @@
   <div x-show="open" x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-3" x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"
     class="pointer-events-auto lg:hidden absolute bg-white rounded-3xl shadow-2xl border border-border overflow-hidden" style="top:80px;left:16px;right:16px;">
     <div class="px-6 pt-5 pb-4 border-b border-border">
-      <img src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
+      <img loading="eager" src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
     </div>
     <nav class="flex flex-col px-6 py-4 gap-1">
       <a @click="open=false" href="/" class="mobile-nav-item">Início</a>
@@ -349,7 +349,7 @@
     <p class="post-excerpt-hero">Perfil incompleto, sem avaliações, sem fotos atualizadas. Esses são apenas alguns dos erros que empurram seus clientes direto para o concorrente. Veja o que mudar hoje.</p>
 
     <div class="post-meta-bar">
-      <img src="/assets/img/daniel_ceo.webp" alt="Paulo Daniel Blum" />
+      <img loading="lazy" src="/assets/img/daniel_ceo.webp" alt="Paulo Daniel Blum" />
       <div>
         <div class="post-meta-author">Paulo Daniel Blum</div>
         <div class="post-meta-info">Fundador da BLUM Digital</div>
@@ -369,7 +369,7 @@
 
   <!-- Hero image -->
   <div class="post-wrap-wide">
-    <img src="/assets/img/card1.webp" alt="Google Meu Negócio em Criciúma — empresas que perdem clientes no Google" class="post-hero-img" />
+    <img loading="lazy" srcset="/assets/img/card1-480w.webp 480w, /assets/img/card1-960w.webp 960w, /assets/img/card1.webp 1440w" sizes="(max-width:480px) 480px, (max-width:960px) 960px, 1440px" src="/assets/img/card1.webp" alt="Google Meu Negócio em Criciúma — empresas que perdem clientes no Google" class="post-hero-img" />
   </div>
 </div>
 
@@ -692,7 +692,7 @@
 
       <!-- Author bio -->
       <div class="author-bio">
-        <img src="/assets/img/daniel_ceo.webp" alt="Paulo Daniel Blum — Fundador BLUM Digital" />
+        <img loading="lazy" src="/assets/img/daniel_ceo.webp" alt="Paulo Daniel Blum — Fundador BLUM Digital" />
         <div>
           <div class="author-bio-name">Paulo Daniel Blum</div>
           <div class="author-bio-role">Fundador &amp; Estrategista Digital — BLUM Digital</div>
@@ -709,21 +709,21 @@
       <h2 class="section-title reveal" style="margin-bottom:40px;">Continue lendo</h2>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <a href="/blog/quanto-custa-criar-site-profissional" class="related-card reveal">
-          <img src="/assets/img/card2.webp" alt="Quanto custa criar um site profissional" />
+          <img loading="lazy" srcset="/assets/img/card2-480w.webp 480w, /assets/img/card2-960w.webp 960w, /assets/img/card2.webp 1440w" sizes="(max-width:480px) 480px, (max-width:960px) 960px, 1440px" src="/assets/img/card2.webp" alt="Quanto custa criar um site profissional" />
           <div class="related-card-body">
             <span class="related-cat" style="color:#9333EA;">Criação de Sites</span>
             <div class="related-title">Quanto custa criar um site profissional? O que ninguém te conta sobre preço e valor</div>
           </div>
         </a>
         <a href="/blog/seo-local-vs-seo-nacional" class="related-card reveal" style="animation-delay:.08s">
-          <img src="/assets/img/heroseo.webp" alt="SEO Local vs SEO Nacional" />
+          <img loading="eager" srcset="/assets/img/heroseo-480w.webp 480w, /assets/img/heroseo-960w.webp 960w, /assets/img/heroseo.webp 1440w" sizes="(max-width:480px) 480px, (max-width:960px) 960px, 1440px" src="/assets/img/heroseo.webp" alt="SEO Local vs SEO Nacional" />
           <div class="related-card-body">
             <span class="related-cat" style="color:#059669;">SEO Local</span>
             <div class="related-title">SEO Local vs SEO Nacional: qual é o certo para o seu negócio em Criciúma?</div>
           </div>
         </a>
         <a href="/blog/google-ads-ou-meta-ads-negocios-locais" class="related-card reveal" style="animation-delay:.16s">
-          <img src="/assets/img/card3.webp" alt="Google Ads ou Meta Ads" />
+          <img loading="lazy" srcset="/assets/img/card3-480w.webp 480w, /assets/img/card3-960w.webp 960w, /assets/img/card3.webp 1440w" sizes="(max-width:480px) 480px, (max-width:960px) 960px, 1440px" src="/assets/img/card3.webp" alt="Google Ads ou Meta Ads" />
           <div class="related-card-body">
             <span class="related-cat" style="color:#2563EB;">Tráfego Pago</span>
             <div class="related-title">Google Ads ou Meta Ads: qual plataforma dá mais retorno para negócios locais em SC?</div>

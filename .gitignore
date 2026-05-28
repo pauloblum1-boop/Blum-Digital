@@ -7,3 +7,6 @@ dist/assets/img-backup-originals/
 optimize-images.js
 update-references.js
 optimize-report.json
+
+gen-responsive.js
+perf-html.js

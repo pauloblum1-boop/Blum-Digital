@@ -52,6 +52,7 @@
       }
     }
   </script>
+  <link rel="preload" as="image" href="/assets/img/casosdesucesso.webp" fetchpriority="high" />
 </head>
 
 <body class="font-body bg-cream text-ink overflow-x-hidden">
@@ -99,7 +100,7 @@
     class="pointer-events-auto lg:hidden absolute bg-white rounded-3xl shadow-2xl border border-border overflow-hidden"
     style="top: 80px; left: 16px; right: 16px;">
     <div class="px-6 pt-5 pb-4 border-b border-border">
-      <img src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
+      <img loading="eager" src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
     </div>
     <nav class="flex flex-col px-6 py-4 gap-1">
       <a @click="open=false" href="/" class="mobile-nav-item">Início</a>
@@ -203,7 +204,7 @@
       <!-- Case 1: Ávila Cortinas -->
       <article class="cs-card reveal" data-filtros="google seo site posicionamento">
         <div class="cs-img-wrap" style="position:relative;overflow:hidden;">
-          <img src="/assets/img/avilafaixada.webp" alt="Ávila Cortinas e Persianas — fachada da loja" class="cs-img" style="object-position:center 30%;">
+          <img loading="lazy" srcset="/assets/img/avilafaixada-480w.webp 480w, /assets/img/avilafaixada-960w.webp 960w, /assets/img/avilafaixada.webp 1440w" sizes="(max-width:480px) 480px, (max-width:960px) 960px, 1440px" src="/assets/img/avilafaixada.webp" alt="Ávila Cortinas e Persianas — fachada da loja" class="cs-img" style="object-position:center 30%;">
         </div>
         <div class="cs-body">
           <div class="cs-tags">

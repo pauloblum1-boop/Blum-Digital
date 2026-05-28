@@ -1703,11 +1703,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Descrição */
 .h-desc {
-  color: rgba(255,255,255,.55);
+  color: rgba(255,255,255,.85);
   font-size: 1.0625rem;
   line-height: 1.8;
   max-width: 440px;
   margin-bottom: 40px;
+  text-shadow: 0 1px 14px rgba(0,0,0,.65);
 }
 
 /* Botões */

@@ -3170,11 +3170,43 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 768px) {
   .inner-hero { padding-top: 100px; padding-bottom: 60px; }
   .inner-h1   { font-size: clamp(38px, 8vw, 56px); }
-  .inner-hero-btns { flex-direction: column; align-items: flex-start; }
+  .inner-hero-btns { flex-direction: column; align-items: center; }
   .included-grid { grid-template-columns: 1fr; }
   .results-grid  { grid-template-columns: repeat(2, 1fr); }
   .other-plans-grid { grid-template-columns: 1fr 1fr; }
   .name-box { padding: 1.75rem; }
+
+  /* ── Inner-hero mobile: centraliza conteúdo e melhora legibilidade ── */
+  .inner-hero .container-wrap {
+    padding-left: 24px !important;
+    padding-right: 24px !important;
+    max-width: 100% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  .inner-hero-content {
+    text-align: center;
+    max-width: 100%;
+  }
+  .inner-hero-eyebrow {
+    justify-content: center;
+  }
+  /* Subtítulo: drop-shadow funciona em texto gradiente (-webkit-text-fill-color: transparent) */
+  .inner-h2-sub {
+    filter: drop-shadow(0 2px 14px rgba(0,0,0,.90));
+  }
+  /* Descrição: mais opaca e com sombra para legibilidade sobre a imagem */
+  .inner-hero-desc {
+    color: rgba(255,255,255,.90);
+    text-shadow: 0 1px 12px rgba(0,0,0,.75);
+    max-width: 100%;
+  }
+  /* Overlay mais uniforme no mobile (conteúdo centralizado) */
+  .inner-hero-overlay {
+    background:
+      linear-gradient(180deg, rgba(5,3,18,0.55) 0%, transparent 25%, transparent 75%, rgba(5,3,18,0.60) 100%),
+      radial-gradient(ellipse 140% 100% at 50% 45%, rgba(5,3,18,0.78) 0%, rgba(5,3,18,0.40) 55%, transparent 80%);
+  }
 }
 
 /* ── Botões responsivos — correção global mobile ──────── */

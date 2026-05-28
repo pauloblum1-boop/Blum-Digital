@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://digitalblum.com/sitemap.xml

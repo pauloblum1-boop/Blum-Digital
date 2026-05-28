@@ -66,8 +66,8 @@
     <a href="/#planos"    class="nav-item">Planos</a>
     <a href="/cases"      class="nav-item">Cases</a>
     <a href="/blog"       class="nav-item">Blog</a>
-    <a href="/propostas"  class="nav-item" style="color:#FF7A18;font-weight:700;">Propostas</a>
     <a href="/socio-digital" class="nav-item nav-item--highlight">Sócio Digital</a>
+    <a href="/propostas"  class="nav-item" style="color:#FF7A18;font-weight:700;">Propostas Comerciais</a>
     <a href="/#faq"       class="nav-item">FAQ</a>
     <a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Tenho+interesse+na+proposta+HYPEFUL.+Pode+me+falar+mais%3F"
        target="_blank" rel="noopener noreferrer"
@@ -105,8 +105,8 @@
       <a @click="open=false" href="/#planos"    class="mobile-nav-item">Planos</a>
       <a @click="open=false" href="/cases"      class="mobile-nav-item">Cases</a>
       <a @click="open=false" href="/blog"       class="mobile-nav-item">Blog</a>
-      <a @click="open=false" href="/propostas"  class="mobile-nav-item" style="color:#FF7A18;font-weight:700;">Propostas</a>
       <a @click="open=false" href="/socio-digital" class="mobile-nav-item mobile-nav-item--highlight">Sócio Digital</a>
+      <a @click="open=false" href="/propostas"  class="mobile-nav-item" style="color:#FF7A18;font-weight:700;">Propostas Comerciais</a>
       <a @click="open=false" href="/#faq"       class="mobile-nav-item">FAQ</a>
       <a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Tenho+interesse+na+proposta+HYPEFUL.+Pode+me+falar+mais%3F"
          target="_blank" rel="noopener noreferrer"
@@ -501,7 +501,7 @@
     </div>
 
     <!-- Argumento do LTV -->
-    <div style="max-width:720px;margin:0 auto 2.5rem;display:flex;flex-direction:column;gap:1.25rem;" class="reveal" style="animation-delay:.1s;">
+    <div style="max-width:720px;margin:0 auto 2.5rem;display:flex;flex-direction:column;gap:1.25rem;animation-delay:.1s;" class="reveal">
 
       <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:1.25rem;padding:1.75rem 2rem;display:flex;gap:1.25rem;align-items:flex-start;">
         <div style="width:44px;height:44px;border-radius:.875rem;background:linear-gradient(135deg,#FF7A18,#FF3D77);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
@@ -530,7 +530,7 @@
     </div>
 
     <!-- Frase de fechamento -->
-    <div style="max-width:680px;margin:0 auto;" class="reveal" style="animation-delay:.2s;">
+    <div style="max-width:680px;margin:0 auto;animation-delay:.2s;" class="reveal">
       <div style="background:linear-gradient(135deg,rgba(255,122,24,.1),rgba(147,51,234,.12));border:1px solid rgba(255,122,24,.2);border-radius:1.5rem;padding:2.25rem;text-align:center;">
         <p style="font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(1rem,2.5vw,1.25rem);color:#fff;line-height:1.55;">
           "Você não está contratando um serviço.<br />
@@ -544,20 +544,21 @@
 </section>
 
 <!-- ══ CTA FINAL ══ -->
-<section style="background:#fff;padding:100px 0;">
-  <div class="container-wrap">
+<section style="background:linear-gradient(135deg,#FF7A18 0%,#FF3D77 45%,#9333EA 100%);padding:100px 0;position:relative;overflow:hidden;">
+  <div aria-hidden="true" style="position:absolute;top:0;right:0;width:384px;height:384px;border-radius:50%;background:rgba(255,255,255,.05);transform:translate(50%,-50%);pointer-events:none;"></div>
+  <div aria-hidden="true" style="position:absolute;bottom:0;left:0;width:256px;height:256px;border-radius:50%;background:rgba(255,255,255,.05);transform:translate(-50%,50%);pointer-events:none;"></div>
+  <div class="container-wrap" style="position:relative;z-index:1;">
     <div style="max-width:640px;margin:0 auto;text-align:center;" class="reveal">
-      <span class="label-pill" style="margin-bottom:1.5rem;display:inline-flex;">Próximo passo</span>
-      <h2 class="section-title" style="margin-bottom:1rem;">Pronto para transformar a HYPEFUL<br /><span class="grad-text">no digital?</span></h2>
-      <p class="section-sub" style="margin-bottom:2.5rem;">
+      <span class="label-pill" style="margin-bottom:1.5rem;display:inline-flex;background:rgba(255,255,255,.18);border-color:rgba(255,255,255,.35);color:#fff;">Próximo passo</span>
+      <h2 class="section-title" style="margin-bottom:1rem;color:#fff;">Pronto para transformar a HYPEFUL<br />no digital?</h2>
+      <p class="section-sub" style="margin-bottom:2.5rem;color:rgba(255,255,255,.85);">
         Esta proposta foi desenvolvida exclusivamente para a HYPEFUL. Fale com a BLUM Digital agora e tire todas as dúvidas antes de decidir.
       </p>
       <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
         <a
           href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Tenho+interesse+na+proposta+HYPEFUL.+Quero+conversar+sobre+os+planos."
           target="_blank" rel="noopener noreferrer"
-          class="btn-primary"
-          style="padding:16px 32px;font-size:1rem;display:inline-flex;align-items:center;gap:10px;"
+          class="btn-white-lg"
         >
           <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
@@ -565,7 +566,7 @@
           </svg>
           Falar com a BLUM Digital
         </a>
-        <a href="/propostas" class="btn-secondary" style="padding:16px 32px;font-size:1rem;">
+        <a href="/propostas" class="btn-ghost-white">
           Voltar às Propostas
         </a>
       </div>

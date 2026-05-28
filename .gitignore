@@ -3,3 +3,7 @@ node_modules/
 .DS_Store
 Thumbs.db
 desktop.ini
+dist/assets/img-backup-originals/
+optimize-images.js
+update-references.js
+optimize-report.json

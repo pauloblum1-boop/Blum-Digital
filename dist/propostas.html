@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Propostas Comerciais | BLUM Digital</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon-blum.svg" />
+  <link rel="shortcut icon"             href="/assets/img/favicon-blum.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { heading: ['Poppins','sans-serif'], body: ['Inter','sans-serif'] },
+          colors: {
+            cream: '#F7EFE9', 'cream-soft': '#FFF7F3', border: '#EEE4DD',
+            dark: '#0B0618', 'dark-2': '#120A2A', ink: '#161616', muted: '#6B7280',
+            orange: '#FF7A18', pink: '#FF3D77', purple: '#9333EA',
+          },
+          maxWidth: { container: '1280px' },
+        }
+      }
+    }
+  </script>
+</head>
+
+<body class="font-body bg-cream text-ink overflow-x-hidden">
+
+<!-- NAVBAR -->
+<header
+  x-data="{ open: false, scrolled: false }"
+  @scroll.window="scrolled = window.scrollY > 40"
+  class="fixed top-0 left-0 right-0 z-50"
+  style="padding-top: 18px; padding-left: 28px; padding-right: 28px;"
+>
+  <a href="/" class="logo-standalone pointer-events-auto" aria-label="BLUM Digital - página inicial">
+    <img src="/assets/img/logo.webp" alt="BLUM Digital" width="180" height="48" class="logo-img" loading="eager" />
+  </a>
+
+  <nav
+    class="nav-pill pointer-events-auto hidden lg:flex items-center gap-6 px-6 py-3 transition-all duration-300"
+    :class="scrolled ? 'nav-scrolled' : ''"
+    style="position: absolute; top: 18px; left: 50%; transform: translateX(-50%);"
+    aria-label="Navegação principal"
+  >
+    <a href="/"           class="nav-item">Início</a>
+    <a href="/#servicos"  class="nav-item">Serviços</a>
+    <a href="/#planos"    class="nav-item">Planos</a>
+    <a href="/cases"      class="nav-item">Cases</a>
+    <a href="/blog"       class="nav-item">Blog</a>
+    <a href="/propostas"  class="nav-item" style="color:#FF7A18;font-weight:700;">Propostas</a>
+    <a href="/socio-digital" class="nav-item nav-item--highlight">Sócio Digital</a>
+    <a href="/#faq"       class="nav-item">FAQ</a>
+    <a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Vim+pelo+site+e+quero+saber+mais+sobre+a+BLUM+Digital."
+       target="_blank" rel="noopener noreferrer"
+       class="btn-primary text-sm px-5 py-2.5 ml-2">Falar no WhatsApp</a>
+  </nav>
+
+  <button
+    @click="open = !open"
+    class="lg:hidden pointer-events-auto w-10 h-10 flex flex-col items-center justify-center gap-1.5 bg-white border border-border rounded-full shadow-sm"
+    style="position: absolute; top: 22px; right: 28px;"
+    aria-label="Abrir menu"
+  >
+    <span class="block w-5 h-0.5 bg-ink transition-all duration-300" :class="open ? 'rotate-45 translate-y-2' : ''"></span>
+    <span class="block w-5 h-0.5 bg-ink transition-all duration-300" :class="open ? 'opacity-0' : ''"></span>
+    <span class="block w-5 h-0.5 bg-ink transition-all duration-300" :class="open ? '-rotate-45 -translate-y-2' : ''"></span>
+  </button>
+
+  <div
+    x-show="open"
+    x-transition:enter="transition ease-out duration-200"
+    x-transition:enter-start="opacity-0 -translate-y-3"
+    x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-150"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+    class="pointer-events-auto lg:hidden absolute bg-white rounded-3xl shadow-2xl border border-border overflow-hidden"
+    style="top: 80px; left: 16px; right: 16px;"
+  >
+    <div class="px-6 pt-5 pb-4 border-b border-border">
+      <img loading="eager" src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
+    </div>
+    <nav class="flex flex-col px-6 py-4 gap-1">
+      <a @click="open=false" href="/"           class="mobile-nav-item">Início</a>
+      <a @click="open=false" href="/#servicos"  class="mobile-nav-item">Serviços</a>
+      <a @click="open=false" href="/#planos"    class="mobile-nav-item">Planos</a>
+      <a @click="open=false" href="/cases"      class="mobile-nav-item">Cases</a>
+      <a @click="open=false" href="/blog"       class="mobile-nav-item">Blog</a>
+      <a @click="open=false" href="/propostas"  class="mobile-nav-item" style="color:#FF7A18;font-weight:700;">Propostas</a>
+      <a @click="open=false" href="/socio-digital" class="mobile-nav-item mobile-nav-item--highlight">Sócio Digital</a>
+      <a @click="open=false" href="/#faq"       class="mobile-nav-item">FAQ</a>
+      <a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Vim+pelo+site+e+quero+saber+mais+sobre+a+BLUM+Digital."
+         target="_blank" rel="noopener noreferrer"
+         class="btn-primary text-center mt-3 py-3.5">Falar no WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- GATE SECTION -->
+<section style="min-height:100vh;background:#08051A;display:flex;align-items:center;justify-content:center;padding:120px 24px 80px;position:relative;overflow:hidden;">
+
+  <!-- Ambient background -->
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;z-index:0;
+    background:
+      radial-gradient(ellipse 700px 600px at 15% 40%, rgba(147,51,234,.12) 0%, transparent 65%),
+      radial-gradient(ellipse 500px 400px at 85% 70%, rgba(255,61,119,.08) 0%, transparent 65%),
+      radial-gradient(ellipse 400px 300px at 50% 10%, rgba(255,122,24,.06) 0%, transparent 65%);
+  "></div>
+
+  <div style="position:relative;z-index:1;width:100%;max-width:460px;margin:0 auto;text-align:center;">
+
+    <!-- Logo BLUM -->
+    <div style="margin-bottom:2.5rem;">
+      <img src="/assets/img/logo.webp" alt="BLUM Digital" width="220" height="59"
+           style="height:68px;width:auto;display:inline-block;
+                  filter:brightness(1.15) contrast(1.1) saturate(1.2)
+                  drop-shadow(0 0 8px rgba(255,255,255,.5)) drop-shadow(0 0 22px rgba(255,255,255,.25));" />
+    </div>
+
+    <!-- Card -->
+    <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:1.5rem;padding:2.5rem 2rem 2.25rem;backdrop-filter:blur(14px);">
+
+      <span class="label-pill" style="margin-bottom:1.75rem;display:inline-flex;align-items:center;gap:6px;">
+        <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+        </svg>
+        Acesso exclusivo
+      </span>
+
+      <h1 style="font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(26px,5vw,38px);letter-spacing:-0.03em;line-height:1.1;color:#fff;margin-bottom:.875rem;">
+        Área de <span class="grad-text">Propostas</span>
+      </h1>
+
+      <p style="color:rgba(255,255,255,.52);font-size:.9375rem;line-height:1.75;margin-bottom:2rem;">
+        Digite o código de acesso fornecido pela BLUM Digital para visualizar sua proposta personalizada.
+      </p>
+
+      <!-- Input -->
+      <div style="margin-bottom:.875rem;">
+        <input
+          type="password"
+          id="senha-gate"
+          placeholder="Código de acesso"
+          autocomplete="off"
+          style="width:100%;padding:14px 20px;background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.14);border-radius:.875rem;color:#fff;font-family:'Inter',sans-serif;font-size:1rem;letter-spacing:.1em;text-align:center;outline:none;transition:border-color .2s, box-shadow .2s;box-sizing:border-box;"
+          onfocus="this.style.borderColor='rgba(255,122,24,.7)';this.style.boxShadow='0 0 0 3px rgba(255,122,24,.12)'"
+          onblur="this.style.borderColor='rgba(255,255,255,.14)';this.style.boxShadow='none'"
+          onkeydown="if(event.key==='Enter')acessarProposta()"
+        />
+      </div>
+
+      <!-- Erro -->
+      <div id="gate-erro" style="display:none;color:#FF3D77;font-size:.8125rem;margin-bottom:1rem;padding:.75rem 1rem;background:rgba(255,61,119,.08);border:1px solid rgba(255,61,119,.2);border-radius:.625rem;text-align:left;">
+        <strong>Código inválido.</strong> Verifique o código enviado pela BLUM Digital e tente novamente.
+      </div>
+
+      <button
+        onclick="acessarProposta()"
+        class="btn-primary"
+        style="width:100%;justify-content:center;padding:14px 24px;font-size:1rem;display:flex;align-items:center;gap:8px;"
+      >
+        Acessar Proposta
+        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+        </svg>
+      </button>
+
+    </div>
+
+    <p style="color:rgba(255,255,255,.2);font-size:.75rem;margin-top:1.5rem;">
+      Não possui um código?
+      <a href="https://wa.me/5548999517566" target="_blank" rel="noopener"
+         style="color:rgba(255,122,24,.65);text-decoration:underline;">Fale com a BLUM Digital</a>
+    </p>
+
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer style="background:#0B0618;" class="pt-16 pb-8">
+  <div class="container-wrap">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+      <div class="lg:col-span-2">
+        <img src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" loading="lazy" class="footer-logo mb-4" />
+        <p class="text-white/45 text-sm leading-relaxed max-w-xs mb-5">Marketing, presença e autoridade digital para empresas que querem crescer de forma profissional em Criciúma e além.</p>
+        <div class="flex gap-3">
+          <a href="#" aria-label="Instagram BLUM Digital" class="footer-social">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook BLUM Digital" class="footer-social">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-xs uppercase tracking-wider mb-5">Serviços</h3>
+        <ul class="space-y-3">
+          <li><a href="/google-meu-negocio"   class="footer-link">Google Meu Negócio</a></li>
+          <li><a href="/criacao-de-sites"     class="footer-link">Criação de Sites</a></li>
+          <li><a href="/trafego-pago"         class="footer-link">Tráfego Pago</a></li>
+          <li><a href="/seo-local"            class="footer-link">SEO Local</a></li>
+          <li><a href="/tour-virtual-360"     class="footer-link">Tour Virtual 360°</a></li>
+          <li><a href="/gestao-redes-sociais" class="footer-link">Redes Sociais</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-xs uppercase tracking-wider mb-5">Planos</h3>
+        <ul class="space-y-3">
+          <li><a href="/blum-start"     class="footer-link">BLUM Start</a></li>
+          <li><a href="/blum-authority" class="footer-link">BLUM Authority</a></li>
+          <li><a href="/blum-apex"      class="footer-link">BLUM Apex</a></li>
+          <li><a href="/social-media"   class="footer-link">Social Media</a></li>
+          <li><a href="/#planos"        class="footer-link">Comparar planos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-xs uppercase tracking-wider mb-5">Contato</h3>
+        <ul class="space-y-3 text-white/45 text-sm">
+          <li>(48) 99951-7566</li>
+          <li>Criciúma - SC, Brasil</li>
+          <li>Atendimento nacional e internacional</li>
+          <li class="text-xs leading-relaxed pt-1">Seg-Sex: 08h-12h / 13h30-18h<br/>Sábado: 08h-12h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-white/25 text-xs">© 2026 BLUM Digital. Todos os direitos reservados.</p>
+      <p class="text-white/25 text-xs">Desenvolvido por BLUM Digital.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Vim+pelo+site+e+quero+saber+mais+sobre+a+BLUM+Digital."
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Falar com a BLUM Digital pelo WhatsApp"
+   class="whatsapp-float">
+  <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.552 4.112 1.516 5.839L.057 23.25a.75.75 0 00.943.906l5.553-1.453A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.678-.5-5.215-1.375l-.374-.219-3.876 1.015 1.035-3.775-.241-.388A10 10 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+  </svg>
+</a>
+
+<script src="/js/main.js"></script>
+<script>
+  const _senhas = { "HYPEFUL2026": "hypeful", "VIPLINE2026": "vipline" };
+
+  function acessarProposta() {
+    const input = document.getElementById('senha-gate');
+    const erro  = document.getElementById('gate-erro');
+    const val   = (input.value || '').trim().toUpperCase();
+    const destino = _senhas[val];
+
+    erro.style.display = 'none';
+
+    if (destino) {
+      window.location.href = '/propostas/' + destino;
+    } else {
+      erro.style.display = 'block';
+      input.style.borderColor = 'rgba(255,61,119,.7)';
+      input.style.boxShadow   = '0 0 0 3px rgba(255,61,119,.12)';
+      setTimeout(() => {
+        input.style.borderColor = 'rgba(255,255,255,.14)';
+        input.style.boxShadow   = 'none';
+      }, 3000);
+    }
+  }
+</script>
+</body>
+</html>

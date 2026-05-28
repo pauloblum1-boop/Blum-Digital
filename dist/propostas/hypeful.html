@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proposta Comercial — HYPEFUL | BLUM Digital</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon-blum.svg" />
+  <link rel="shortcut icon"             href="/assets/img/favicon-blum.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Alpine.js -->
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { heading: ['Poppins','sans-serif'], body: ['Inter','sans-serif'] },
+          colors: {
+            cream: '#F7EFE9', 'cream-soft': '#FFF7F3', border: '#EEE4DD',
+            dark: '#0B0618', 'dark-2': '#120A2A', ink: '#161616', muted: '#6B7280',
+            orange: '#FF7A18', pink: '#FF3D77', purple: '#9333EA',
+          },
+          maxWidth: { container: '1280px' },
+        }
+      }
+    }
+  </script>
+  <link rel="preload" as="image" href="/assets/img/hero-bg3.webp" fetchpriority="high" />
+</head>
+
+<body class="font-body bg-cream text-ink overflow-x-hidden">
+
+<!-- NAVBAR -->
+<header
+  x-data="{ open: false, scrolled: false }"
+  @scroll.window="scrolled = window.scrollY > 40"
+  class="fixed top-0 left-0 right-0 z-50"
+  style="padding-top: 18px; padding-left: 28px; padding-right: 28px;"
+>
+  <a href="/" class="logo-standalone pointer-events-auto" aria-label="BLUM Digital - página inicial">
+    <img src="/assets/img/logo.webp" alt="BLUM Digital" width="180" height="48" class="logo-img" loading="eager" />
+  </a>
+
+  <nav
+    class="nav-pill pointer-events-auto hidden lg:flex items-center gap-6 px-6 py-3 transition-all duration-300"
+    :class="scrolled ? 'nav-scrolled' : ''"
+    style="position: absolute; top: 18px; left: 50%; transform: translateX(-50%);"
+    aria-label="Navegação principal"
+  >
+    <a href="/"           class="nav-item">Início</a>
+    <a href="/#servicos"  class="nav-item">Serviços</a>
+    <a href="/#planos"    class="nav-item">Planos</a>
+    <a href="/cases"      class="nav-item">Cases</a>
+    <a href="/blog"       class="nav-item">Blog</a>
+    <a href="/propostas"  class="nav-item" style="color:#FF7A18;font-weight:700;">Propostas</a>
+    <a href="/socio-digital" class="nav-item nav-item--highlight">Sócio Digital</a>
+    <a href="/#faq"       class="nav-item">FAQ</a>
+    <a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Tenho+interesse+na+proposta+HYPEFUL.+Pode+me+falar+mais%3F"
+       target="_blank" rel="noopener noreferrer"
+       class="btn-primary text-sm px-5 py-2.5 ml-2">Falar no WhatsApp</a>
+  </nav>
+
+  <button
+    @click="open = !open"
+    class="lg:hidden pointer-events-auto w-10 h-10 flex flex-col items-center justify-center gap-1.5 bg-white border border-border rounded-full shadow-sm"
+    style="position: absolute; top: 22px; right: 28px;"
+    aria-label="Abrir menu"
+  >
+    <span class="block w-5 h-0.5 bg-ink transition-all duration-300" :class="open ? 'rotate-45 translate-y-2' : ''"></span>
+    <span class="block w-5 h-0.5 bg-ink transition-all duration-300" :class="open ? 'opacity-0' : ''"></span>
+    <span class="block w-5 h-0.5 bg-ink transition-all duration-300" :class="open ? '-rotate-45 -translate-y-2' : ''"></span>
+  </button>
+
+  <div
+    x-show="open"
+    x-transition:enter="transition ease-out duration-200"
+    x-transition:enter-start="opacity-0 -translate-y-3"
+    x-transition:enter-end="opacity-100 translate-y-0"
+    x-transition:leave="transition ease-in duration-150"
+    x-transition:leave-start="opacity-100"
+    x-transition:leave-end="opacity-0"
+    class="pointer-events-auto lg:hidden absolute bg-white rounded-3xl shadow-2xl border border-border overflow-hidden"
+    style="top: 80px; left: 16px; right: 16px;"
+  >
+    <div class="px-6 pt-5 pb-4 border-b border-border">
+      <img loading="eager" src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
+    </div>
+    <nav class="flex flex-col px-6 py-4 gap-1">
+      <a @click="open=false" href="/"           class="mobile-nav-item">Início</a>
+      <a @click="open=false" href="/#servicos"  class="mobile-nav-item">Serviços</a>
+      <a @click="open=false" href="/#planos"    class="mobile-nav-item">Planos</a>
+      <a @click="open=false" href="/cases"      class="mobile-nav-item">Cases</a>
+      <a @click="open=false" href="/blog"       class="mobile-nav-item">Blog</a>
+      <a @click="open=false" href="/propostas"  class="mobile-nav-item" style="color:#FF7A18;font-weight:700;">Propostas</a>
+      <a @click="open=false" href="/socio-digital" class="mobile-nav-item mobile-nav-item--highlight">Sócio Digital</a>
+      <a @click="open=false" href="/#faq"       class="mobile-nav-item">FAQ</a>
+      <a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Tenho+interesse+na+proposta+HYPEFUL.+Pode+me+falar+mais%3F"
+         target="_blank" rel="noopener noreferrer"
+         class="btn-primary text-center mt-3 py-3.5">Falar no WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ══ HERO ══ -->
+<section class="inner-hero">
+  <img
+    srcset="/assets/img/hero-bg3-480w.webp 480w, /assets/img/hero-bg3-960w.webp 960w, /assets/img/hero-bg3.webp 1440w"
+    sizes="(max-width:480px) 480px, (max-width:960px) 960px, 1440px"
+    src="/assets/img/hero-bg3.webp"
+    alt="" role="presentation"
+    class="inner-hero-bg"
+    style="object-position: 55% center;"
+    loading="eager"
+  />
+  <div class="inner-hero-overlay" aria-hidden="true"></div>
+  <div class="inner-hero-mesh" aria-hidden="true"></div>
+  <div class="container-wrap" style="max-width:none;margin-left:0;padding-left:clamp(60px,10%,180px);padding-right:0;">
+    <div class="inner-hero-content reveal" style="max-width:640px;position:relative;z-index:2;">
+      <span class="inner-hero-eyebrow">
+        <span class="inner-hero-eyebrow-dot"></span>
+        BLUM Digital &bull; Proposta Exclusiva
+      </span>
+      <h1 class="inner-h1">Proposta Comercial<br /><span class="grad-text">HYPEFUL</span></h1>
+      <p class="inner-h2-sub">Crescimento Digital para Redes de Academias</p>
+      <p class="inner-hero-desc">
+        Uma estratégia completa para posicionar todas as unidades da HYPEFUL no digital —
+        mais visibilidade, mais reputação e mais alunos novos todo mês.
+      </p>
+      <div class="inner-hero-btns">
+        <a href="#cenario" class="btn-primary">
+          Ver proposta completa
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="margin-left:6px;">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </a>
+        <a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Tenho+interesse+na+proposta+HYPEFUL.+Pode+me+falar+mais%3F"
+           target="_blank" rel="noopener noreferrer" class="btn-secondary">
+          Falar com a BLUM
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SEÇÃO 1: O CENÁRIO ══ -->
+<section id="cenario" style="background:#fff;padding:100px 0;">
+  <div class="container-wrap">
+    <div class="section-header reveal">
+      <span class="label-pill">O Cenário Atual</span>
+      <h2 class="section-title mt-3">O diagnóstico da<br /><span class="grad-text">HYPEFUL no digital</span></h2>
+      <p class="section-sub">Uma rede com potencial real — mas ainda invisível para quem busca academia no Google.</p>
+    </div>
+
+    <!-- Problema central -->
+    <div class="reveal" style="margin-top:3.5rem;background:#F7EFE9;border:1px solid #EEE4DD;border-radius:1.5rem;padding:2.5rem;max-width:760px;margin-left:auto;margin-right:auto;animation-delay:.1s;">
+      <div style="display:flex;align-items:flex-start;gap:1.25rem;">
+        <div style="width:48px;height:48px;border-radius:50%;background:rgba(255,61,119,.1);border:1px solid rgba(255,61,119,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+          <svg width="22" height="22" fill="none" stroke="#FF3D77" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+          </svg>
+        </div>
+        <div>
+          <h3 style="font-family:'Poppins',sans-serif;font-weight:700;font-size:1.125rem;color:#161616;margin-bottom:.5rem;">LinkedIn como site: o sinal mais claro do problema</h3>
+          <p style="color:#6B7280;font-size:.9375rem;line-height:1.75;">Quando um cliente em potencial pesquisa a HYPEFUL, encontra um perfil corporativo no LinkedIn — não um site profissional. Isso transmite amadorismo e gera desconfiança antes mesmo do primeiro contato. Em um mercado onde a concorrência tem presença digital estruturada, esse gap custa alunos todos os dias.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pain points -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.25rem;margin-top:1.5rem;max-width:900px;margin-left:auto;margin-right:auto;">
+
+      <div class="reveal" style="background:#FAFAFA;border:1px solid #EEE4DD;border-radius:1.25rem;padding:1.75rem;animation-delay:.1s;">
+        <div style="width:40px;height:40px;border-radius:.75rem;background:rgba(255,122,24,.1);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+          <svg width="20" height="20" fill="none" stroke="#FF7A18" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+          </svg>
+        </div>
+        <h4 style="font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem;color:#161616;margin-bottom:.5rem;">7 unidades, zero rastreamento local</h4>
+        <p style="color:#6B7280;font-size:.875rem;line-height:1.7;">Nenhuma das unidades aparece de forma otimizada no Google Maps. Quem busca "academia em [cidade]" não encontra a HYPEFUL.</p>
+      </div>
+
+      <div class="reveal" style="background:#FAFAFA;border:1px solid #EEE4DD;border-radius:1.25rem;padding:1.75rem;animation-delay:.15s;">
+        <div style="width:40px;height:40px;border-radius:.75rem;background:rgba(147,51,234,.1);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+          <svg width="20" height="20" fill="none" stroke="#9333EA" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+          </svg>
+        </div>
+        <h4 style="font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem;color:#161616;margin-bottom:.5rem;">Reputação online inexistente</h4>
+        <p style="color:#6B7280;font-size:.875rem;line-height:1.7;">Sem avaliações estruturadas no Google, o cliente novo não tem prova social para se sentir seguro. A decisão vai para a concorrência que tem mais estrelas.</p>
+      </div>
+
+      <div class="reveal" style="background:#FAFAFA;border:1px solid #EEE4DD;border-radius:1.25rem;padding:1.75rem;animation-delay:.2s;">
+        <div style="width:40px;height:40px;border-radius:.75rem;background:rgba(255,61,119,.1);display:flex;align-items:center;justify-content:center;margin-bottom:1rem;">
+          <svg width="20" height="20" fill="none" stroke="#FF3D77" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.069A1 1 0 0121 8.82V15a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2h11"/>
+          </svg>
+        </div>
+        <h4 style="font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem;color:#161616;margin-bottom:.5rem;">Nenhuma experiência virtual da academia</h4>
+        <p style="color:#6B7280;font-size:.875rem;line-height:1.7;">O cliente em potencial não consegue conhecer o espaço antes de ir pessoalmente. A ausência de Tour 360° reduz a taxa de conversão de curiosos em matriculados.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SEÇÃO 2: A SOLUÇÃO ══ -->
+<section style="background:#08051A;padding:100px 0;position:relative;overflow:hidden;">
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 800px 600px at 0% 50%, rgba(147,51,234,.10) 0%, transparent 65%),
+      radial-gradient(ellipse 600px 400px at 100% 30%, rgba(255,61,119,.07) 0%, transparent 65%);
+  "></div>
+
+  <div class="container-wrap" style="position:relative;z-index:1;">
+    <div class="section-header reveal" style="margin-bottom:3.5rem;">
+      <span class="label-pill">A Solução</span>
+      <h2 class="section-title mt-3" style="color:#fff;">A estratégia completa em<br /><span class="grad-text">5 pilares</span></h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.52);">Cada pilar resolve uma lacuna específica. Juntos, transformam a HYPEFUL em referência digital nas cidades onde atua.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.25rem;">
+
+      <!-- Pilar 1 -->
+      <div class="reveal" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:1.25rem;padding:2rem;animation-delay:0s;">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;">
+          <div style="width:42px;height:42px;border-radius:.875rem;background:linear-gradient(135deg,#FF7A18,#FF3D77);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="20" height="20" fill="none" stroke="#fff" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+          </div>
+          <span style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,122,24,.8);">Pilar 1</span>
+        </div>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:700;font-size:1.0625rem;color:#fff;margin-bottom:.625rem;">Google Meu Negócio</h3>
+        <p style="color:rgba(255,255,255,.52);font-size:.875rem;line-height:1.75;">Cada uma das 7 unidades otimizada com fotos, categorias, horários, NAP consistente e gestão de perguntas e respostas. Objetivo: aparecer no "pacote dos 3" quando alguém busca academia perto de casa.</p>
+      </div>
+
+      <!-- Pilar 2 -->
+      <div class="reveal" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:1.25rem;padding:2rem;animation-delay:.08s;">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;">
+          <div style="width:42px;height:42px;border-radius:.875rem;background:linear-gradient(135deg,#FF3D77,#9333EA);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="20" height="20" fill="none" stroke="#fff" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"/>
+            </svg>
+          </div>
+          <span style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,61,119,.8);">Pilar 2</span>
+        </div>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:700;font-size:1.0625rem;color:#fff;margin-bottom:.625rem;">Sistema de Reputação</h3>
+        <p style="color:rgba(255,255,255,.52);font-size:.875rem;line-height:1.75;">Totem físico em cada unidade + filtro digital inteligente: alunos satisfeitos são direcionados para o Google, insatisfeitos vão para um canal interno. Resultado: volume de avaliações 5 estrelas cresce de forma orgânica e controlada.</p>
+      </div>
+
+      <!-- Pilar 3 -->
+      <div class="reveal" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:1.25rem;padding:2rem;animation-delay:.16s;">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;">
+          <div style="width:42px;height:42px;border-radius:.875rem;background:linear-gradient(135deg,#9333EA,#FF7A18);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="20" height="20" fill="none" stroke="#fff" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+            </svg>
+          </div>
+          <span style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(147,51,234,.9);">Pilar 3</span>
+        </div>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:700;font-size:1.0625rem;color:#fff;margin-bottom:.625rem;">Multi-links</h3>
+        <p style="color:rgba(255,255,255,.52);font-size:.875rem;line-height:1.75;">Página central de cada unidade que concentra tudo: WhatsApp, localização, redes sociais, avaliações e Tour 360°. Substitui o LinkedIn de vez e entrega uma experiência profissional ao visitante.</p>
+      </div>
+
+      <!-- Pilar 4 -->
+      <div class="reveal" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:1.25rem;padding:2rem;animation-delay:.24s;">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;">
+          <div style="width:42px;height:42px;border-radius:.875rem;background:linear-gradient(135deg,#FF7A18,#9333EA);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="20" height="20" fill="none" stroke="#fff" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
+          <span style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,122,24,.8);">Pilar 4</span>
+        </div>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:700;font-size:1.0625rem;color:#fff;margin-bottom:.625rem;">SEO Local</h3>
+        <p style="color:rgba(255,255,255,.52);font-size:.875rem;line-height:1.75;">Otimização orgânica para que cada unidade apareça nas buscas locais do Google — sem depender de anúncios pagos. Estratégia de palavras-chave, conteúdo e autoridade para o longo prazo.</p>
+      </div>
+
+      <!-- Pilar 5 -->
+      <div class="reveal" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:1.25rem;padding:2rem;animation-delay:.32s;">
+        <div style="display:flex;align-items:center;gap:.75rem;margin-bottom:1.25rem;">
+          <div style="width:42px;height:42px;border-radius:.875rem;background:linear-gradient(135deg,#FF3D77,#FF7A18);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+            <svg width="20" height="20" fill="none" stroke="#fff" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.069A1 1 0 0121 8.82V15a2 2 0 01-2 2H5a2 2 0 01-2-2V9a2 2 0 012-2h11"/>
+            </svg>
+          </div>
+          <span style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,61,119,.8);">Pilar 5</span>
+        </div>
+        <h3 style="font-family:'Poppins',sans-serif;font-weight:700;font-size:1.0625rem;color:#fff;margin-bottom:.625rem;">Tour Virtual 360°</h3>
+        <p style="color:rgba(255,255,255,.52);font-size:.875rem;line-height:1.75;">O visitante explora as instalações da academia sem sair de casa. Aumenta o tempo de permanência no perfil do Google, gera confiança imediata e reduz objeções antes da primeira visita presencial.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══ SEÇÃO 3: OS PLANOS ══ -->
+<section style="background:#fff;padding:100px 0;">
+  <div class="container-wrap">
+    <div class="section-header reveal">
+      <span class="label-pill">Investimento</span>
+      <h2 class="section-title mt-3">Escolha o nível certo<br /><span class="grad-text">para a HYPEFUL</span></h2>
+      <p class="section-sub">Três pacotes para redes de academias. Todos incluem as 7 unidades. Setup parcelável em até 12x no cartão de crédito.</p>
+    </div>
+
+    <!-- Grid 3 colunas -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;max-width:1080px;margin:3.5rem auto 0;" class="reveal">
+
+      <!-- ESSENCIAL REDE -->
+      <div class="pricing-inner-card" style="display:flex;flex-direction:column;">
+        <p class="pricing-inner-label">ESSENCIAL REDE</p>
+        <p style="color:#6B7280;font-size:.8125rem;margin-bottom:1.25rem;">Estrutura digital completa para a rede</p>
+
+        <div style="margin-bottom:.5rem;">
+          <p style="font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF;margin-bottom:.25rem;">Setup (implantação)</p>
+          <div class="pricing-inner-value" style="margin-bottom:0;">
+            <span class="pricing-currency">R$</span>
+            <span class="pricing-amount">7.000</span>
+            <span class="pricing-cents">,00</span>
+          </div>
+        </div>
+        <div style="margin-bottom:1.5rem;">
+          <p style="font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF;margin-bottom:.25rem;">Mensalidade da rede</p>
+          <div class="pricing-inner-value" style="margin-bottom:.25rem;">
+            <span class="pricing-currency">R$</span>
+            <span class="pricing-amount" style="font-size:2rem;">2.500</span>
+            <span class="pricing-cents">/mês</span>
+          </div>
+          <p style="font-size:.8125rem;color:#9CA3AF;">R$ 357/unidade · 7 unidades</p>
+        </div>
+
+        <ul class="pricing-inner-list" style="margin-bottom:1.5rem;flex:1;">
+          <li>Google Meu Negócio — 7 unidades</li>
+          <li>Sistema de reputação com totem e filtro</li>
+          <li>Multi-links por unidade</li>
+          <li>SEO local básico</li>
+          <li>Relatório mensal de desempenho</li>
+        </ul>
+
+        <p style="font-size:.75rem;color:rgba(255,122,24,.9);font-weight:600;background:rgba(255,122,24,.08);border:1px solid rgba(255,122,24,.18);border-radius:.5rem;padding:.5rem .875rem;text-align:center;">
+          Setup parcelável em até 12x no cartão
+        </p>
+      </div>
+
+      <!-- AUTORIDADE REDE — destacado -->
+      <div class="pricing-inner-card pricing-inner-card--highlight" style="display:flex;flex-direction:column;position:relative;">
+        <span class="pricing-inner-badge" style="position:absolute;top:-14px;left:50%;transform:translateX(-50%);white-space:nowrap;">⭐ Recomendado</span>
+        <p class="pricing-inner-label">AUTORIDADE REDE</p>
+        <p style="color:rgba(255,255,255,.4);font-size:.8125rem;margin-bottom:1.25rem;">Domínio local + reputação acelerada</p>
+
+        <div style="margin-bottom:.5rem;">
+          <p style="font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.3);margin-bottom:.25rem;">Setup (implantação)</p>
+          <div class="pricing-inner-value" style="margin-bottom:0;">
+            <span class="pricing-currency">R$</span>
+            <span class="pricing-amount">12.000</span>
+            <span class="pricing-cents">,00</span>
+          </div>
+        </div>
+        <div style="margin-bottom:1.5rem;">
+          <p style="font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.3);margin-bottom:.25rem;">Mensalidade da rede</p>
+          <div class="pricing-inner-value" style="margin-bottom:.25rem;">
+            <span class="pricing-currency">R$</span>
+            <span class="pricing-amount" style="font-size:2rem;">3.500</span>
+            <span class="pricing-cents">/mês</span>
+          </div>
+          <p style="font-size:.8125rem;color:rgba(255,255,255,.3);">R$ 500/unidade · 7 unidades</p>
+        </div>
+
+        <ul class="pricing-inner-list" style="margin-bottom:1.5rem;flex:1;">
+          <li>Tudo do ESSENCIAL REDE</li>
+          <li>Tour Virtual 360° — 7 unidades</li>
+          <li>SEO local avançado + conteúdo</li>
+          <li>Campanhas de captação de avaliações</li>
+          <li>Suporte prioritário dedicado à rede</li>
+          <li>Reunião estratégica mensal</li>
+        </ul>
+
+        <p style="font-size:.75rem;color:rgba(255,122,24,.9);font-weight:600;background:rgba(255,122,24,.1);border:1px solid rgba(255,122,24,.25);border-radius:.5rem;padding:.5rem .875rem;text-align:center;">
+          Setup parcelável em até 12x no cartão
+        </p>
+      </div>
+
+      <!-- DOMINAÇÃO DE REDE -->
+      <div class="pricing-inner-card" style="display:flex;flex-direction:column;">
+        <p class="pricing-inner-label">DOMINAÇÃO DE REDE</p>
+        <p style="color:#6B7280;font-size:.8125rem;margin-bottom:1.25rem;">Presença total e vantagem competitiva máxima</p>
+
+        <div style="margin-bottom:.5rem;">
+          <p style="font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF;margin-bottom:.25rem;">Setup (implantação)</p>
+          <div class="pricing-inner-value" style="margin-bottom:0;">
+            <span class="pricing-currency">R$</span>
+            <span class="pricing-amount">22.000</span>
+            <span class="pricing-cents">,00</span>
+          </div>
+        </div>
+        <div style="margin-bottom:1.5rem;">
+          <p style="font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:#9CA3AF;margin-bottom:.25rem;">Mensalidade da rede</p>
+          <div class="pricing-inner-value" style="margin-bottom:.25rem;">
+            <span class="pricing-currency">R$</span>
+            <span class="pricing-amount" style="font-size:2rem;">5.000</span>
+            <span class="pricing-cents">/mês</span>
+          </div>
+          <p style="font-size:.8125rem;color:#9CA3AF;">R$ 714/unidade · 7 unidades</p>
+        </div>
+
+        <ul class="pricing-inner-list" style="margin-bottom:1.5rem;flex:1;">
+          <li>Tudo do AUTORIDADE REDE</li>
+          <li>Site profissional para a rede</li>
+          <li>Tráfego pago (Google Ads) por unidade</li>
+          <li>Social Media — gestão das redes</li>
+          <li>Dashboard de resultados em tempo real</li>
+          <li>Gerente de conta exclusivo</li>
+        </ul>
+
+        <p style="font-size:.75rem;color:rgba(255,122,24,.9);font-weight:600;background:rgba(255,122,24,.08);border:1px solid rgba(255,122,24,.18);border-radius:.5rem;padding:.5rem .875rem;text-align:center;">
+          Setup parcelável em até 12x no cartão
+        </p>
+      </div>
+
+    </div>
+
+    <p class="pricing-inner-note reveal" style="margin-top:2rem;">* Valores para toda a rede HYPEFUL (7 unidades). Setup é um pagamento único de implantação. Mensalidade contratada separadamente, sem fidelidade mínima obrigatória.</p>
+  </div>
+</section>
+
+<!-- ══ SEÇÃO 4: ROI ══ -->
+<section style="background:#08051A;padding:100px 0;position:relative;overflow:hidden;">
+  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;
+    background:
+      radial-gradient(ellipse 700px 500px at 50% 50%, rgba(147,51,234,.10) 0%, transparent 65%),
+      radial-gradient(ellipse 400px 300px at 10% 80%, rgba(255,122,24,.07) 0%, transparent 65%);
+  "></div>
+
+  <div class="container-wrap" style="position:relative;z-index:1;">
+    <div class="section-header reveal" style="margin-bottom:3.5rem;">
+      <span class="label-pill">Retorno sobre Investimento</span>
+      <h2 class="section-title mt-3" style="color:#fff;">O investimento que<br /><span class="grad-text">se paga sozinho</span></h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.52);">A conta é simples. Dois alunos novos por unidade por mês cobrem o investimento inteiro.</p>
+    </div>
+
+    <!-- Cálculo visual -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.25rem;max-width:900px;margin:0 auto 3rem;" class="reveal">
+
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:1.25rem;padding:2rem;text-align:center;">
+        <p style="font-family:'Poppins',sans-serif;font-size:3rem;font-weight:800;color:#fff;line-height:1;margin-bottom:.5rem;">7</p>
+        <p style="color:rgba(255,255,255,.45);font-size:.875rem;">unidades na rede</p>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:center;">
+        <svg width="28" height="28" fill="none" stroke="rgba(255,122,24,.7)" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+        </svg>
+      </div>
+
+      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:1.25rem;padding:2rem;text-align:center;">
+        <p style="font-family:'Poppins',sans-serif;font-size:3rem;font-weight:800;color:#fff;line-height:1;margin-bottom:.5rem;">2</p>
+        <p style="color:rgba(255,255,255,.45);font-size:.875rem;">alunos novos/mês por unidade</p>
+      </div>
+
+      <div style="display:flex;align-items:center;justify-content:center;">
+        <svg width="28" height="28" fill="none" stroke="rgba(255,122,24,.7)" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-7 7m7-7H3"/>
+        </svg>
+      </div>
+
+      <div style="background:linear-gradient(135deg,rgba(255,122,24,.15),rgba(147,51,234,.15));border:1px solid rgba(255,122,24,.25);border-radius:1.25rem;padding:2rem;text-align:center;">
+        <p style="font-family:'Poppins',sans-serif;font-size:3rem;font-weight:800;background:linear-gradient(135deg,#FF7A18,#FF3D77,#9333EA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1;margin-bottom:.5rem;">14</p>
+        <p style="color:rgba(255,255,255,.45);font-size:.875rem;">alunos novos/mês na rede</p>
+      </div>
+
+    </div>
+
+    <!-- Resultado financeiro -->
+    <div style="max-width:680px;margin:0 auto;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:1.5rem;padding:2.5rem;" class="reveal" style="animation-delay:.1s;">
+      <h3 style="font-family:'Poppins',sans-serif;font-weight:700;font-size:1.25rem;color:#fff;margin-bottom:1.5rem;text-align:center;">A conta fecha no plano AUTORIDADE REDE</h3>
+
+      <div style="display:flex;flex-direction:column;gap:.875rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:.875rem 1.25rem;background:rgba(255,255,255,.04);border-radius:.875rem;">
+          <span style="color:rgba(255,255,255,.6);font-size:.9375rem;">14 alunos novos × R$ 200/mês</span>
+          <span style="font-family:'Poppins',sans-serif;font-weight:700;color:#fff;font-size:1rem;">R$ 2.800/mês</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:.875rem 1.25rem;background:rgba(255,255,255,.04);border-radius:.875rem;">
+          <span style="color:rgba(255,255,255,.6);font-size:.9375rem;">Mensalidade AUTORIDADE REDE</span>
+          <span style="font-family:'Poppins',sans-serif;font-weight:700;color:#FF3D77;font-size:1rem;">− R$ 3.500/mês</span>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.25rem;background:linear-gradient(135deg,rgba(255,122,24,.1),rgba(147,51,234,.1));border:1px solid rgba(255,122,24,.2);border-radius:.875rem;">
+          <span style="color:#fff;font-weight:600;font-size:.9375rem;">Resultado com apenas 2 alunos/unidade</span>
+          <span style="font-family:'Poppins',sans-serif;font-weight:800;font-size:1.125rem;background:linear-gradient(135deg,#FF7A18,#FF3D77);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Investimento coberto</span>
+        </div>
+      </div>
+
+      <p style="color:rgba(255,255,255,.35);font-size:.8125rem;margin-top:1.25rem;text-align:center;line-height:1.7;">
+        Considerando mensalidade de academia R$ 200/mês. Com 3, 4 ou 5 alunos novos por unidade, a rede entra em lucro líquido do investimento digital.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══ CTA FINAL ══ -->
+<section style="background:#fff;padding:100px 0;">
+  <div class="container-wrap">
+    <div style="max-width:640px;margin:0 auto;text-align:center;" class="reveal">
+      <span class="label-pill" style="margin-bottom:1.5rem;display:inline-flex;">Próximo passo</span>
+      <h2 class="section-title" style="margin-bottom:1rem;">Pronto para transformar a HYPEFUL<br /><span class="grad-text">no digital?</span></h2>
+      <p class="section-sub" style="margin-bottom:2.5rem;">
+        Esta proposta foi desenvolvida exclusivamente para a HYPEFUL. Fale com a BLUM Digital agora e tire todas as dúvidas antes de decidir.
+      </p>
+      <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
+        <a
+          href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Tenho+interesse+na+proposta+HYPEFUL.+Quero+conversar+sobre+os+planos."
+          target="_blank" rel="noopener noreferrer"
+          class="btn-primary"
+          style="padding:16px 32px;font-size:1rem;display:inline-flex;align-items:center;gap:10px;"
+        >
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.552 4.112 1.516 5.839L.057 23.25a.75.75 0 00.943.906l5.553-1.453A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.678-.5-5.215-1.375l-.374-.219-3.876 1.015 1.035-3.775-.241-.388A10 10 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+          </svg>
+          Falar com a BLUM Digital
+        </a>
+        <a href="/propostas" class="btn-secondary" style="padding:16px 32px;font-size:1rem;">
+          Voltar às Propostas
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer style="background:#0B0618;" class="pt-16 pb-8">
+  <div class="container-wrap">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+      <div class="lg:col-span-2">
+        <img src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" loading="lazy" class="footer-logo mb-4" />
+        <p class="text-white/45 text-sm leading-relaxed max-w-xs mb-5">Marketing, presença e autoridade digital para empresas que querem crescer de forma profissional em Criciúma e além.</p>
+        <div class="flex gap-3">
+          <a href="#" aria-label="Instagram BLUM Digital" class="footer-social">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook BLUM Digital" class="footer-social">
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-xs uppercase tracking-wider mb-5">Serviços</h3>
+        <ul class="space-y-3">
+          <li><a href="/google-meu-negocio"   class="footer-link">Google Meu Negócio</a></li>
+          <li><a href="/criacao-de-sites"     class="footer-link">Criação de Sites</a></li>
+          <li><a href="/trafego-pago"         class="footer-link">Tráfego Pago</a></li>
+          <li><a href="/seo-local"            class="footer-link">SEO Local</a></li>
+          <li><a href="/tour-virtual-360"     class="footer-link">Tour Virtual 360°</a></li>
+          <li><a href="/gestao-redes-sociais" class="footer-link">Redes Sociais</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-xs uppercase tracking-wider mb-5">Planos</h3>
+        <ul class="space-y-3">
+          <li><a href="/blum-start"     class="footer-link">BLUM Start</a></li>
+          <li><a href="/blum-authority" class="footer-link">BLUM Authority</a></li>
+          <li><a href="/blum-apex"      class="footer-link">BLUM Apex</a></li>
+          <li><a href="/social-media"   class="footer-link">Social Media</a></li>
+          <li><a href="/#planos"        class="footer-link">Comparar planos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-xs uppercase tracking-wider mb-5">Contato</h3>
+        <ul class="space-y-3 text-white/45 text-sm">
+          <li>(48) 99951-7566</li>
+          <li>Criciúma - SC, Brasil</li>
+          <li>Atendimento nacional e internacional</li>
+          <li class="text-xs leading-relaxed pt-1">Seg-Sex: 08h-12h / 13h30-18h<br/>Sábado: 08h-12h</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-white/25 text-xs">© 2026 BLUM Digital. Todos os direitos reservados.</p>
+      <p class="text-white/25 text-xs">Desenvolvido por BLUM Digital.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Tenho+interesse+na+proposta+HYPEFUL.+Pode+me+falar+mais%3F"
+   target="_blank" rel="noopener noreferrer"
+   aria-label="Falar com a BLUM Digital pelo WhatsApp"
+   class="whatsapp-float">
+  <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.552 4.112 1.516 5.839L.057 23.25a.75.75 0 00.943.906l5.553-1.453A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.678-.5-5.215-1.375l-.374-.219-3.876 1.015 1.035-3.775-.241-.388A10 10 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+  </svg>
+</a>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

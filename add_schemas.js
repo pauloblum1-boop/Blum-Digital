@@ -19,7 +19,7 @@ const schemaOrganization = {
     "width": 320,
     "height": 160
   },
-  "image": `${DOMAIN}/assets/img/hero-bg.png`,
+  "image": `${DOMAIN}/assets/img/herodeverdade.png`,
   "description": "Agência de marketing digital em Criciúma, SC. Especializada em Google Meu Negócio, criação de sites, SEO local, tráfego pago, Tour Virtual 360° e gestão de redes sociais.",
   "telephone": "+5548999517566",
   "email": "contato@digitalblum.com",
@@ -49,7 +49,7 @@ const schemaLocalBusiness = {
   "@type": "MarketingAgency",
   "@id": `${DOMAIN}/#localbusiness`,
   "name": "BLUM Digital",
-  "image": `${DOMAIN}/assets/img/hero-bg.png`,
+  "image": `${DOMAIN}/assets/img/herodeverdade.png`,
   "url": DOMAIN,
   "telephone": "+5548999517566",
   "priceRange": "$$",
@@ -348,7 +348,7 @@ const pageConfigs = [
     ]
   },
   {
-    file: 'cases.html',
+    file: 'cases/index.html',
     schemas: [
       { "@context":"https://schema.org","@type":"Organization","@id":ORG_ID },
       {
@@ -366,7 +366,7 @@ const pageConfigs = [
     ]
   },
   {
-    file: 'blog.html',
+    file: 'blog/index.html',
     schemas: [
       { "@context":"https://schema.org","@type":"Organization","@id":ORG_ID },
       {
@@ -380,6 +380,24 @@ const pageConfigs = [
       schemaBreadcrumb([
         { name: 'Início', url: `${DOMAIN}/` },
         { name: 'Blog', url: `${DOMAIN}/blog` }
+      ])
+    ]
+  },
+  {
+    file: 'propostas/index.html',
+    schemas: [
+      { "@context":"https://schema.org","@type":"Organization","@id":ORG_ID },
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Propostas Comerciais | BLUM Digital",
+        "description": "Area de propostas comerciais da BLUM Digital para clientes e parceiros acessarem apresentacoes, escopos e planos personalizados.",
+        "url": `${DOMAIN}/propostas`,
+        "publisher": { "@id": ORG_ID }
+      },
+      schemaBreadcrumb([
+        { name: 'Início', url: `${DOMAIN}/` },
+        { name: 'Propostas Comerciais', url: `${DOMAIN}/propostas` }
       ])
     ]
   },
@@ -627,6 +645,33 @@ pageConfigs.forEach(cfg => {
   fs.writeFileSync(fp, html, 'utf8');
   log.push(`OK (${cfg.schemas.length} schemas): ${cfg.file}`);
   updated++;
+});
+
+const routeAliases = [
+  ['cases/index.html', 'cases.html'],
+  ['blog/index.html', 'blog.html'],
+  ['propostas/index.html', 'propostas.html'],
+  ['propostas/index.html', 'propostas-comerciais/index.html'],
+  ['propostas/hypeful.html', 'propostas/hypeful/index.html'],
+  ['propostas/nonnas.html', 'propostas/nonnas/index.html'],
+  ['propostas/nonnas.html', 'propostas-comerciais/nonnas/index.html'],
+  ['propostas/nonnas/bonus.html', 'propostas/nonnas/bonus/index.html'],
+  ['propostas/nonnas/bonus.html', 'propostas-comerciais/nonnas/bonus/index.html'],
+  ['propostas/nonnas/projecao.html', 'propostas/nonnas/projecao/index.html'],
+  ['propostas/nonnas/projecao.html', 'propostas-comerciais/nonnas/projecao/index.html'],
+];
+
+routeAliases.forEach(([source, target]) => {
+  const sourcePath = path.join(dir, source);
+  const targetPath = path.join(dir, target);
+  if (!fs.existsSync(sourcePath)) {
+    log.push(`SKIP alias: ${source}`);
+    return;
+  }
+
+  fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+  fs.copyFileSync(sourcePath, targetPath);
+  log.push(`SYNC alias: ${target} <- ${source}`);
 });
 
 console.log(`\n✅ Schemas inserted — ${updated} pages\n`);

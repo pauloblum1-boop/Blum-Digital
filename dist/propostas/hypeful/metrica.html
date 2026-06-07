@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
@@ -8,6 +8,7 @@
 
   <link rel="icon" type="image/svg+xml" href="/assets/img/favicon-blum.svg" />
   <link rel="shortcut icon"             href="/assets/img/favicon-blum.svg" />
+  <link rel="preload" as="image" href="/assets/img/proposta.png" fetchpriority="high" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,6 +33,34 @@
       }
     }
   </script>
+
+  <style>
+    .hypeful-metrica-hero .inner-hero-btns a {
+      min-height: 52px;
+      padding: 0 1.45rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .95rem;
+      line-height: 1.1;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 760px) {
+      .hypeful-metrica-hero .inner-hero-btns {
+        gap: .75rem;
+      }
+
+      .hypeful-metrica-hero .inner-hero-btns a {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        min-height: 48px;
+        padding: 0 1rem;
+        white-space: normal;
+      }
+    }
+  </style>
 </head>
 
 <body class="font-body bg-cream text-ink overflow-x-hidden">
@@ -56,10 +85,10 @@
     <a href="/"           class="nav-item">Início</a>
     <a href="/#servicos"  class="nav-item">Serviços</a>
     <a href="/#planos"    class="nav-item">Planos</a>
-    <a href="/cases"      class="nav-item">Cases</a>
-    <a href="/blog"       class="nav-item">Blog</a>
+    <a href="/cases/"      class="nav-item">Cases</a>
+    <a href="/blog/"       class="nav-item">Blog</a>
     <a href="/socio-digital" class="nav-item nav-item--highlight">Sócio Digital</a>
-    <a href="/propostas"  class="nav-item" style="color:#FF7A18;font-weight:700;">Propostas Comerciais</a>
+    <a href="/propostas/"  class="nav-item" style="color:#FF7A18;font-weight:700;">Propostas Comerciais</a>
     <a href="/#faq"       class="nav-item">FAQ</a>
     <a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Tenho+interesse+na+proposta+HYPEFUL.+Pode+me+falar+mais%3F"
        target="_blank" rel="noopener noreferrer"
@@ -95,10 +124,10 @@
       <a @click="open=false" href="/"           class="mobile-nav-item">Início</a>
       <a @click="open=false" href="/#servicos"  class="mobile-nav-item">Serviços</a>
       <a @click="open=false" href="/#planos"    class="mobile-nav-item">Planos</a>
-      <a @click="open=false" href="/cases"      class="mobile-nav-item">Cases</a>
-      <a @click="open=false" href="/blog"       class="mobile-nav-item">Blog</a>
+      <a @click="open=false" href="/cases/"      class="mobile-nav-item">Cases</a>
+      <a @click="open=false" href="/blog/"       class="mobile-nav-item">Blog</a>
       <a @click="open=false" href="/socio-digital" class="mobile-nav-item mobile-nav-item--highlight">Sócio Digital</a>
-      <a @click="open=false" href="/propostas"  class="mobile-nav-item" style="color:#FF7A18;font-weight:700;">Propostas Comerciais</a>
+      <a @click="open=false" href="/propostas/"  class="mobile-nav-item" style="color:#FF7A18;font-weight:700;">Propostas Comerciais</a>
       <a @click="open=false" href="/#faq"       class="mobile-nav-item">FAQ</a>
       <a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Tenho+interesse+na+proposta+HYPEFUL.+Pode+me+falar+mais%3F"
          target="_blank" rel="noopener noreferrer"
@@ -109,29 +138,33 @@
 
 <main>
 
-<!-- ══ MINI HERO ══ -->
-<section style="background:#08051A;padding:130px 0 80px;position:relative;overflow:hidden;">
-  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;
-    background:
-      radial-gradient(ellipse 900px 600px at 50% 100%, rgba(255,122,24,.09) 0%, transparent 55%),
-      radial-gradient(ellipse 600px 400px at 0% 0%,    rgba(147,51,234,.08) 0%, transparent 55%),
-      radial-gradient(ellipse 500px 300px at 100% 50%, rgba(255,61,119,.06) 0%, transparent 55%);
-  "></div>
-  <div class="container-wrap" style="position:relative;z-index:1;text-align:center;">
-    <a href="/propostas/hypeful" style="display:inline-flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.45);font-size:.8125rem;text-decoration:none;margin-bottom:1.75rem;transition:color .2s;" onmouseover="this.style.color='rgba(255,255,255,.8)'" onmouseout="this.style.color='rgba(255,255,255,.45)'">
-      <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-      Voltar à Proposta HYPEFUL
-    </a>
-    <span class="label-pill" style="display:inline-flex;margin-bottom:1.25rem;background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.7);">
-      <span style="width:6px;height:6px;border-radius:50%;background:#FF7A18;margin-right:.5rem;display:inline-block;"></span>
-      Métricas Auditáveis · BLUM Digital
-    </span>
-    <h1 style="font-family:'Poppins',sans-serif;font-weight:800;font-size:clamp(1.75rem,4.5vw,3rem);color:#fff;line-height:1.2;letter-spacing:-.02em;margin-bottom:1rem;">
-      Como medimos resultados<br />na <span style="background:linear-gradient(135deg,#FF7A18,#FF3D77,#9333EA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">HYPEFUL</span>
-    </h1>
-    <p style="color:rgba(255,255,255,.52);font-size:clamp(.9375rem,2vw,1.0625rem);max-width:560px;margin:0 auto;line-height:1.75;">
-      Transparência total. Dados auditáveis. Sem promessas vazias.
-    </p>
+<!-- ══ HERO ══ -->
+<section class="inner-hero hypeful-metrica-hero">
+  <img
+    src="/assets/img/proposta.png"
+    alt="" role="presentation"
+    class="inner-hero-bg"
+    style="object-position:center center;"
+    loading="eager"
+    fetchpriority="high"
+  />
+  <div class="inner-hero-overlay" aria-hidden="true"></div>
+  <div class="inner-hero-mesh" aria-hidden="true"></div>
+  <div class="container-wrap" style="max-width:none;margin-left:0;padding-left:clamp(60px,10%,180px);padding-right:0;">
+    <div class="inner-hero-content reveal" style="max-width:660px;position:relative;z-index:2;">
+      <span class="inner-hero-eyebrow">
+        <span class="inner-hero-eyebrow-dot"></span>
+        Métricas Auditáveis &bull; BLUM Digital
+      </span>
+      <h1 class="inner-h1">Como medimos resultados<br />na <span class="grad-text">HYPEFUL</span></h1>
+      <p class="inner-hero-desc">
+        Transparência total. Dados auditáveis. Sem promessas vazias.
+      </p>
+      <div class="inner-hero-btns">
+        <a href="#roi-hypeful-cenarios" class="btn-primary">Ver ROI em 3 cenários</a>
+        <a href="/propostas/hypeful" class="btn-secondary" style="color:#fff;border-color:rgba(255,255,255,.24);background:rgba(255,255,255,.08);">Voltar para proposta</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -400,7 +433,7 @@
           </div>
           <div style="background:#fff;border:1px solid #EEE4DD;border-radius:1.25rem;padding:1.5rem 1.75rem;flex:1;">
             <p style="font-family:'Poppins',sans-serif;font-weight:700;font-size:1rem;color:#161616;margin-bottom:.5rem;">Mês 2 — Reputação e conteúdo ativo</p>
-            <p style="color:#6B7280;font-size:.875rem;line-height:1.75;">Sistema de reputação em operação. Posts regulares. Respostas às avaliações. Tour 360° integrado aos perfis. Volume de avaliações crescendo. Impressões sobem de forma consistente.</p>
+            <p style="color:#6B7280;font-size:.875rem;line-height:1.75;">Sistema de reputação em operação. Posts regulares. Respostas ?s avalia??es. Tour 360° integrado aos perfis. Volume de avaliações crescendo. Impressões sobem de forma consistente.</p>
           </div>
         </div>
 
@@ -429,112 +462,432 @@
   </div>
 </section>
 
-<!-- ══ SEÇÃO 4: O CÁLCULO DO ROI ══ -->
-<section style="background:#08051A;padding:100px 0;position:relative;overflow:hidden;">
-  <div aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;
+<!-- ══ SEÇÃO 4: ROI COM 3 CENÁRIOS ══ -->
+<style>
+  .roi-hypeful-cenarios {
+    background:#08051A;
+    padding:110px 0;
+    position:relative;
+    overflow:hidden;
+  }
+  .roi-hypeful-cenarios::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    pointer-events:none;
     background:
-      radial-gradient(ellipse 700px 500px at 50% 50%, rgba(147,51,234,.10) 0%, transparent 65%),
-      radial-gradient(ellipse 400px 300px at 10% 80%, rgba(255,122,24,.07)  0%, transparent 65%);
-  "></div>
+      radial-gradient(ellipse 760px 520px at 50% 16%, rgba(46,106,95,.22) 0%, transparent 64%),
+      radial-gradient(ellipse 520px 360px at 8% 72%, rgba(255,122,24,.08) 0%, transparent 62%),
+      radial-gradient(ellipse 520px 360px at 94% 76%, rgba(147,51,234,.10) 0%, transparent 62%);
+  }
+  .roi-scenarios-grid {
+    display:grid;
+    grid-template-columns:minmax(0,1fr) minmax(0,1.16fr) minmax(0,1fr);
+    gap:1.25rem;
+    align-items:stretch;
+    margin-top:3.25rem;
+  }
+  .roi-scenario-card {
+    border-radius:1.35rem;
+    padding:1.75rem;
+    min-height:100%;
+    display:flex;
+    flex-direction:column;
+    gap:1.25rem;
+  }
+  .roi-scenario-card h3 {
+    font-family:'Poppins',sans-serif;
+    font-size:1.2rem;
+    font-weight:800;
+    color:#fff;
+    margin:0;
+  }
+  .roi-scenario-soft {
+    background:rgba(255,255,255,.035);
+    border:1px solid rgba(255,255,255,.11);
+  }
+  .roi-scenario-main {
+    background:
+      linear-gradient(145deg, rgba(31,77,69,.98) 0%, rgba(46,106,95,.98) 48%, rgba(15,15,16,.98) 100%);
+    border:1px solid rgba(242,244,245,.22);
+    box-shadow:0 28px 80px rgba(0,0,0,.34), 0 0 0 1px rgba(255,255,255,.04) inset;
+    transform:translateY(-18px);
+    position:relative;
+  }
+  .roi-scenario-main::after {
+    content:"";
+    position:absolute;
+    inset:1px;
+    border-radius:1.3rem;
+    pointer-events:none;
+    background:linear-gradient(135deg, rgba(242,244,245,.13), transparent 42%);
+  }
+  .roi-scenario-main > * {
+    position:relative;
+    z-index:1;
+  }
+  .roi-scenario-optimistic {
+    background:linear-gradient(145deg, rgba(255,122,24,.09), rgba(147,51,234,.12));
+    border:1px solid rgba(255,122,24,.20);
+  }
+  .roi-tag {
+    width:max-content;
+    max-width:100%;
+    border-radius:999px;
+    padding:.42rem .8rem;
+    font-size:.68rem;
+    font-weight:800;
+    line-height:1;
+    text-transform:uppercase;
+    letter-spacing:.07em;
+    color:rgba(255,255,255,.74);
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.12);
+  }
+  .roi-scenario-main .roi-tag {
+    color:#1F4D45;
+    background:#F2F4F5;
+    border-color:rgba(242,244,245,.6);
+  }
+  .roi-premise {
+    color:rgba(255,255,255,.58);
+    font-size:.9rem;
+    line-height:1.75;
+    margin:0;
+  }
+  .roi-scenario-main .roi-premise {
+    color:rgba(242,244,245,.78);
+  }
+  .roi-matriculas {
+    margin-top:auto;
+    border-radius:1rem;
+    padding:1rem 1.1rem;
+    background:rgba(255,255,255,.055);
+    border:1px solid rgba(255,255,255,.09);
+  }
+  .roi-kicker {
+    display:block;
+    margin-bottom:.35rem;
+    color:rgba(255,255,255,.48);
+    font-size:.68rem;
+    font-weight:800;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+  }
+  .roi-matriculas strong {
+    display:block;
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-size:clamp(1.25rem,2vw,1.55rem);
+    font-weight:800;
+    line-height:1.15;
+  }
+  .roi-number {
+    font-family:'Poppins',sans-serif;
+    font-size:clamp(2.45rem,5.6vw,4.65rem);
+    font-weight:800;
+    line-height:.95;
+    color:#F2F4F5;
+    letter-spacing:0;
+    text-shadow:0 16px 40px rgba(0,0,0,.28);
+  }
+  .roi-scenario-optimistic .roi-number {
+    background:linear-gradient(135deg,#FF7A18,#FF3D77,#9333EA);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    background-clip:text;
+    font-size:clamp(2.15rem,4.5vw,3.55rem);
+  }
+  .roi-number-caption {
+    color:rgba(255,255,255,.72);
+    font-size:.92rem;
+    line-height:1.55;
+    margin-top:.5rem;
+  }
+  .roi-note {
+    color:rgba(255,255,255,.55);
+    font-size:.82rem;
+    line-height:1.7;
+    margin:0;
+  }
+  .roi-scenario-main .roi-note {
+    color:rgba(242,244,245,.72);
+  }
+  .roi-protection {
+    margin:2rem auto 0;
+    max-width:940px;
+    border-radius:1.25rem;
+    padding:1.35rem 1.55rem;
+    background:rgba(242,244,245,.07);
+    border:1px solid rgba(242,244,245,.13);
+    color:rgba(255,255,255,.66);
+    font-size:.9rem;
+    line-height:1.75;
+  }
+  .roi-protection-title {
+    display:block;
+    font-family:'Poppins',sans-serif;
+    font-size:1rem;
+    font-weight:800;
+    color:#F2F4F5;
+    margin-bottom:.35rem;
+  }
+  .roi-transparency {
+    max-width:900px;
+    margin:1.25rem auto 0;
+    border-radius:1rem;
+    padding:1.15rem 1.35rem;
+    background:rgba(255,255,255,.045);
+    border:1px solid rgba(255,255,255,.09);
+    border-left:4px solid #FF7A18;
+  }
+  .roi-transparency strong {
+    display:block;
+    font-family:'Poppins',sans-serif;
+    font-size:.98rem;
+    font-weight:800;
+    color:#fff;
+    margin-bottom:.35rem;
+  }
+  .roi-transparency p {
+    color:rgba(255,255,255,.62);
+    font-size:.86rem;
+    line-height:1.7;
+    margin:0;
+  }
+  .roi-measurement {
+    margin-top:4.5rem;
+    padding-top:3.5rem;
+    border-top:1px solid rgba(255,255,255,.09);
+  }
+  .roi-measurement h3 {
+    font-family:'Poppins',sans-serif;
+    font-size:clamp(1.55rem,3vw,2.15rem);
+    font-weight:800;
+    color:#fff;
+    text-align:center;
+    margin:0 0 2rem;
+  }
+  .roi-metrics-grid {
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:.9rem;
+  }
+  .roi-metric-item {
+    display:flex;
+    gap:1rem;
+    align-items:flex-start;
+    padding:1.15rem;
+    border-radius:1rem;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+  }
+  .roi-metric-index {
+    width:34px;
+    height:34px;
+    min-width:34px;
+    border-radius:.75rem;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(135deg,#FF7A18,#FF3D77);
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-size:.78rem;
+    font-weight:800;
+  }
+  .roi-metric-item:nth-child(2n) .roi-metric-index {
+    background:linear-gradient(135deg,#FF3D77,#9333EA);
+  }
+  .roi-metric-item h4 {
+    font-family:'Poppins',sans-serif;
+    font-size:.98rem;
+    font-weight:700;
+    color:#fff;
+    margin:0 0 .35rem;
+  }
+  .roi-metric-item p {
+    color:rgba(255,255,255,.54);
+    font-size:.85rem;
+    line-height:1.65;
+    margin:0;
+  }
+  .roi-closing {
+    max-width:900px;
+    margin:2.2rem auto 0;
+    border-radius:1.35rem;
+    padding:2rem;
+    text-align:center;
+    background:linear-gradient(135deg, rgba(31,77,69,.25), rgba(255,122,24,.08), rgba(147,51,234,.12));
+    border:1px solid rgba(242,244,245,.12);
+  }
+  .roi-closing p {
+    font-family:'Poppins',sans-serif;
+    font-size:clamp(1rem,2vw,1.2rem);
+    font-weight:700;
+    color:#fff;
+    line-height:1.65;
+    margin:0;
+  }
+  @media (max-width:1024px) {
+    .roi-scenarios-grid {
+      grid-template-columns:1fr;
+      max-width:720px;
+      margin-left:auto;
+      margin-right:auto;
+    }
+    .roi-scenario-main {
+      transform:none;
+    }
+  }
+  @media (max-width:640px) {
+    .roi-hypeful-cenarios {
+      padding:82px 0;
+    }
+    .roi-scenario-card {
+      padding:1.35rem;
+      border-radius:1.1rem;
+    }
+    .roi-matriculas strong {
+      font-size:1.15rem;
+    }
+    .roi-number,
+    .roi-scenario-optimistic .roi-number {
+      font-size:2.35rem;
+    }
+    .roi-metrics-grid {
+      grid-template-columns:1fr;
+    }
+    .roi-protection,
+    .roi-closing {
+      padding:1.25rem;
+    }
+  }
+</style>
 
+<section class="roi-hypeful-cenarios" id="roi-hypeful-cenarios" aria-labelledby="roi-hypeful-title">
   <div class="container-wrap" style="position:relative;z-index:1;">
-    <div class="section-header reveal" style="margin-bottom:3.5rem;">
-      <span class="label-pill">O Cálculo</span>
-      <h2 class="section-title mt-3" style="color:#fff;">O ROI em<br /><span class="grad-text">números reais</span></h2>
-      <p class="section-sub" style="color:rgba(255,255,255,.52);">Com o plano AUTHORITY REDE (R$ 3.500/mês) e o ticket médio histórico de academias brasileiras.</p>
+    <div class="section-header reveal" style="margin-bottom:0;">
+      <span class="label-pill" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.15);color:rgba(255,255,255,.72);">ROI projetado</span>
+      <h2 id="roi-hypeful-title" class="section-title mt-3" style="color:#fff;">Quanto a Hypeful pode deixar de ganhar por não dominar as buscas locais?</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.58);">
+        Três cenários calculados com as mesmas premissas: setup de R$ 12.000, mensalidade de R$ 3.500/mês, ticket médio de R$ 100 por aluno e permanência média conservadora de 6 meses.
+      </p>
     </div>
 
-    <!-- Cálculo passo a passo -->
-    <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:1.25rem;" class="reveal">
-
-      <!-- Linha: Mensalidade -->
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:1rem;flex-wrap:wrap;gap:.75rem;">
-        <div>
-          <p style="color:rgba(255,255,255,.45);font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.25rem;">Investimento mensal — rede inteira</p>
-          <p style="color:rgba(255,255,255,.75);font-size:.9rem;">AUTHORITY REDE · 7 unidades</p>
+    <div class="roi-scenarios-grid reveal">
+      <article class="roi-scenario-card roi-scenario-soft">
+        <span class="roi-tag">Base conservadora</span>
+        <h3>Cenário Realista</h3>
+        <p class="roi-premise">2 a 3 unidades melhorando posicionamento no Google, aumento gradual de ações no perfil e crescimento moderado de contatos locais.</p>
+        <div class="roi-matriculas">
+          <span class="roi-kicker">Matrículas estimadas</span>
+          <strong>6 novas matrículas/mês</strong>
         </div>
-        <span style="font-family:'Poppins',sans-serif;font-weight:700;color:#fff;font-size:1.125rem;">R$ 3.500/mês</span>
-      </div>
-
-      <!-- Linha: Ticket -->
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:1rem;flex-wrap:wrap;gap:.75rem;">
         <div>
-          <p style="color:rgba(255,255,255,.45);font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.25rem;">Ticket médio mensal por aluno</p>
-          <p style="color:rgba(255,255,255,.75);font-size:.9rem;">Mensalidade média praticada na rede</p>
+          <span class="roi-kicker">Resultado em 12 meses</span>
+          <p class="roi-note" style="color:rgba(255,255,255,.72);font-weight:700;">Payback estimado próximo do mês 14</p>
         </div>
-        <span style="font-family:'Poppins',sans-serif;font-weight:700;color:#fff;font-size:1.125rem;">R$ 100/mês</span>
-      </div>
+        <p class="roi-note">Cenário de segurança para medir avanço sem prometer crescimento agressivo.</p>
+      </article>
 
-      <!-- Linha: LTV -->
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:1rem;flex-wrap:wrap;gap:.75rem;">
+      <article class="roi-scenario-card roi-scenario-main" aria-label="Cenário Provável, projeção principal BLUM Digital">
+        <span class="roi-tag">Projeção principal BLUM Digital</span>
+        <h3>Cenário Provável</h3>
+        <p class="roi-premise">4 a 5 unidades ganhando força no Google, tour 360 aumentando confiança, perfis otimizados, site melhor estruturado e gestão contínua de SEO local.</p>
+        <div class="roi-matriculas">
+          <span class="roi-kicker">Matrículas estimadas</span>
+          <strong>15 novas matrículas/mês</strong>
+        </div>
         <div>
-          <p style="color:rgba(255,255,255,.45);font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.25rem;">Permanência média do aluno</p>
-          <p style="color:rgba(255,255,255,.75);font-size:.9rem;">Tempo médio de retenção em academias BR</p>
+          <div class="roi-number">+R$ 30.500</div>
+          <p class="roi-number-caption">lucro acumulado estimado em 12 meses</p>
         </div>
-        <span style="font-family:'Poppins',sans-serif;font-weight:700;color:#fff;font-size:1.125rem;">6 meses</span>
-      </div>
+        <p class="roi-note">Este é o cenário comercial que usamos como referência de meta, sem tratar como garantia absoluta.</p>
+      </article>
 
-      <!-- Divisor calculado -->
-      <div style="display:flex;align-items:center;gap:.75rem;">
-        <div style="flex:1;height:1px;background:rgba(255,255,255,.08);"></div>
-        <span style="font-size:.7rem;color:rgba(255,255,255,.25);text-transform:uppercase;letter-spacing:.08em;">resultado</span>
-        <div style="flex:1;height:1px;background:rgba(255,255,255,.08);"></div>
-      </div>
-
-      <!-- Linha: LTV por aluno -->
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:1rem 1.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);border-radius:1rem;flex-wrap:wrap;gap:.75rem;">
+      <article class="roi-scenario-card roi-scenario-optimistic">
+        <span class="roi-tag">Teto de oportunidade</span>
+        <h3>Cenário Otimista</h3>
+        <p class="roi-premise">Todas as unidades com forte presença local, evolução consistente em avaliações, autoridade por unidade, tour 360, SEO local e alta conversão comercial da equipe.</p>
+        <div class="roi-matriculas">
+          <span class="roi-kicker">Matrículas estimadas</span>
+          <strong>30 novas matrículas/mês</strong>
+        </div>
         <div>
-          <p style="color:rgba(255,255,255,.45);font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.25rem;">Valor total por aluno (LTV médio)</p>
-          <p style="color:rgba(255,255,255,.75);font-size:.9rem;">R$ 100 × 6 meses</p>
+          <div class="roi-number">+R$ 111.000</div>
+          <p class="roi-number-caption">lucro acumulado estimado em 12 meses</p>
         </div>
-        <span style="font-family:'Poppins',sans-serif;font-weight:700;color:#fff;font-size:1.125rem;">R$ 600/aluno</span>
-      </div>
-
-      <!-- Linha: Break-even — destaque -->
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:1.25rem 1.5rem;background:linear-gradient(135deg,rgba(255,122,24,.12),rgba(147,51,234,.12));border:1.5px solid rgba(255,122,24,.3);border-radius:1rem;flex-wrap:wrap;gap:.75rem;">
-        <div>
-          <p style="color:rgba(255,255,255,.6);font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.07em;margin-bottom:.25rem;">Matrículas para cobrir o investimento</p>
-          <p style="color:rgba(255,255,255,.75);font-size:.9rem;">R$ 3.500 ÷ R$ 600 = 5,83 alunos novos</p>
-        </div>
-        <span style="font-family:'Poppins',sans-serif;font-weight:800;font-size:1.5rem;background:linear-gradient(135deg,#FF7A18,#FF3D77,#9333EA);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">≈ 6 alunos</span>
-      </div>
-
+        <p class="roi-note">Cenário possível em uma execução forte, mas dependente de mercado, atendimento, reputação, oferta e conversão.</p>
+      </article>
     </div>
 
-    <!-- Conclusão -->
-    <div style="max-width:720px;margin:2rem auto 0;display:flex;flex-direction:column;gap:1.125rem;" class="reveal" style="animation-delay:.15s;">
-
-      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:1.25rem;padding:1.5rem 1.75rem;display:flex;gap:1.25rem;align-items:flex-start;">
-        <div style="width:40px;height:40px;min-width:40px;border-radius:.875rem;background:linear-gradient(135deg,#FF7A18,#FF3D77);display:flex;align-items:center;justify-content:center;">
-          <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-        </div>
-        <div>
-          <p style="font-family:'Poppins',sans-serif;font-weight:700;font-size:.9375rem;color:#fff;margin-bottom:.375rem;">Quase 1 aluno por unidade por mês</p>
-          <p style="color:rgba(255,255,255,.52);font-size:.875rem;line-height:1.75;">6 matrículas novas na rede inteira — distribuídas entre 7 unidades — cobrem 100% do investimento mensal. A probabilidade de gerar pelo menos 1 matrícula nova por unidade num período de 90 dias de otimização ativa é extremamente alta.</p>
-        </div>
-      </div>
-
-      <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:1.25rem;padding:1.5rem 1.75rem;display:flex;gap:1.25rem;align-items:flex-start;">
-        <div style="width:40px;height:40px;min-width:40px;border-radius:.875rem;background:linear-gradient(135deg,#FF3D77,#9333EA);display:flex;align-items:center;justify-content:center;">
-          <svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/></svg>
-        </div>
-        <div>
-          <p style="font-family:'Poppins',sans-serif;font-weight:700;font-size:.9375rem;color:#fff;margin-bottom:.375rem;">Acima do piso: tudo é lucro recorrente</p>
-          <p style="color:rgba(255,255,255,.52);font-size:.875rem;line-height:1.75;">O investimento é fixo. Cada aluno além dos 6 de equilíbrio é receita líquida adicional — mês após mês, enquanto o aluno permanecer na rede. À medida que a base cresce, a margem sobre o investimento em marketing aumenta exponencialmente.</p>
-        </div>
-      </div>
-
+    <div class="roi-protection reveal">
+      <span class="roi-protection-title">Nosso <strong>compromisso</strong></span>
+      A BLUM Digital se compromete formalmente em entregar mês a mês o Cenário Realista. Tudo acima dele é resultado natural de execução consistente somada ao atendimento da HYPEFUL. Não vendemos fantasia — vendemos sistema com método.
     </div>
 
-    <!-- Frase de fechamento -->
-    <div style="max-width:640px;margin:2.5rem auto 0;" class="reveal" style="animation-delay:.25s;">
-      <div style="background:linear-gradient(135deg,rgba(255,122,24,.1),rgba(147,51,234,.12));border:1px solid rgba(255,122,24,.2);border-radius:1.5rem;padding:2.25rem;text-align:center;">
-        <p style="font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(.9375rem,2.5vw,1.125rem);color:#fff;line-height:1.6;">
-          "Você não está comprando visibilidade.<br />Está construindo uma <span class="grad-text">máquina de aquisição de alunos</span><br />a custo fixo e resultado auditável."
-        </p>
+    <div class="roi-measurement reveal">
+      <h3>Como o resultado será medido</h3>
+      <div class="roi-metrics-grid">
+        <div class="roi-metric-item">
+          <span class="roi-metric-index">01</span>
+          <div>
+            <h4>Visualizações no Perfil da Empresa no Google</h4>
+            <p>Mostra quantas pessoas encontraram cada unidade nas buscas locais.</p>
+          </div>
+        </div>
+        <div class="roi-metric-item">
+          <span class="roi-metric-index">02</span>
+          <div>
+            <h4>Cliques em ligação</h4>
+            <p>Indica intenção direta de contato com a academia.</p>
+          </div>
+        </div>
+        <div class="roi-metric-item">
+          <span class="roi-metric-index">03</span>
+          <div>
+            <h4>Cliques em rotas</h4>
+            <p>Mostra pessoas com intenção de visitar presencialmente uma unidade.</p>
+          </div>
+        </div>
+        <div class="roi-metric-item">
+          <span class="roi-metric-index">04</span>
+          <div>
+            <h4>Cliques para o site</h4>
+            <p>Mede o interesse em conhecer melhor planos, estrutura, horários e diferenciais.</p>
+          </div>
+        </div>
+        <div class="roi-metric-item">
+          <span class="roi-metric-index">05</span>
+          <div>
+            <h4>Evolução de posicionamento local</h4>
+            <p>Acompanha a presença da Hypeful em buscas como academia em Criciúma, academia perto de mim e termos relacionados.</p>
+          </div>
+        </div>
+        <div class="roi-metric-item">
+          <span class="roi-metric-index">06</span>
+          <div>
+            <h4>Crescimento de avaliações e reputação</h4>
+            <p>Aumenta confiança e ajuda o cliente a escolher a academia antes mesmo da visita.</p>
+          </div>
+        </div>
+        <div class="roi-metric-item">
+          <span class="roi-metric-index">07</span>
+          <div>
+            <h4>Conversões acompanhadas</h4>
+            <p>Levantamento mensal dos contatos e oportunidades geradas a partir do Google e do site.</p>
+          </div>
+        </div>
+      </div>
+      <div class="roi-transparency">
+        <strong>Transparência total</strong>
+        <p>Você recebe um relatório mensal consolidado com essas métricas, comparando o mês atual com o anterior e com o mês 0 (baseline pré-trabalho). Tudo extraído diretamente das ferramentas do Google, sem filtros nossos. Auditoria completa, a qualquer momento.</p>
+      </div>
+      <div class="roi-closing">
+        <p>Não se trata apenas de aparecer no Google. Trata-se de transformar cada unidade da Hypeful em uma presença local mais forte, mais confiável e mais escolhida por quem já está procurando uma academia.</p>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -558,9 +911,6 @@
           <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.552 4.112 1.516 5.839L.057 23.25a.75.75 0 00.943.906l5.553-1.453A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.678-.5-5.215-1.375l-.374-.219-3.876 1.015 1.035-3.775-.241-.388A10 10 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
           Falar com a BLUM Digital
         </a>
-        <a href="/propostas/hypeful" class="btn-ghost-white">
-          ← Voltar à Proposta
-        </a>
       </div>
     </div>
   </div>
@@ -575,11 +925,17 @@
       <div class="lg:col-span-2">
         <img src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" loading="lazy" class="footer-logo mb-4" />
         <p class="text-white/45 text-sm leading-relaxed max-w-xs mb-5">Marketing, presença e autoridade digital para empresas que querem crescer de forma profissional em Criciúma e além.</p>
+        <a href="/propostas/hypeful" style="display:inline-flex;align-items:center;gap:.55rem;margin-bottom:1.35rem;color:#fff;font-family:'Poppins',sans-serif;font-size:.875rem;font-weight:700;text-decoration:none;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:.75rem 1.1rem;transition:all .25s ease;" onmouseover="this.style.background='rgba(255,122,24,.12)';this.style.borderColor='rgba(255,122,24,.35)';this.style.color='#FF7A18';" onmouseout="this.style.background='rgba(255,255,255,.06)';this.style.borderColor='rgba(255,255,255,.12)';this.style.color='#fff';">
+          <svg width="15" height="15" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Voltar à Proposta HYPEFUL
+        </a>
         <div class="flex gap-3">
-          <a href="#" aria-label="Instagram BLUM Digital" class="footer-social">
+          <a href="https://www.instagram.com/blumdigital" target="_blank" rel="noopener noreferrer" aria-label="Instagram BLUM Digital" class="footer-social">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </a>
-          <a href="#" aria-label="Facebook BLUM Digital" class="footer-social">
+          <a href="https://www.facebook.com/blumdigital" target="_blank" rel="noopener noreferrer" aria-label="Facebook BLUM Digital" class="footer-social">
             <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </a>
         </div>

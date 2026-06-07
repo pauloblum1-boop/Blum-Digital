@@ -12,7 +12,7 @@ const pages = [
     url: `${DOMAIN}/`,
     title: 'BLUM Digital | Marketing Digital em Criciúma, SC',
     desc: 'Agência de marketing digital em Criciúma. Google Meu Negócio, criação de sites, SEO local e tráfego pago para empresas que querem crescer.',
-    og_image: `${DOMAIN}/assets/img/hero-bg.png`,
+    og_image: `${DOMAIN}/assets/img/herodeverdade.png`,
     type: 'website',
   },
   {
@@ -72,7 +72,7 @@ const pages = [
     type: 'website',
   },
   {
-    file: 'cases.html',
+    file: 'cases/index.html',
     url: `${DOMAIN}/cases`,
     title: 'Cases de Sucesso | Resultados Reais | BLUM Digital',
     desc: 'Resultados reais que a BLUM Digital entregou para empresas em Criciúma. Cases de Google Meu Negócio, sites, SEO local e tráfego pago.',
@@ -80,11 +80,19 @@ const pages = [
     type: 'website',
   },
   {
-    file: 'blog.html',
+    file: 'blog/index.html',
     url: `${DOMAIN}/blog`,
     title: 'Blog BLUM Digital | Marketing Digital para Negócios Locais',
     desc: 'Conteúdo estratégico sobre marketing digital, SEO local, Google e tráfego pago para empresas em Criciúma e região Sul do Brasil.',
     og_image: `${DOMAIN}/assets/img/heroblog.png`,
+    type: 'website',
+  },
+  {
+    file: 'propostas/index.html',
+    url: `${DOMAIN}/propostas`,
+    title: 'Propostas Comerciais | BLUM Digital',
+    desc: 'Area de propostas comerciais da BLUM Digital para clientes e parceiros acessarem apresentacoes, escopos e planos personalizados.',
+    og_image: `${DOMAIN}/assets/img/proposta.png`,
     type: 'website',
   },
   {
@@ -180,11 +188,9 @@ function buildSeoBlock(p) {
 function buildFaviconBlock() {
   return `
   <!-- Favicon -->
-  <link rel="icon"             type="image/png" sizes="512x512" href="/assets/img/favicon-tab.png" />
-  <link rel="icon"             type="image/png" sizes="32x32"   href="/assets/img/favicon-tab.png" />
-  <link rel="icon"             type="image/png" sizes="16x16"   href="/assets/img/favicon-tab.png" />
-  <link rel="apple-touch-icon"                  sizes="180x180" href="/assets/img/favicon-tab.png" />
-  <link rel="shortcut icon"    href="/assets/img/favicon-tab.png" />`;
+  <link rel="icon"          type="image/svg+xml" href="/assets/img/favicon-blum.svg?v=2" />
+  <link rel="shortcut icon" type="image/svg+xml" href="/assets/img/favicon-blum.svg?v=2" />
+  <link rel="apple-touch-icon" href="/assets/img/favicon-blum.svg?v=2" />`;
 }
 
 // Tags we want to strip before re-inserting (avoid duplicates)
@@ -248,6 +254,33 @@ pages.forEach(p => {
   fs.writeFileSync(fp, html, 'utf8');
   log.push(`OK: ${p.file} — "${p.title}" (${p.title.length} chars)`);
   totalUpdated++;
+});
+
+const routeAliases = [
+  ['cases/index.html', 'cases.html'],
+  ['blog/index.html', 'blog.html'],
+  ['propostas/index.html', 'propostas.html'],
+  ['propostas/index.html', 'propostas-comerciais/index.html'],
+  ['propostas/hypeful.html', 'propostas/hypeful/index.html'],
+  ['propostas/nonnas.html', 'propostas/nonnas/index.html'],
+  ['propostas/nonnas.html', 'propostas-comerciais/nonnas/index.html'],
+  ['propostas/nonnas/bonus.html', 'propostas/nonnas/bonus/index.html'],
+  ['propostas/nonnas/bonus.html', 'propostas-comerciais/nonnas/bonus/index.html'],
+  ['propostas/nonnas/projecao.html', 'propostas/nonnas/projecao/index.html'],
+  ['propostas/nonnas/projecao.html', 'propostas-comerciais/nonnas/projecao/index.html'],
+];
+
+routeAliases.forEach(([source, target]) => {
+  const sourcePath = path.join(dir, source);
+  const targetPath = path.join(dir, target);
+  if (!fs.existsSync(sourcePath)) {
+    log.push(`SKIP alias (not found): ${source}`);
+    return;
+  }
+
+  fs.mkdirSync(path.dirname(targetPath), { recursive: true });
+  fs.copyFileSync(sourcePath, targetPath);
+  log.push(`SYNC alias: ${target} <- ${source}`);
 });
 
 // ── sitemap.xml ──────────────────────────────────────────────

@@ -199,3 +199,262 @@
     autoTimer = setInterval(() => goTo(current + 1, 1), 8000);
   });
 })();
+
+/* LGPD Cookie Consent */
+(function () {
+  const STORAGE_KEY = 'blum_cookie_consent_v1';
+  const DEFAULT_CONSENT = {
+    necessary: true,
+    analytics: false,
+    marketing: false,
+    functionality: false,
+    updatedAt: null
+  };
+
+  const optionalKeys = ['analytics', 'marketing', 'functionality'];
+  const loaders = { analytics: [], marketing: [], functionality: [] };
+
+  function readConsent() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? Object.assign({}, DEFAULT_CONSENT, JSON.parse(raw)) : null;
+    } catch (err) {
+      return null;
+    }
+  }
+
+  function runLoaders(consent) {
+    optionalKeys.forEach(function (key) {
+      if (!consent[key]) return;
+      loaders[key].forEach(function (loader) {
+        if (loader.loaded) return;
+        loader.loaded = true;
+        loader.fn(consent);
+      });
+    });
+  }
+
+  function writeConsent(next) {
+    const consent = Object.assign({}, DEFAULT_CONSENT, next, {
+      necessary: true,
+      updatedAt: new Date().toISOString()
+    });
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(consent));
+    window.BlumCookieConsent.state = consent;
+    runLoaders(consent);
+    window.dispatchEvent(new CustomEvent('blum:cookie-consent', { detail: consent }));
+    return consent;
+  }
+
+  function register(category, fn) {
+    if (!loaders[category] || typeof fn !== 'function') return;
+    const loader = { fn: fn, loaded: false };
+    loaders[category].push(loader);
+    const consent = readConsent();
+    if (consent && consent[category]) {
+      loader.loaded = true;
+      fn(consent);
+    }
+  }
+
+  function optionMarkup(name, title, text) {
+    return [
+      '<article class="cookie-option">',
+      '  <div><h3>' + title + '</h3><p>' + text + '</p></div>',
+      '  <label class="cookie-switch">',
+      '    <input type="checkbox" data-cookie-toggle="' + name + '">',
+      '    <span></span>',
+      '  </label>',
+      '</article>'
+    ].join('');
+  }
+
+  function buildShell() {
+    if (document.getElementById('cookieConsentRoot')) return;
+
+    const root = document.createElement('div');
+    root.id = 'cookieConsentRoot';
+    root.innerHTML = [
+      '<section class="cookie-banner" data-cookie-banner role="region" aria-label="Aviso de cookies e privacidade">',
+      '  <div class="cookie-banner__copy">',
+      '    <span class="cookie-banner__eyebrow">Privacidade LGPD</span>',
+      '    <p>Utilizamos cookies para melhorar sua experiência, analisar o desempenho do site e personalizar conteúdos. Você pode aceitar todos, rejeitar cookies opcionais ou gerenciar suas preferências. Para saber mais, acesse nossa <a href="/politica-de-privacidade">Política de Privacidade</a>.</p>',
+      '  </div>',
+      '  <div class="cookie-banner__actions">',
+      '    <button type="button" class="cookie-btn cookie-btn--ghost" data-cookie-customize>Personalizar</button>',
+      '    <button type="button" class="cookie-btn cookie-btn--secondary" data-cookie-reject>Rejeitar opcionais</button>',
+      '    <button type="button" class="cookie-btn cookie-btn--primary" data-cookie-accept>Aceitar todos</button>',
+      '  </div>',
+      '</section>',
+      '<div class="cookie-modal" data-cookie-modal aria-hidden="true">',
+      '  <div class="cookie-modal__backdrop" data-cookie-close></div>',
+      '  <section class="cookie-modal__panel" role="dialog" aria-modal="true" aria-labelledby="cookieModalTitle">',
+      '    <button type="button" class="cookie-modal__close" data-cookie-close aria-label="Fechar preferências de cookies">x</button>',
+      '    <span class="cookie-banner__eyebrow">Central de preferências</span>',
+      '    <h2 id="cookieModalTitle">Preferências de cookies</h2>',
+      '    <p class="cookie-modal__intro">Gerencie como a BLUM Digital pode utilizar cookies opcionais neste site. Cookies necessários permanecem sempre ativos para segurança e funcionamento.</p>',
+      '    <div class="cookie-options">',
+      '      <article class="cookie-option">',
+      '        <div><h3>Cookies necessários</h3><p>Essenciais para navegação, segurança, carregamento da página e armazenamento da sua escolha de privacidade.</p></div>',
+      '        <span class="cookie-always">Sempre ativos</span>',
+      '      </article>',
+      optionMarkup('analytics', 'Cookies de desempenho/analytics', 'Ajudam a entender visitas, páginas acessadas e desempenho do site. Só serão usados se você permitir.'),
+      optionMarkup('marketing', 'Cookies de marketing/publicidade', 'Permitem medir campanhas e criar comunicações mais relevantes em plataformas de publicidade, quando houver integrações ativas.'),
+      optionMarkup('functionality', 'Cookies de funcionalidade', 'Guardam preferências de experiência e recursos adicionais que tornam a navegação mais conveniente.'),
+      '    </div>',
+      '    <div class="cookie-modal__actions">',
+      '      <button type="button" class="cookie-btn cookie-btn--ghost" data-cookie-reject>Rejeitar opcionais</button>',
+      '      <button type="button" class="cookie-btn cookie-btn--secondary" data-cookie-save>Salvar preferências</button>',
+      '      <button type="button" class="cookie-btn cookie-btn--primary" data-cookie-accept>Aceitar todos</button>',
+      '    </div>',
+      '  </section>',
+      '</div>'
+    ].join('');
+
+    document.body.appendChild(root);
+  }
+
+  function injectFooterLink() {
+    const footer = document.querySelector('footer');
+    if (!footer) return;
+    if (footer.querySelector('[data-cookie-preferences-link]')) return;
+
+    const lists = footer.querySelectorAll('ul');
+    const targetList = lists[lists.length - 1];
+    const privacy = document.createElement('li');
+    privacy.innerHTML = '<a href="/politica-de-privacidade" class="footer-link">Política de Privacidade</a>';
+
+    const preferences = document.createElement('li');
+    preferences.innerHTML = '<button type="button" class="footer-link cookie-footer-button" data-cookie-preferences-link>Preferências de cookies</button>';
+
+    if (targetList) {
+      targetList.appendChild(privacy);
+      targetList.appendChild(preferences);
+      return;
+    }
+
+    const wrap = document.createElement('div');
+    wrap.className = 'cookie-footer-links';
+    wrap.appendChild(privacy.firstElementChild);
+    wrap.appendChild(preferences.firstElementChild);
+    footer.querySelector('.container-wrap')?.appendChild(wrap);
+  }
+
+  function setToggles(consent) {
+    optionalKeys.forEach(function (key) {
+      const input = document.querySelector('[data-cookie-toggle="' + key + '"]');
+      if (input) input.checked = !!consent[key];
+    });
+  }
+
+  function getToggleConsent() {
+    const next = { necessary: true };
+    optionalKeys.forEach(function (key) {
+      const input = document.querySelector('[data-cookie-toggle="' + key + '"]');
+      next[key] = !!(input && input.checked);
+    });
+    return next;
+  }
+
+  function showBanner() {
+    document.querySelector('[data-cookie-banner]')?.classList.add('is-visible');
+  }
+
+  function hideBanner() {
+    document.querySelector('[data-cookie-banner]')?.classList.remove('is-visible');
+  }
+
+  function openModal() {
+    setToggles(readConsent() || DEFAULT_CONSENT);
+    const modal = document.querySelector('[data-cookie-modal]');
+    if (!modal) return;
+    modal.classList.add('is-visible');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('cookie-modal-open');
+  }
+
+  function closeModal() {
+    const modal = document.querySelector('[data-cookie-modal]');
+    if (!modal) return;
+    modal.classList.remove('is-visible');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('cookie-modal-open');
+  }
+
+  function bindEvents() {
+    document.addEventListener('click', function (event) {
+      if (event.target.closest('[data-cookie-accept]')) {
+        writeConsent({ analytics: true, marketing: true, functionality: true });
+        hideBanner();
+        closeModal();
+      }
+
+      if (event.target.closest('[data-cookie-reject]')) {
+        writeConsent({ analytics: false, marketing: false, functionality: false });
+        hideBanner();
+        closeModal();
+      }
+
+      if (event.target.closest('[data-cookie-customize], [data-cookie-preferences-link]')) {
+        event.preventDefault();
+        openModal();
+      }
+
+      if (event.target.closest('[data-cookie-save]')) {
+        writeConsent(getToggleConsent());
+        hideBanner();
+        closeModal();
+      }
+
+      if (event.target.closest('[data-cookie-close]')) {
+        closeModal();
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') closeModal();
+    });
+  }
+
+  window.BlumCookieConsent = {
+    get: readConsent,
+    set: writeConsent,
+    open: openModal,
+    register: register,
+    state: readConsent()
+  };
+
+  document.addEventListener('DOMContentLoaded', function () {
+    injectFooterLink();
+    buildShell();
+    bindEvents();
+
+    const consent = readConsent();
+    if (consent) {
+      runLoaders(consent);
+    } else {
+      showBanner();
+    }
+  });
+})();
+/* Hero image rotation */
+(function () {
+  const slider = document.querySelector('.h-slider');
+  if (!slider) return;
+
+  const slides = Array.from(slider.querySelectorAll('.h-slide'));
+  if (slides.length < 2) return;
+
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduceMotion) return;
+
+  let current = slides.findIndex((slide) => slide.classList.contains('h-slide--active'));
+  if (current < 0) current = 0;
+
+  setInterval(() => {
+    const next = (current + 1) % slides.length;
+    slides[current].classList.remove('h-slide--active');
+    slides[next].classList.add('h-slide--active');
+    current = next;
+  }, 4000);
+})();

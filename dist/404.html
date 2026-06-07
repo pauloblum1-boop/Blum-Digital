@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página não encontrada | BLUM Digital</title>
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon-blum.svg" />
+  <link rel="shortcut icon" href="/assets/img/favicon-blum.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { heading: ['Poppins','sans-serif'], body: ['Inter','sans-serif'] },
+          colors: {
+            cream: '#F7EFE9', border: '#EEE4DD', dark: '#0B0618',
+            ink: '#161616', muted: '#6B7280', orange: '#FF7A18',
+            pink: '#FF3D77', purple: '#9333EA',
+          },
+          maxWidth: { container: '1280px' },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .notfound-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 136px 0 92px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255,122,24,.18), transparent 30%),
+        radial-gradient(circle at 82% 14%, rgba(147,51,234,.18), transparent 34%),
+        linear-gradient(135deg, #08051A 0%, #120A2A 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .notfound-card {
+      max-width: 780px;
+      margin: 0 auto;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 1.5rem;
+      background: rgba(255,255,255,.055);
+      box-shadow: 0 28px 90px rgba(0,0,0,.35);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      padding: clamp(2rem, 6vw, 4rem);
+    }
+
+    .notfound-code {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.25rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,122,24,.28);
+      background: rgba(255,122,24,.12);
+      color: #FFB077;
+      padding: .55rem 1rem;
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .notfound-card h1 {
+      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(2.5rem, 7vw, 5rem);
+      font-weight: 800;
+      letter-spacing: -.045em;
+      line-height: 1;
+      margin-bottom: 1.25rem;
+    }
+
+    .notfound-card p {
+      color: rgba(255,255,255,.68);
+      font-size: clamp(1rem, 2vw, 1.1rem);
+      line-height: 1.75;
+      max-width: 620px;
+      margin: 0 auto 2.25rem;
+    }
+
+    .notfound-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .notfound-actions a {
+      min-width: 230px;
+      min-height: 56px;
+      padding: 1rem 1.5rem;
+    }
+
+    @media (max-width: 560px) {
+      .notfound-actions a { width: 100%; min-width: 0; }
+    }
+  </style>
+</head>
+
+<body class="font-body bg-dark text-white overflow-x-hidden">
+<header
+  x-data="{ open: false, scrolled: false }"
+  @scroll.window="scrolled = window.scrollY > 40"
+  class="fixed top-0 left-0 right-0 z-50"
+  style="padding-top: 18px; padding-left: 28px; padding-right: 28px;"
+>
+  <a href="/" class="logo-standalone pointer-events-auto" aria-label="BLUM Digital - página inicial">
+    <img src="/assets/img/logo.webp" alt="BLUM Digital" width="180" height="48" class="logo-img" loading="eager" />
+  </a>
+
+  <nav class="nav-pill pointer-events-auto hidden lg:flex items-center gap-6 px-6 py-3 transition-all duration-300" :class="scrolled ? 'nav-scrolled' : ''" style="position:absolute;top:18px;left:50%;transform:translateX(-50%);" aria-label="Navegação principal">
+    <a href="/" class="nav-item">Início</a>
+    <a href="/#servicos" class="nav-item">Serviços</a>
+    <a href="/#planos" class="nav-item">Planos</a>
+    <a href="/cases/" class="nav-item">Cases</a>
+    <a href="/blog/" class="nav-item">Blog</a>
+    <a href="/socio-digital" class="nav-item nav-item--highlight">Sócio Digital</a>
+    <a href="/propostas/" class="nav-item">Propostas Comerciais</a>
+    <a href="/#faq" class="nav-item">FAQ</a>
+    <a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Vim+pelo+site+e+quero+saber+mais+sobre+a+BLUM+Digital." target="_blank" rel="noopener noreferrer" class="btn-primary text-sm px-5 py-2.5 ml-2">Falar no WhatsApp</a>
+  </nav>
+
+  <button @click="open = !open" class="lg:hidden pointer-events-auto w-10 h-10 flex flex-col items-center justify-center gap-1.5 bg-white border border-border rounded-full shadow-sm" style="position:absolute;top:22px;right:28px;" aria-label="Abrir menu">
+    <span class="block w-5 h-0.5 bg-ink transition-all duration-300" :class="open ? 'rotate-45 translate-y-2' : ''"></span>
+    <span class="block w-5 h-0.5 bg-ink transition-all duration-300" :class="open ? 'opacity-0' : ''"></span>
+    <span class="block w-5 h-0.5 bg-ink transition-all duration-300" :class="open ? '-rotate-45 -translate-y-2' : ''"></span>
+  </button>
+
+  <div x-show="open" x-transition class="pointer-events-auto lg:hidden absolute bg-white rounded-3xl shadow-2xl border border-border overflow-hidden" style="top:80px;left:16px;right:16px;">
+    <div class="px-6 pt-5 pb-4 border-b border-border">
+      <img loading="eager" src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
+    </div>
+    <nav class="flex flex-col px-6 py-4 gap-1">
+      <a @click="open=false" href="/" class="mobile-nav-item">Início</a>
+      <a @click="open=false" href="/#servicos" class="mobile-nav-item">Serviços</a>
+      <a @click="open=false" href="/#planos" class="mobile-nav-item">Planos</a>
+      <a @click="open=false" href="/cases/" class="mobile-nav-item">Cases</a>
+      <a @click="open=false" href="/blog/" class="mobile-nav-item">Blog</a>
+      <a @click="open=false" href="/socio-digital" class="mobile-nav-item mobile-nav-item--highlight">Sócio Digital</a>
+      <a @click="open=false" href="/propostas/" class="mobile-nav-item">Propostas Comerciais</a>
+      <a @click="open=false" href="/#faq" class="mobile-nav-item">FAQ</a>
+      <a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Vim+pelo+site+e+quero+saber+mais+sobre+a+BLUM+Digital." target="_blank" rel="noopener noreferrer" class="btn-primary text-center mt-3 py-3.5">Falar no WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="notfound-page">
+    <div class="container-wrap" style="position:relative;z-index:1;">
+      <article class="notfound-card reveal">
+        <span class="notfound-code">Erro 404</span>
+        <h1>Página não encontrada</h1>
+        <p>A página que você tentou acessar pode ter sido removida, renomeada ou está temporariamente indisponível.</p>
+        <div class="notfound-actions">
+          <a href="/" class="btn-primary">Voltar para a página inicial</a>
+          <a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Tentei+acessar+uma+p%C3%A1gina+da+BLUM+Digital+e+preciso+de+ajuda." target="_blank" rel="noopener noreferrer" class="btn-secondary">Falar no WhatsApp</a>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer style="background:#0B0618;" class="pt-16 pb-8">
+  <div class="container-wrap">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+      <div class="lg:col-span-2">
+        <img src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" loading="lazy" class="footer-logo mb-4" />
+        <p class="text-white/45 text-sm leading-relaxed max-w-xs mb-5">Marketing, presença e autoridade digital para empresas que querem crescer de forma profissional em Criciúma e além.</p>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-xs uppercase tracking-wider mb-5">Serviços</h3>
+        <ul class="space-y-3">
+          <li><a href="/google-meu-negocio" class="footer-link">Google Meu Negócio</a></li>
+          <li><a href="/criacao-de-sites" class="footer-link">Criação de Sites</a></li>
+          <li><a href="/trafego-pago" class="footer-link">Tráfego Pago</a></li>
+          <li><a href="/seo-local" class="footer-link">SEO Local</a></li>
+          <li><a href="/tour-virtual-360" class="footer-link">Tour Virtual 360°</a></li>
+          <li><a href="/gestao-redes-sociais" class="footer-link">Redes Sociais</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-xs uppercase tracking-wider mb-5">Planos</h3>
+        <ul class="space-y-3">
+          <li><a href="/blum-start" class="footer-link">BLUM Start</a></li>
+          <li><a href="/blum-authority" class="footer-link">BLUM Authority</a></li>
+          <li><a href="/blum-apex" class="footer-link">BLUM Apex</a></li>
+          <li><a href="/social-media" class="footer-link">Social Media</a></li>
+          <li><a href="/#planos" class="footer-link">Comparar planos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-xs uppercase tracking-wider mb-5">Contato</h3>
+        <ul class="space-y-3 text-white/45 text-sm">
+          <li>(48) 99951-7566</li>
+          <li>Criciúma - SC, Brasil</li>
+          <li>Atendimento nacional e internacional</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-white/25 text-xs">© 2026 BLUM Digital. Todos os direitos reservados.</p>
+      <p class="text-white/25 text-xs">Desenvolvido por BLUM Digital.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

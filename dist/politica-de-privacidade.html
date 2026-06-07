@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade | BLUM Digital</title>
+  <meta name="description" content="Política de Privacidade da BLUM Digital: entenda como coletamos, usamos, protegemos e tratamos dados pessoais e cookies em conformidade com boas práticas da LGPD." />
+  <link rel="canonical" href="https://digitalblum.com/politica-de-privacidade" />
+
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon-blum.svg" />
+  <link rel="shortcut icon" href="/assets/img/favicon-blum.svg" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="/css/style.css" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { heading: ['Poppins','sans-serif'], body: ['Inter','sans-serif'] },
+          colors: {
+            cream: '#F7EFE9', border: '#EEE4DD', dark: '#0B0618',
+            ink: '#161616', muted: '#6B7280', orange: '#FF7A18',
+            pink: '#FF3D77', purple: '#9333EA',
+          },
+          maxWidth: { container: '1280px' },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .privacy-hero {
+      min-height: 58vh;
+      display: flex;
+      align-items: center;
+      padding: 132px 0 84px;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(255,122,24,.16), transparent 34%),
+        radial-gradient(circle at 78% 20%, rgba(147,51,234,.16), transparent 34%),
+        linear-gradient(135deg, #08051A 0%, #120A2A 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .privacy-hero::after {
+      content: "";
+      position: absolute;
+      inset: auto -10% -40% -10%;
+      height: 60%;
+      background: radial-gradient(ellipse at center, rgba(255,61,119,.14), transparent 70%);
+      pointer-events: none;
+    }
+
+    .privacy-content {
+      background: #fff;
+      padding: 96px 0;
+    }
+
+    .privacy-card {
+      max-width: 920px;
+      margin: 0 auto;
+      border: 1px solid #EEE4DD;
+      border-radius: 1.35rem;
+      background: linear-gradient(180deg, #fff, #FFF7F3);
+      box-shadow: 0 24px 70px rgba(8,5,26,.08);
+      padding: clamp(1.5rem, 4vw, 3.25rem);
+    }
+
+    .privacy-card h2 {
+      color: #161616;
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(1.2rem, 2vw, 1.45rem);
+      font-weight: 800;
+      letter-spacing: -.02em;
+      margin: 2rem 0 .7rem;
+    }
+
+    .privacy-card h2:first-child { margin-top: 0; }
+
+    .privacy-card p {
+      color: #4B5563;
+      font-size: 1rem;
+      line-height: 1.85;
+      margin: 0 0 1rem;
+    }
+
+    .privacy-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 2.25rem;
+    }
+
+    @media (max-width: 640px) {
+      .privacy-hero { padding: 112px 0 70px; }
+      .privacy-content { padding: 72px 0; }
+      .privacy-actions a, .privacy-actions button { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+
+<body class="font-body bg-cream text-ink overflow-x-hidden">
+<header
+  x-data="{ open: false, scrolled: false }"
+  @scroll.window="scrolled = window.scrollY > 40"
+  class="fixed top-0 left-0 right-0 z-50"
+  style="padding-top: 18px; padding-left: 28px; padding-right: 28px;"
+>
+  <a href="/" class="logo-standalone pointer-events-auto" aria-label="BLUM Digital - página inicial">
+    <img src="/assets/img/logo.webp" alt="BLUM Digital" width="180" height="48" class="logo-img" loading="eager" />
+  </a>
+
+  <nav class="nav-pill pointer-events-auto hidden lg:flex items-center gap-6 px-6 py-3 transition-all duration-300" :class="scrolled ? 'nav-scrolled' : ''" style="position:absolute;top:18px;left:50%;transform:translateX(-50%);" aria-label="Navegação principal">
+    <a href="/" class="nav-item">Início</a>
+    <a href="/#servicos" class="nav-item">Serviços</a>
+    <a href="/#planos" class="nav-item">Planos</a>
+    <a href="/cases/" class="nav-item">Cases</a>
+    <a href="/blog/" class="nav-item">Blog</a>
+    <a href="/socio-digital" class="nav-item nav-item--highlight">Sócio Digital</a>
+    <a href="/propostas/" class="nav-item">Propostas Comerciais</a>
+    <a href="/#faq" class="nav-item">FAQ</a>
+    <a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Vim+pelo+site+e+quero+saber+mais+sobre+a+BLUM+Digital." target="_blank" rel="noopener noreferrer" class="btn-primary text-sm px-5 py-2.5 ml-2">Falar no WhatsApp</a>
+  </nav>
+
+  <button @click="open = !open" class="lg:hidden pointer-events-auto w-10 h-10 flex flex-col items-center justify-center gap-1.5 bg-white border border-border rounded-full shadow-sm" style="position:absolute;top:22px;right:28px;" aria-label="Abrir menu">
+    <span class="block w-5 h-0.5 bg-ink transition-all duration-300" :class="open ? 'rotate-45 translate-y-2' : ''"></span>
+    <span class="block w-5 h-0.5 bg-ink transition-all duration-300" :class="open ? 'opacity-0' : ''"></span>
+    <span class="block w-5 h-0.5 bg-ink transition-all duration-300" :class="open ? '-rotate-45 -translate-y-2' : ''"></span>
+  </button>
+
+  <div x-show="open" x-transition class="pointer-events-auto lg:hidden absolute bg-white rounded-3xl shadow-2xl border border-border overflow-hidden" style="top:80px;left:16px;right:16px;">
+    <div class="px-6 pt-5 pb-4 border-b border-border">
+      <img loading="eager" src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" class="footer-logo" style="margin-bottom:0;" />
+    </div>
+    <nav class="flex flex-col px-6 py-4 gap-1">
+      <a @click="open=false" href="/" class="mobile-nav-item">Início</a>
+      <a @click="open=false" href="/#servicos" class="mobile-nav-item">Serviços</a>
+      <a @click="open=false" href="/#planos" class="mobile-nav-item">Planos</a>
+      <a @click="open=false" href="/cases/" class="mobile-nav-item">Cases</a>
+      <a @click="open=false" href="/blog/" class="mobile-nav-item">Blog</a>
+      <a @click="open=false" href="/socio-digital" class="mobile-nav-item mobile-nav-item--highlight">Sócio Digital</a>
+      <a @click="open=false" href="/propostas/" class="mobile-nav-item">Propostas Comerciais</a>
+      <a @click="open=false" href="/#faq" class="mobile-nav-item">FAQ</a>
+      <a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Vim+pelo+site+e+quero+saber+mais+sobre+a+BLUM+Digital." target="_blank" rel="noopener noreferrer" class="btn-primary text-center mt-3 py-3.5">Falar no WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="privacy-hero">
+    <div class="container-wrap" style="position:relative;z-index:1;">
+      <span class="label-pill" style="background:rgba(255,255,255,.09);border-color:rgba(255,255,255,.16);color:#fff;">Privacidade e LGPD</span>
+      <h1 class="inner-h1" style="max-width:860px;margin-top:1.35rem;">Política de Privacidade</h1>
+      <p class="inner-hero-desc" style="max-width:720px;margin-bottom:0;">Última atualização: 30 de maio de 2026</p>
+    </div>
+  </section>
+
+  <section class="privacy-content">
+    <div class="container-wrap">
+      <article class="privacy-card reveal">
+        <p>Esta Política de Privacidade explica como este site coleta, utiliza, armazena e protege informações dos usuários que acessam nossas páginas, formulários, canais de contato e demais recursos digitais.</p>
+
+        <h2>1. Informações que podemos coletar</h2>
+        <p>Podemos coletar informações fornecidas diretamente pelo usuário, como nome, telefone, e-mail e mensagem enviada por formulários ou botões de contato. Também podemos coletar dados técnicos de navegação, como endereço IP, tipo de dispositivo, navegador, páginas acessadas, tempo de permanência e origem do acesso, quando aplicável.</p>
+
+        <h2>2. Como utilizamos as informações</h2>
+        <p>As informações podem ser utilizadas para responder solicitações, melhorar a experiência de navegação, analisar desempenho do site, medir campanhas, aprimorar nossos serviços, proteger o site contra usos indevidos e cumprir obrigações legais ou regulatórias.</p>
+
+        <h2>3. Uso de cookies</h2>
+        <p>Este site pode utilizar cookies necessários para funcionamento, cookies de desempenho para análise de navegação, cookies de funcionalidade e cookies de marketing, quando aplicável. O usuário pode aceitar, rejeitar ou personalizar o uso de cookies opcionais por meio da central de preferências disponível no site.</p>
+
+        <h2>4. Compartilhamento de dados</h2>
+        <p>Não vendemos dados pessoais. Informações podem ser compartilhadas apenas com fornecedores técnicos necessários para operação do site, ferramentas de análise, plataformas de anúncio, hospedagem, segurança, atendimento ou quando houver obrigação legal.</p>
+
+        <h2>5. Segurança das informações</h2>
+        <p>Adotamos medidas técnicas e organizacionais razoáveis para proteger os dados contra acessos não autorizados, perda, alteração, divulgação indevida ou uso inadequado.</p>
+
+        <h2>6. Direitos do titular dos dados</h2>
+        <p>Nos termos da Lei Geral de Proteção de Dados, o usuário pode solicitar confirmação de tratamento, acesso, correção, exclusão, portabilidade, anonimização, revogação de consentimento e informações sobre o uso de seus dados, conforme aplicável.</p>
+
+        <h2>7. Retenção dos dados</h2>
+        <p>Os dados serão mantidos pelo tempo necessário para cumprir as finalidades descritas nesta política, obrigações legais, regulatórias, contratuais ou legítimos interesses relacionados à segurança e melhoria dos serviços.</p>
+
+        <h2>8. Links externos</h2>
+        <p>O site pode conter links para páginas externas. Não nos responsabilizamos pelas práticas de privacidade de sites de terceiros. Recomendamos que o usuário leia as políticas de privacidade de cada site acessado.</p>
+
+        <h2>9. Alterações nesta política</h2>
+        <p>Esta política pode ser atualizada periodicamente para refletir mudanças legais, técnicas ou operacionais. A versão mais recente estará sempre disponível nesta página.</p>
+
+        <h2>10. Contato</h2>
+        <p>Em caso de dúvidas sobre esta Política de Privacidade ou sobre o tratamento de dados pessoais, entre em contato pelos canais oficiais disponíveis no site. A BLUM Digital atende pelo WhatsApp/telefone (48) 99951-7566.</p>
+
+        <div class="privacy-actions">
+          <a href="/" class="btn-primary" style="padding:1rem 1.5rem;">Voltar para a página inicial</a>
+          <button type="button" class="btn-secondary" style="padding:1rem 1.5rem;" data-cookie-preferences-link>Gerenciar cookies</button>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer style="background:#0B0618;" class="pt-16 pb-8">
+  <div class="container-wrap">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+      <div class="lg:col-span-2">
+        <img src="/assets/img/logo.webp" alt="BLUM Digital" width="320" height="160" loading="lazy" class="footer-logo mb-4" />
+        <p class="text-white/45 text-sm leading-relaxed max-w-xs mb-5">Marketing, presença e autoridade digital para empresas que querem crescer de forma profissional em Criciúma e além.</p>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-xs uppercase tracking-wider mb-5">Serviços</h3>
+        <ul class="space-y-3">
+          <li><a href="/google-meu-negocio" class="footer-link">Google Meu Negócio</a></li>
+          <li><a href="/criacao-de-sites" class="footer-link">Criação de Sites</a></li>
+          <li><a href="/trafego-pago" class="footer-link">Tráfego Pago</a></li>
+          <li><a href="/seo-local" class="footer-link">SEO Local</a></li>
+          <li><a href="/tour-virtual-360" class="footer-link">Tour Virtual 360°</a></li>
+          <li><a href="/gestao-redes-sociais" class="footer-link">Redes Sociais</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-xs uppercase tracking-wider mb-5">Planos</h3>
+        <ul class="space-y-3">
+          <li><a href="/blum-start" class="footer-link">BLUM Start</a></li>
+          <li><a href="/blum-authority" class="footer-link">BLUM Authority</a></li>
+          <li><a href="/blum-apex" class="footer-link">BLUM Apex</a></li>
+          <li><a href="/social-media" class="footer-link">Social Media</a></li>
+          <li><a href="/#planos" class="footer-link">Comparar planos</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 class="text-white font-semibold text-xs uppercase tracking-wider mb-5">Contato</h3>
+        <ul class="space-y-3 text-white/45 text-sm">
+          <li>(48) 99951-7566</li>
+          <li>Criciúma - SC, Brasil</li>
+          <li>Atendimento nacional e internacional</li>
+        </ul>
+      </div>
+    </div>
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-3">
+      <p class="text-white/25 text-xs">© 2026 BLUM Digital. Todos os direitos reservados.</p>
+      <p class="text-white/25 text-xs">Desenvolvido por BLUM Digital.</p>
+    </div>
+  </div>
+</footer>
+
+<a href="https://wa.me/5548999517566?text=Ol%C3%A1%21+Vim+pelo+site+e+quero+saber+mais+sobre+a+BLUM+Digital." target="_blank" rel="noopener noreferrer" aria-label="Falar com a BLUM Digital pelo WhatsApp" class="whatsapp-float">
+  <svg class="w-7 h-7 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.122.552 4.112 1.516 5.839L.057 23.25a.75.75 0 00.943.906l5.553-1.453A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.9 0-3.678-.5-5.215-1.375l-.374-.219-3.876 1.015 1.035-3.775-.241-.388A10 10 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/></svg>
+</a>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

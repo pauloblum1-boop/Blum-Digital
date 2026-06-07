@@ -1,5 +1,6 @@
 node_modules/
 *.log
+_snapshots/
 .DS_Store
 Thumbs.db
 desktop.ini

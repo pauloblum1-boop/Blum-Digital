@@ -437,24 +437,3 @@
     }
   });
 })();
-/* Hero image rotation */
-(function () {
-  const slider = document.querySelector('.h-slider');
-  if (!slider) return;
-
-  const slides = Array.from(slider.querySelectorAll('.h-slide'));
-  if (slides.length < 2) return;
-
-  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (reduceMotion) return;
-
-  let current = slides.findIndex((slide) => slide.classList.contains('h-slide--active'));
-  if (current < 0) current = 0;
-
-  setInterval(() => {
-    const next = (current + 1) % slides.length;
-    slides[current].classList.remove('h-slide--active');
-    slides[next].classList.add('h-slide--active');
-    current = next;
-  }, 4000);
-})();

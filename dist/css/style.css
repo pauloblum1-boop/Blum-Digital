@@ -2332,8 +2332,10 @@ h1, h2, h3, h4, h5, h6 {
 
 /* ── Banner CTA Conteiner ─────────────────────────────── */
 .banner-cta-wrap {
-  padding: 3rem 1.5rem;
-  background: linear-gradient(135deg, #0d0d1a 0%, #12082a 50%, #0d0d1a 100%);
+  padding: clamp(3.5rem, 6vw, 6rem) 1.5rem;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(198, 165, 107, .08), transparent 35%),
+    linear-gradient(180deg, var(--color-vinho-noturno), var(--color-grafite));
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2341,44 +2343,47 @@ h1, h2, h3, h4, h5, h6 {
 
 .banner-cta-inner {
   position: relative;
-  max-width: 1100px;
+  display: block;
+  max-width: 1360px;
   width: 100%;
-  border-radius: 1.5rem;
+  border-radius: 8px;
   overflow: hidden;
+  border: 1px solid rgba(198, 165, 107, .28);
   box-shadow:
-    0 0 0 1px rgba(72, 19, 26, 0.25),
-    0 8px 40px rgba(0, 0, 0, 0.5),
-    0 0 60px rgba(72, 19, 26, 0.12);
+    0 34px 90px rgba(0, 0, 0, .44),
+    0 0 84px rgba(198, 165, 107, .08);
   cursor: pointer;
+  text-decoration: none;
   transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .banner-cta-inner:hover {
-  transform: translateY(-6px) scale(1.01);
+  transform: translateY(-6px);
   box-shadow:
-    0 0 0 1.5px rgba(121, 31, 40, 0.5),
-    0 16px 60px rgba(0, 0, 0, 0.55),
-    0 0 80px rgba(121, 31, 40, 0.2),
-    0 0 120px rgba(72, 19, 26, 0.15);
+    0 0 0 1px rgba(198, 165, 107, .48),
+    0 42px 110px rgba(0, 0, 0, .52),
+    0 0 110px rgba(198, 165, 107, .14);
 }
 
 .banner-cta-img {
   display: block;
   width: 100%;
+  aspect-ratio: 3 / 2;
   height: auto;
+  object-fit: cover;
   transition: transform 0.6s ease, filter 0.4s ease;
-  filter: brightness(1.0) saturate(1.1);
+  filter: brightness(.96) saturate(1.04);
 }
 
 .banner-cta-inner:hover .banner-cta-img {
-  transform: scale(1.03);
-  filter: brightness(1.08) saturate(1.2);
+  transform: scale(1.018);
+  filter: brightness(1.02) saturate(1.08);
 }
 
 .banner-cta-glow {
   position: absolute;
   inset: 0;
-  border-radius: 1.5rem;
+  border-radius: 8px;
   background: transparent;
   transition: background 0.4s ease;
   pointer-events: none;
@@ -2387,9 +2392,9 @@ h1, h2, h3, h4, h5, h6 {
 .banner-cta-inner:hover .banner-cta-glow {
   background: linear-gradient(
     135deg,
-    rgba(121, 31, 40, 0.06) 0%,
+    rgba(198, 165, 107, 0.05) 0%,
     transparent 50%,
-    rgba(72, 19, 26, 0.06) 100%
+    rgba(121, 31, 40, 0.08) 100%
   );
 }
 
@@ -2429,48 +2434,26 @@ h1, h2, h3, h4, h5, h6 {
 
 @media (max-width: 640px) {
   .banner-cta-wrap {
-    padding: 2rem 1rem 2.5rem;
+    padding: 2.4rem .65rem;
   }
 
   .banner-cta-inner {
-    display: flex;
-    flex-direction: column;
-    border-radius: 1.25rem;
-    background: #08051A;
-    overflow: hidden;
+    width: calc(100vw - 1.3rem);
+    border-radius: 8px;
   }
 
   .banner-cta-img {
     width: 100%;
-    height: clamp(176px, 48vw, 220px);
-    object-fit: cover;
-    object-position: 56% center;
+    aspect-ratio: auto;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
   }
 
   .banner-cta-inner:hover .banner-cta-img {
     transform: none;
   }
 
-  .banner-cta-glow {
-    display: none;
-  }
-
-  .banner-cta-btn-wrap {
-    position: static;
-    transform: none;
-    width: 100%;
-    max-width: none;
-    padding: .95rem 1rem 1.05rem;
-    background: linear-gradient(180deg, rgba(8,5,26,.96), rgba(18,8,42,.98));
-  }
-
-  .banner-cta-btn {
-    width: 100%;
-    font-size: 0.9rem;
-    line-height: 1.35;
-    padding: 0.9rem 1.2rem;
-    min-height: 54px;
-  }
 }
 
 .banner-cta-btn:hover {
@@ -4505,13 +4488,15 @@ footer {
 }
 
 .banner-cta-wrap {
-  background: var(--blum-grafite) !important;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(198, 165, 107, .08), transparent 35%),
+    linear-gradient(180deg, var(--color-vinho-noturno), var(--color-grafite)) !important;
 }
 
 .banner-cta-inner {
   border-radius: 8px !important;
   border-color: rgba(198, 165, 104, .34) !important;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, .42) !important;
+  box-shadow: 0 34px 90px rgba(0, 0, 0, .44), 0 0 84px rgba(198, 165, 107, .08) !important;
 }
 
 .cookie-switch input:checked + span {

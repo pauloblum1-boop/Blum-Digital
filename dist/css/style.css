@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=Manrope:wght@600;700;800&display=swap');
 
 /* Foundation tokens */
 :root {
@@ -11,6 +11,7 @@
   --color-branco: #FFFFFF;
   --font-heading: 'Cormorant Garamond', serif;
   --font-body: 'Inter', sans-serif;
+  --font-accent: 'Manrope', sans-serif;
 }
 
 /* ═══════════════════════════════════════════════════════
@@ -6464,6 +6465,86 @@ select {
 }
 
 /* Cases e depoimentos: carousel premium */
+#numeros.metrics-strip-section {
+  padding: clamp(3.25rem, 6vw, 5.5rem) 0;
+  background:
+    radial-gradient(circle at 50% 0%, rgba(198, 165, 107, .11), transparent 34%),
+    linear-gradient(135deg, var(--color-bordo-imperial) 0%, var(--color-bordo-profundo) 54%, var(--color-vinho-noturno) 100%) !important;
+  border-top: 1px solid rgba(198, 165, 107, .12);
+  border-bottom: 1px solid rgba(198, 165, 107, .10);
+}
+
+.metrics-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: clamp(1.2rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.metrics-strip-item {
+  min-width: 0;
+  text-align: center;
+}
+
+.metrics-strip-number {
+  margin: 0 0 .65rem;
+  color: var(--color-marfim);
+  font-family: var(--font-accent) !important;
+  font-size: 3.6rem;
+  font-weight: 800;
+  line-height: .88;
+  letter-spacing: 0;
+  font-variant-numeric: lining-nums tabular-nums;
+  text-shadow: 0 12px 30px rgba(0, 0, 0, .28);
+}
+
+.metrics-strip-star {
+  display: inline-block;
+  margin-left: .04em;
+  color: var(--color-champagne);
+  font-size: .82em;
+  transform: translateY(-.04em);
+  text-shadow: 0 0 20px rgba(198, 165, 107, .22);
+}
+
+.metrics-strip-label {
+  margin: 0;
+  color: rgba(244, 240, 232, .82);
+  font-family: var(--font-body);
+  font-size: .95rem;
+  font-weight: 500;
+  line-height: 1.45;
+  letter-spacing: 0;
+}
+
+@media (max-width: 900px) {
+  .metrics-strip-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metrics-strip-number {
+    font-size: 3.05rem;
+  }
+}
+
+@media (max-width: 520px) {
+  #numeros.metrics-strip-section {
+    padding: 2.75rem 0;
+  }
+
+  .metrics-strip-grid {
+    gap: 2rem 1rem;
+  }
+
+  .metrics-strip-number {
+    font-size: 2.55rem;
+  }
+
+  .metrics-strip-label {
+    font-size: .86rem;
+  }
+}
+
 #depoimentos.cases-v2-section {
   position: relative;
   overflow-x: hidden;

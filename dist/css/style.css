@@ -6458,6 +6458,14 @@ select {
     inset 0 -42px 110px rgba(3, 2, 8, .52);
 }
 
+#hero .h-stat b,
+#sobre .stat-dark-card .about-stat-number {
+  font-family: var(--font-accent) !important;
+  font-weight: 800 !important;
+  letter-spacing: 0 !important;
+  font-variant-numeric: lining-nums tabular-nums;
+}
+
 @media (max-width: 1023px) {
   #sobre .sobre-v2-copy {
     padding-top: 0;

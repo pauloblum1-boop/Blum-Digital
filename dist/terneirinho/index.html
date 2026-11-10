@@ -320,6 +320,26 @@ footer a{text-decoration:none;color:var(--papel);border-bottom:1px solid rgba(18
 @media (min-width:881px){.thread{display:block}#encomendar .head{margin-bottom:96px}}
 
 address{font-style:normal}
+/* curso: CTA em destaque */
+.c-buy{position:relative;margin-top:10px;padding:26px 28px;border-radius:22px;display:grid;grid-template-columns:auto minmax(0,1fr);grid-template-areas:'price btn' 'trust trust';align-items:center;gap:22px 30px;
+  background:radial-gradient(120% 140% at 100% 0%,rgba(226,195,154,.22),transparent 60%),rgba(251,248,243,.04);border:1px solid rgba(180,147,100,.5);box-shadow:0 30px 60px -40px rgba(226,195,154,.5)}
+.c-buy::before{content:"";position:absolute;inset:6px;border:1px dashed rgba(226,195,154,.3);border-radius:17px;pointer-events:none}
+.c-buy .pricetag{grid-area:price;margin:0}
+.c-cta{display:contents}
+.c-trust{grid-area:trust;justify-self:stretch;border-top:1px solid rgba(226,195,154,.22);padding-top:16px}
+.btn.gold{grid-area:btn;justify-self:start;white-space:nowrap;position:relative;overflow:hidden;isolation:isolate;justify-content:center;background:linear-gradient(135deg,#F5E4C6 0%,#E2C39A 48%,#C99A62 100%);color:var(--noite);
+  padding:20px 36px;font-size:16px;font-weight:800;letter-spacing:.03em;box-shadow:0 22px 44px -18px rgba(226,195,154,.9),inset 0 0 0 1px rgba(255,242,220,.6);transition:transform .3s,box-shadow .3s,filter .3s}
+.btn.gold::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:42%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.7),transparent);transform:skewX(-18deg);animation:sheen 5s ease-in-out 1.5s infinite;z-index:-1;pointer-events:none}
+@keyframes sheen{0%{left:-60%}45%,100%{left:135%}}
+.btn.gold:hover{transform:translateY(-2px);box-shadow:0 28px 52px -18px rgba(226,195,154,1),inset 0 0 0 1px rgba(255,242,220,.8);filter:saturate(1.08)}
+.btn.gold .ar{transition:transform .25s}
+.btn.gold:hover .ar{transform:translateX(5px)}
+.btn.gold:focus-visible{outline:2px solid #F5E4C6;outline-offset:4px}
+.c-trust{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px 16px;font-size:12px;font-weight:600;color:#D9CCBC;letter-spacing:.02em}
+.c-trust li{display:flex;align-items:center;gap:7px}
+.c-trust svg{width:16px;height:16px;color:#E2C39A;flex:none}
+@media (max-width:1100px) and (min-width:901px),(max-width:620px){.c-buy{grid-template-columns:minmax(0,1fr);grid-template-areas:'price' 'btn' 'trust';justify-items:start}}
+@media (max-width:620px){.c-buy{padding:20px 18px;gap:18px}.btn.gold{justify-self:stretch;width:100%;padding:18px 22px;font-size:15.5px}.c-trust{flex-direction:column;gap:8px}}
 .gallery figure{position:relative}
 .zoom{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;border:0;background:transparent;cursor:zoom-in;border-radius:inherit;z-index:1}
 .zoom:focus-visible{outline:2px solid var(--ouro);outline-offset:3px}
@@ -571,8 +591,12 @@ footer .brand{display:inline-flex;border-bottom:0}
           <div class="c-buy">
             <p class="pricetag"><small>Investimento</small><strong>R$439,99</strong><small>em até 12× no cartão</small></p>
             <div class="c-cta">
-              <a class="btn light" href="https://terneirinhofeltragens.hotmart.host/escrevendo-com-feltragem-a-seco-delicadeza-tecnica-e-personalizacao-em-needle-felting-0ecb730d-49ba-469f-a51e-1b4f3875a5c2" target="_blank" rel="noopener">Quero aprender <span aria-hidden="true">→</span></a>
-              <p>Acesso imediato · pagamento seguro pela Hotmart</p>
+              <a class="btn gold" href="https://terneirinhofeltragens.hotmart.host/escrevendo-com-feltragem-a-seco-delicadeza-tecnica-e-personalizacao-em-needle-felting-0ecb730d-49ba-469f-a51e-1b4f3875a5c2" target="_blank" rel="noopener">Quero aprender agora <span class="ar" aria-hidden="true">→</span></a>
+              <ul class="c-trust">
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg>Acesso imediato</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 5 6v5c0 4.5 3 8.3 7 9.5 4-1.2 7-5 7-9.5V6z"/><path d="m9 12 2 2 4-4"/></svg>7 dias de garantia</li>
+                <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Pagamento seguro pela Hotmart</li>
+              </ul>
             </div>
           </div>
         </div>

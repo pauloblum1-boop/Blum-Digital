@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Frits Coxinhas · Criciúma · Na medida certa da sua fome</title>
+<meta name="description" content="Coxinha crocante frita na hora no Centro de Criciúma e salgados direto da fábrica da Frits para festas, empresas, lanchonetes e para fazer em casa.">
+<meta property="og:title" content="Frits Coxinhas · Criciúma">
+<meta property="og:description" content="Na medida certa da sua fome. Loja no Centro e fábrica de salgados.">
+<meta property="og:image" content="https://digitalblum.com/frits/img/ilha.webp">
+<meta name="theme-color" content="#7FB8EE">
+<meta name="robots" content="noindex">
+<meta property="og:url" content="https://digitalblum.com/frits/">
+<link rel="icon" href="img/logo.webp">
+<link rel="preload" href="img/ilha.webp" as="image">
+<style>
+@font-face{font-family:Lilita;src:url(fonts/lilita.woff2) format('woff2');font-display:swap}
+@font-face{font-family:DMS;src:url(fonts/dms-400.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:DMS;src:url(fonts/dms-700.woff2) format('woff2');font-weight:700;font-display:swap}
+:root{--ink:#1E1208;--red:#D62828;--yel:#FFC812;--cream:#FFF6E3;--sky1:#5FA2E6;--sky2:#CFE7FB}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--cream);color:var(--ink);font:400 17px/1.55 DMS,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit}
+h1,h2,h3{font-family:Lilita,DMS,sans-serif;font-weight:400;line-height:.98;margin:0}
+.wrap{width:min(1180px,100% - 40px);margin:0 auto}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:8px}
+.btn{display:inline-flex;align-items:center;gap:10px;font:700 16px/1 DMS,sans-serif;text-decoration:none;padding:16px 24px;border-radius:999px;border:0;cursor:pointer;transition:transform .2s cubic-bezier(.3,1.6,.5,1)}
+.btn:hover{transform:translateY(-2px) scale(1.03)}.btn:active{transform:scale(.96)}
+.btn svg{width:20px;height:20px;flex:none}
+.b-red{background:var(--red);color:#fff}.b-yel{background:var(--yel);color:var(--ink)}.b-ink{background:var(--ink);color:#fff}.b-white{background:#fff;color:var(--ink)}
+
+/* ---------- HERO: a ilha no céu ---------- */
+.hero{position:relative;height:100vh;height:100svh;overflow:hidden;background:linear-gradient(180deg,var(--sky1) 0%,#8DC2F2 45%,var(--sky2) 100%)}
+.hero .sun{position:absolute;left:62%;top:-18%;width:70vmax;height:70vmax;border-radius:50%;background:radial-gradient(circle,rgba(255,236,190,.75),rgba(255,236,190,0) 60%);pointer-events:none}
+.hero .copy{position:absolute;inset:0 0 auto;padding:clamp(36px,6vh,72px) 20px 0;text-align:center;z-index:3;color:#fff}
+.hero .brand{display:inline-flex;align-items:center;gap:14px;font-weight:700;font-size:clamp(16px,1.6vw,20px);background:rgba(0,0,0,.2);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);padding:8px 22px 8px 8px;border-radius:999px;margin-bottom:20px}
+.hero .brand img{width:clamp(62px,6.4vw,84px);height:auto;border-radius:50%;box-shadow:0 8px 24px rgba(0,0,0,.3);animation:wob 4.5s ease-in-out 2.2s infinite;transform-origin:50% 60%}
+.hero .brand b{display:block;font-family:Lilita,sans-serif;font-weight:400;font-size:1.5em;line-height:1}
+@keyframes wob{0%,70%,100%{transform:rotate(0) scale(1)}76%{transform:rotate(-10deg) scale(1.08)}84%{transform:rotate(8deg) scale(1.08)}92%{transform:rotate(-3deg) scale(1)}}
+.hero h1{font-size:clamp(48px,min(8.4vw,12vh),124px);text-shadow:0 6px 30px rgba(20,60,120,.35)}
+.hero h1 .ln{display:block;overflow:hidden;padding-bottom:.06em}
+.hero h1 .ln span{display:inline-block}
+.hero h1 .ln2{color:var(--yel)}
+.hero .ilha{position:absolute;left:50%;bottom:-5vh;width:min(1000px,110vw,90vh);transform:translateX(-50%);z-index:2;will-change:transform}
+.hero .ilha img{width:100%;filter:drop-shadow(0 40px 50px rgba(30,70,130,.35));animation:bob 6s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-14px) rotate(-.4deg)}}
+.cl{position:absolute;pointer-events:none;will-change:transform}
+.cl img{width:100%}
+.c-back1{width:95vh;left:-22vh;bottom:18vh;opacity:.9;z-index:1}
+.c-back2{width:85vh;right:-20vh;bottom:24vh;opacity:.85;z-index:1}
+.c-bed{width:150vh;left:50%;margin-left:-75vh;bottom:-24vh;z-index:1;opacity:.95}
+.c-front1{width:105vh;left:-40vh;bottom:-30vh;z-index:4}
+.c-front2{width:105vh;right:-42vh;bottom:-32vh;z-index:4}
+.c-front3{width:150vh;left:50%;margin-left:-75vh;bottom:-80vh;z-index:4}
+.drift{animation:drift 24s ease-in-out infinite alternate}
+.drift.r{animation-duration:30s;animation-direction:alternate-reverse}
+@keyframes drift{to{translate:6vw 0}}
+.hero .cover{position:absolute;inset:0;background:var(--yel);opacity:0;z-index:5;pointer-events:none}
+.hero .hint{position:absolute;left:50%;bottom:96px;transform:translateX(-50%);z-index:6;color:#fff;font-weight:700;font-size:14px;display:flex;flex-direction:column;align-items:center;gap:6px;text-shadow:0 2px 10px rgba(0,0,0,.25)}
+.hero .hint i{width:2px;height:34px;background:linear-gradient(#fff,transparent);animation:hint 1.6s ease-in-out infinite;transform-origin:top}
+@keyframes hint{0%{transform:scaleY(0)}60%{transform:scaleY(1)}100%{transform:scaleY(1);opacity:0}}
+
+/* ---------- PRODUTOS: a explosão ---------- */
+.prod{position:relative;height:100vh;height:100svh;overflow:hidden;background:var(--yel);transition:none}
+.prod .giant{position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font:400 clamp(110px,24vw,380px)/.8 Lilita,sans-serif;color:rgba(255,255,255,.22);white-space:nowrap;pointer-events:none;user-select:none}
+.prod .giant span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);opacity:0}
+.stage{position:absolute;left:60%;top:47%;width:min(84vh,62vw);aspect-ratio:1;transform:translate(-50%,-50%)}
+.stage .p{position:absolute;inset:0;pointer-events:none}
+.stage img{position:absolute;will-change:transform,opacity}
+.info{position:absolute;left:max(20px,calc((100vw - 1180px)/2));top:50%;transform:translateY(-50%);width:min(400px,36vw);z-index:3}
+.info .k{font-weight:700;font-size:15px;opacity:.75;margin-bottom:10px}
+.info h2{font-size:clamp(40px,4.6vw,66px);margin-bottom:14px}
+.info p{margin:0 0 22px;font-size:18px;max-width:34ch}
+.info .swap{transition:opacity .3s,transform .4s cubic-bezier(.2,.8,.2,1)}
+.info.out .swap{opacity:0;transform:translateY(14px)}
+.count{font:700 14px DMS;opacity:.7;margin-top:22px;display:flex;gap:10px;align-items:center}
+.count b{display:block;height:3px;width:120px;background:rgba(0,0,0,.15);border-radius:3px;overflow:hidden}
+.count b i{display:block;height:100%;background:currentColor;transform-origin:left;transform:scaleX(0)}
+.tabs{position:absolute;left:50%;bottom:94px;transform:translateX(-50%);display:flex;gap:6px;padding:6px;border-radius:999px;background:rgba(255,255,255,.35);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);z-index:4;max-width:calc(100vw - 24px);overflow-x:auto;scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{flex:none;font:700 14px/1 DMS,sans-serif;border:0;background:transparent;color:inherit;padding:11px 15px;border-radius:999px;cursor:pointer;white-space:nowrap;transition:background .3s,color .3s}
+.tabs button[aria-selected=true]{background:var(--ink);color:#fff}
+.prod .veil{position:absolute;inset:0;z-index:6;pointer-events:none}
+.prod .veil img{position:absolute;width:140vw;left:-20vw;transform:scaleY(-1)}
+.prod .veil .w{position:absolute;inset:0;background:#fff}
+
+/* ---------- FÁBRICA ---------- */
+.fab{position:relative;background:var(--ink);color:#fff;padding:110px 0 90px;overflow:hidden}
+.fab .vidpin{margin-top:30px}
+.fab h2{font-size:clamp(44px,7vw,104px);color:var(--yel);max-width:11ch}
+.fab .lead{max-width:560px;font-size:19px;color:#e9dccb;margin:20px 0 0}
+.vidpin{height:100vh;height:100svh;display:grid;place-items:center;overflow:hidden}
+.vid{position:relative;width:100vw;height:100vh;height:100svh;overflow:hidden;background:#000;will-change:transform,clip-path}
+.vid .ph{position:absolute;inset:0;background:linear-gradient(120deg,rgba(0,0,0,.65),rgba(0,0,0,.2)),url(img/loja-balcao.webp) center/cover;filter:saturate(1.1)}
+.vid .in{position:absolute;inset:0;display:grid;place-items:center;text-align:center}
+.vid .play{width:96px;height:96px;border-radius:50%;background:var(--yel);display:grid;place-items:center;margin:0 auto 14px;box-shadow:0 0 0 0 rgba(255,200,18,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 26px rgba(255,200,18,0)}100%{box-shadow:0 0 0 0 rgba(255,200,18,0)}}
+.vid .play svg{width:38px;height:38px;margin-left:6px}
+.vid small{color:#d8cbbb}
+.fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
+.fgrid div{background:#2C1D10;border-radius:22px;padding:22px}
+.fgrid b{display:block;font:400 28px/1 Lilita,sans-serif;margin:10px 0 8px;color:#fff}
+.fgrid span{color:#d7c9b7;font-size:15px}
+.fgrid svg{width:34px;height:34px;color:var(--yel)}
+
+/* ---------- ENCOMENDA ---------- */
+.order{padding:110px 0;background:var(--cream);position:relative;overflow:hidden}
+.ogrid{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;align-items:center}
+.order h2{font-size:clamp(46px,6vw,88px)}
+.order .side p{font-size:18px;color:#6b5641;max-width:36ch}
+.float{position:relative;height:300px;margin-top:10px}
+.float img{position:absolute;width:52%;filter:drop-shadow(0 30px 30px rgba(120,60,0,.25))}
+.float .f1{left:0;top:10px;animation:bob 5s ease-in-out infinite}
+.float .f2{left:40%;top:40px;width:50%;animation:bob 6s ease-in-out -2s infinite}
+form{background:#fff;border-radius:28px;padding:30px;display:grid;gap:20px;box-shadow:0 30px 80px rgba(110,60,0,.14)}
+fieldset{border:0;margin:0;padding:0}
+legend,.l{font-weight:700;font-size:15px;margin-bottom:10px;display:block}
+.seg{display:flex;flex-wrap:wrap;gap:8px}
+.seg input{position:absolute;opacity:0;pointer-events:none}
+.seg label{padding:12px 16px;border-radius:999px;background:var(--cream);cursor:pointer;font-weight:700;font-size:15px;transition:background .2s,color .2s,transform .2s}
+.seg label:active{transform:scale(.95)}
+.seg input:checked+label{background:var(--ink);color:var(--yel)}
+.seg input:focus-visible+label{outline:3px solid var(--red);outline-offset:2px}
+.qty{display:flex;align-items:center;gap:14px}
+.qty button{width:48px;height:48px;border-radius:50%;border:0;background:var(--cream);font:700 24px/1 DMS;cursor:pointer;color:var(--ink)}
+.qty output{font:400 40px/1 Lilita,sans-serif;min-width:4ch;text-align:center}
+.hint2{font-size:14px;color:#7a6550;margin:6px 0 0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+input[type=text],input[type=date]{width:100%;font:400 16px DMS,sans-serif;padding:14px;border-radius:14px;border:2px solid #F1E2C4;background:#fff;color:var(--ink)}
+
+/* ---------- LOJA ---------- */
+.loja{padding:30px 0 120px;background:var(--cream)}
+.lgrid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.loja h2{font-size:clamp(46px,6vw,88px)}
+.photos{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.photos img{border-radius:20px;aspect-ratio:9/16;object-fit:cover;width:100%}
+.photos img:nth-child(2){margin-top:40px}
+.addr{font-size:19px;margin:18px 0 24px}
+.reviews{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:60px}
+.reviews blockquote{margin:0;background:#fff;border-radius:24px;padding:26px}
+.reviews p{margin:8px 0 12px;font-size:19px}
+.reviews cite{font-style:normal;color:#7a6550;font-size:14px}
+.stars{color:#F4A300;letter-spacing:2px}
+.tour{margin-top:70px;border-radius:32px;overflow:hidden;position:relative;aspect-ratio:21/9;min-height:420px;background:linear-gradient(160deg,rgba(30,18,8,.25),rgba(30,18,8,.85)),url(img/loja-mesas.webp) center/cover;display:grid;place-items:end start;color:#fff}
+.tour .tin{padding:clamp(24px,4vw,56px);max-width:620px}
+.tour svg{width:64px;height:64px;color:var(--yel);animation:spin360 6s linear infinite}
+@keyframes spin360{to{transform:rotateY(360deg)}}
+.tour h2{font-size:clamp(38px,5vw,72px);margin:14px 0 12px}
+.tour p{margin:0;font-size:18px;color:#f1e6d6}
+footer{background:var(--red);color:#fff;padding:70px 0 130px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:end}
+footer h2{font-size:clamp(50px,7vw,100px)}
+
+/* ---------- MENU CÁPSULA ---------- */
+.pill{position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:50;display:flex;align-items:center;gap:4px;background:rgba(20,12,4,.9);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:6px;border-radius:999px;box-shadow:0 16px 40px rgba(0,0,0,.3)}
+.pill img{width:42px;height:42px;border-radius:50%}
+.pill a{color:#fff;text-decoration:none;font-weight:700;font-size:14px;padding:12px 15px;border-radius:999px}
+.pill a.go{background:var(--yel);color:var(--ink)}
+
+@media (max-width:820px){
+  .stage{left:50%;top:36%;width:min(92vw,52vh)}
+  .info{left:20px;right:20px;top:auto;bottom:150px;transform:none;width:auto}
+  .info h2{font-size:38px;margin-bottom:8px}
+  .info p{font-size:16px;margin-bottom:14px}
+  .info .k{margin-bottom:4px}
+  .count{display:none}
+  .tabs{bottom:84px;left:12px;right:12px;transform:none;max-width:none}
+  .fgrid{grid-template-columns:1fr 1fr}
+  .ogrid,.lgrid,.reviews{grid-template-columns:1fr}
+  .float{height:220px}
+  .two{grid-template-columns:1fr}
+  .pill .hm{display:none}
+  .vid{height:100svh}
+  .tour{aspect-ratio:auto;min-height:520px}
+  .hero .ilha{bottom:9vh;width:150vw;-webkit-mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent);mask-image:linear-gradient(90deg,transparent,#000 9%,#000 91%,transparent)}
+  .hero .ilha img{animation:bob 6s ease-in-out infinite,pan 12s ease-in-out infinite alternate}
+  @keyframes pan{from{translate:9vw 0}to{translate:-9vw 0}}
+  .c-back1,.c-back2{width:120vw;bottom:34vh}.c-back1{left:-50vw}.c-back2{right:-50vw}
+  .c-front1,.c-front2{width:130vw}.c-front1{left:-60vw;bottom:-8vh}.c-front2{right:-64vw;bottom:-9vh}
+  .c-front3{width:200vw;margin-left:-100vw;bottom:-40vh}
+  .c-bed{width:190vw;margin-left:-95vw;bottom:-2vh}
+  .hero .hint{display:none}
+}
+@media (max-height:700px) and (max-width:820px){.info p{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+
+<header class="hero" id="topo">
+  <div class="sun"></div>
+  <div class="cl c-back1"><img class="drift" src="img/nuvem0.webp" alt=""></div>
+  <div class="cl c-back2"><img class="drift r" src="img/nuvem1.webp" alt=""></div>
+  <div class="copy">
+    <div class="brand"><img src="img/logo.webp" alt="Logo da Frits Coxinhas" width="84" height="84"><span style="text-align:left"><b>Frits Coxinhas</b>Criciúma · SC</span></div>
+    <h1><span class="ln"><span>Na medida certa</span></span><span class="ln ln2"><span>da sua fome.</span></span></h1>
+  </div>
+  <div class="cl c-bed"><img src="img/nuvem0.webp" alt=""></div>
+  <div class="ilha"><img src="img/ilha.webp" alt="A loja da Frits numa ilha no céu, com uma coxinha gigante na frente" width="1500" height="969" fetchpriority="high"></div>
+  <div class="cl c-front1"><img class="drift" src="img/nuvem1.webp" alt=""></div>
+  <div class="cl c-front2"><img class="drift r" src="img/nuvem0.webp" alt=""></div>
+  <div class="cl c-front3"><img src="img/nuvem0.webp" alt=""></div>
+  <div class="cover"></div>
+</header>
+
+<section class="prod" id="cardapio" aria-label="Cardápio">
+  <div class="giant" aria-hidden="true" id="giant"></div>
+  <div class="stage" id="stage"></div>
+  <div class="info" id="info">
+    <div class="swap">
+      <div class="k" id="pK"></div>
+      <h2 id="pN"></h2>
+      <p id="pD"></p>
+      <a class="btn b-ink" id="pC" href="#encomendar">Quero esse</a>
+    </div>
+    <div class="count"><span id="pI">01</span><b><i id="pBar"></i></b><span id="pT">06</span></div>
+  </div>
+  <div class="tabs" role="tablist" aria-label="Produtos" id="tabs"></div>
+</section>
+
+<section class="fab" id="fabrica" aria-labelledby="fab-t">
+  <div class="wrap">
+    <h2 id="fab-t">Por trás de cada coxinha, uma fábrica.</h2>
+    <p class="lead">Massa, recheio e fritura feitos por nós. A mesma fábrica que abastece o balcão do Centro atende festas, empresas e outros comércios da região.</p>
+  </div>
+  <div class="vidpin" id="vidpin"><div class="vid" id="vid">
+    <div class="ph"></div>
+    <div class="in"><div>
+      <div class="play"><svg viewBox="0 0 24 24" fill="#1E1208" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg></div>
+      <b style="font-size:20px">O vídeo da fábrica entra aqui</b><br><small>A produção da Frits, do recheio à fritura</small>
+    </div></div>
+  </div></div>
+  <div class="wrap fgrid">
+    <div><svg viewBox="0 0 256 256" fill="currentColor"><path d="M232 104a56.06 56.06 0 0 0-56-56h-11.21A56 56 0 0 0 56 72a8 8 0 0 0 0 .87A40 40 0 0 0 64 152h104a64.07 64.07 0 0 0 64-48ZM168 136H64a24 24 0 0 1-4.2-47.63A40 40 0 0 0 72 112a8 8 0 0 0 16 0 40 40 0 0 1 80 0 8 8 0 0 0 16 0 55.69 55.69 0 0 0-5.71-24.66A40 40 0 0 1 168 136Zm48 64a8 8 0 0 1-8 8H48a8 8 0 0 1 0-16h160a8 8 0 0 1 8 8Z"/></svg><b>Festas</b><span>Cento de salgados fritos e entregues na hora certa.</span></div>
+    <div><svg viewBox="0 0 256 256" fill="currentColor"><path d="M216 56h-40v-8a24 24 0 0 0-24-24h-48a24 24 0 0 0-24 24v8H40a16 16 0 0 0-16 16v128a16 16 0 0 0 16 16h176a16 16 0 0 0 16-16V72a16 16 0 0 0-16-16ZM96 48a8 8 0 0 1 8-8h48a8 8 0 0 1 8 8v8H96Zm120 152H40v-56h176Zm0-72H40V72h176Z"/></svg><b>Empresas</b><span>Coffee break, reuniões e confraternizações.</span></div>
+    <div><svg viewBox="0 0 256 256" fill="currentColor"><path d="M232 96a7.89 7.89 0 0 0-.3-2.2l-14.35-50.2A16.07 16.07 0 0 0 202 32H54a16.07 16.07 0 0 0-15.35 11.6L24.31 93.8A7.89 7.89 0 0 0 24 96v16a40 40 0 0 0 16 32v64a16 16 0 0 0 16 16h144a16 16 0 0 0 16-16v-64a40 40 0 0 0 16-32Zm-178-48h148l11.42 40H42.61Zm50 56h48v8a24 24 0 0 1-48 0Zm-16 0v8a24 24 0 0 1-48 0v-8Zm136 104H56v-56.8a40.57 40.57 0 0 0 8 .8 40 40 0 0 0 32-16 40 40 0 0 0 64 0 40 40 0 0 0 32 16 40.57 40.57 0 0 0 8-.8Zm-8-72a24 24 0 0 1-24-24v-8h48v8a24 24 0 0 1-24 24Z"/></svg><b>Revenda</b><span>Congelados para lanchonetes, padarias e mercados.</span></div>
+    <div><svg viewBox="0 0 256 256" fill="currentColor"><path d="M224 120h-24.69l13.65-13.66a8 8 0 0 0-11.32-11.32L176.69 120H136V79.31L161 54.34a8 8 0 0 0-11.32-11.32L136 56.69V32a8 8 0 0 0-16 0v24.69L106.34 43A8 8 0 0 0 95 54.34L120 79.31V120H79.31L54.34 95a8 8 0 0 0-11.32 11.34L56.69 120H32a8 8 0 0 0 0 16h24.69L43 149.66A8 8 0 0 0 54.34 161L79.31 136H120v40.69L95 201.66A8 8 0 0 0 106.34 213L120 199.31V224a8 8 0 0 0 16 0v-24.69L149.66 213A8 8 0 0 0 161 201.66L136 176.69V136h40.69l25 24.97a8 8 0 0 0 11.32-11.32L199.31 136H224a8 8 0 0 0 0-16Z"/></svg><b>Em casa</b><span>Pré-fritos no freezer, prontos em minutos.</span></div>
+  </div>
+</section>
+
+<section class="order" id="encomendar" aria-labelledby="ord-t">
+  <div class="wrap ogrid">
+    <div class="side">
+      <h2 id="ord-t">Monte a sua encomenda.</h2>
+      <p>Escolha aqui e a mensagem vai pronta para o WhatsApp da Frits. A equipe confirma valores, sabores e entrega com você.</p>
+      <div class="float" aria-hidden="true"><img class="f1" src="img/frango-a.webp" alt=""><img class="f2" src="img/queijo-b.webp" alt=""></div>
+    </div>
+    <form id="form">
+      <fieldset><legend>Para quê?</legend>
+        <div class="seg">
+          <input type="radio" name="tipo" id="t1" value="Festa" checked><label for="t1">Festa</label>
+          <input type="radio" name="tipo" id="t2" value="Empresa"><label for="t2">Empresa</label>
+          <input type="radio" name="tipo" id="t3" value="Revenda (lanchonete, padaria, mercado)"><label for="t3">Revenda</label>
+          <input type="radio" name="tipo" id="t4" value="Pré-fritos para casa"><label for="t4">Pré-fritos para casa</label>
+        </div></fieldset>
+      <div><span class="l" id="qlab">Quantos salgados?</span>
+        <div class="qty" role="group" aria-labelledby="qlab"><button type="button" id="menos" aria-label="Menos 50">−</button><output id="qtd" aria-live="polite">100</output><button type="button" id="mais" aria-label="Mais 50">+</button></div>
+        <p class="hint2" id="qhint">Serve bem umas 11 pessoas.</p></div>
+      <fieldset><legend>Sabores</legend>
+        <div class="seg" id="sab">
+          <input type="checkbox" id="s1" value="Coxinha de frango com catupiry" checked><label for="s1">Coxinha de frango</label>
+          <input type="checkbox" id="s2" value="Coxinha de calabresa"><label for="s2">Calabresa</label>
+          <input type="checkbox" id="s3" value="Bolinha de queijo"><label for="s3">Bolinha de queijo</label>
+          <input type="checkbox" id="s4" value="Churros com doce de leite"><label for="s4">Churros</label>
+          <input type="checkbox" id="s5" value="Sortidos, vocês escolhem"><label for="s5">Sortidos</label>
+        </div></fieldset>
+      <div class="two">
+        <div><label class="l" for="data">Para quando?</label><input type="date" id="data"></div>
+        <div><label class="l" for="nome">Seu nome</label><input type="text" id="nome" autocomplete="name" placeholder="Como te chamamos"></div>
+      </div>
+      <button class="btn b-red" type="submit" style="justify-self:start"><svg viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.2-.5.1-1 .1-3.3-.8-2.8-1.1-4.5-3.9-4.7-4.1-.1-.2-1.1-1.5-1.1-2.9s.7-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.6 2.1 1.1 1 2 1.3 2.3 1.4.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 .9c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/></svg>Enviar encomenda pelo WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<section class="loja" id="loja" aria-labelledby="loja-t">
+  <div class="wrap">
+    <div class="lgrid">
+      <div class="photos">
+        <img src="img/loja-fachada.webp" alt="Fachada da Frits com o letreiro Na medida certa da sua fome" width="440" height="784" loading="lazy">
+        <img src="img/loja-balcao.webp" alt="Balcão da Frits com o cardápio iluminado" width="440" height="784" loading="lazy">
+        <img src="img/loja-mesas.webp" alt="Salão da Frits com as mesas personalizadas" width="440" height="784" loading="lazy">
+      </div>
+      <div>
+        <h2 id="loja-t">Passa aqui no Centro.</h2>
+        <p class="addr">R. Cel. Pedro Benedet, 300 · Centro, Criciúma<br>Encomendas pelo fone (48) 3045-1424</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn b-red" href="https://maps.app.goo.gl/CLwh4W9p5NyyVTWD8" target="_blank" rel="noopener">Ver rota e horário</a>
+          <a class="btn b-white" href="https://www.instagram.com/fritscoxinhas/" target="_blank" rel="noopener">Instagram</a>
+        </div>
+      </div>
+    </div>
+    <div class="reviews">
+      <blockquote><span class="stars">★★★★★</span><p>“Super indico, a melhor coxinha da vida, bem crocante, recheios maravilhosos.”</p><cite>Eduarda da Rosa · Google</cite></blockquote>
+      <blockquote><span class="stars">★★★★★</span><p>“Coxinhas de calabresa… e tem a opção pré-frita pra fazer em casa! Atendimento super excelente!”</p><cite>Fabi Fabiane · Google</cite></blockquote>
+    </div>
+    <div class="tour" id="tour">
+      <div class="tin">
+        <svg viewBox="0 0 256 256" fill="currentColor" aria-hidden="true"><path d="M128 64c-64.06 0-112 25.75-112 56 0 25.23 33.42 47.07 82.47 54.26L90.34 182.4a8 8 0 0 0 11.32 11.31l24-24a8 8 0 0 0 0-11.31l-24-24a8 8 0 0 0-11.32 11.31l7.64 7.65C55.36 146.83 32 132.13 32 120c0-18.82 43.42-40 96-40s96 21.18 96 40c0 13.9-28.48 29.84-68.5 36.13a8 8 0 1 0 2.46 15.81C207.42 165.3 240 144.2 240 120c0-30.25-47.94-56-112-56Z"/></svg>
+        <h2>Entre na loja sem sair de casa.</h2>
+        <p>O tour virtual 360° da Frits entra aqui: gire a tela, ande pelo salão e veja o balcão como se estivesse no Centro.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer><div class="wrap"><div><h2>Bateu a fome?</h2><small>Frits Coxinhas · 4,7 no Google com 649 avaliações</small></div><a class="btn b-yel" href="https://app.genuinesistemas.com.br/fritscoxinhas" target="_blank" rel="noopener">Pedir agora pelo app</a></div></footer>
+
+<nav class="pill" aria-label="Menu">
+  <a href="#topo" style="padding:0"><img src="img/logo.webp" alt="Início" width="42" height="42"></a>
+  <a href="#cardapio" class="hm">Cardápio</a><a href="#fabrica" class="hm">Fábrica</a><a href="#loja" class="hm">Loja</a>
+  <a href="#encomendar" class="go">Encomendar</a>
+</nav>
+
+<script src="js/gsap.min.js"></script>
+<script src="js/ScrollTrigger.min.js"></script>
+<script>
+const WA = '554830451424'; // a confirmar: WhatsApp da Frits
+const META = {"frango":{"core":[{"f":"frango-a.webp","x":237,"y":264,"w":284,"h":414},{"f":"frango-b.webp","x":521,"y":264,"w":276,"h":414}],"bits":[{"f":"frango-p0.webp","x":224,"y":372,"w":31,"h":114},{"f":"frango-p1.webp","x":82,"y":227,"w":177,"h":275},{"f":"frango-p2.webp","x":359,"y":255,"w":222,"h":184},{"f":"frango-p3.webp","x":282,"y":186,"w":151,"h":82},{"f":"frango-p4.webp","x":512,"y":231,"w":160,"h":219},{"f":"frango-p5.webp","x":555,"y":144,"w":275,"h":135},{"f":"frango-p6.webp","x":767,"y":365,"w":41,"h":140},{"f":"frango-p7.webp","x":730,"y":247,"w":209,"h":253},{"f":"frango-p8.webp","x":667,"y":518,"w":156,"h":173},{"f":"frango-p9.webp","x":765,"y":509,"w":143,"h":201},{"f":"frango-p10.webp","x":524,"y":636,"w":210,"h":148},{"f":"frango-p11.webp","x":666,"y":791,"w":11,"h":14},{"f":"frango-p12.webp","x":336,"y":650,"w":209,"h":154},{"f":"frango-p13.webp","x":288,"y":755,"w":44,"h":51},{"f":"frango-p14.webp","x":184,"y":495,"w":161,"h":217},{"f":"frango-p15.webp","x":89,"y":484,"w":203,"h":277}]},"calabresa":{"core":[{"f":"calabresa-a.webp","x":239,"y":267,"w":282,"h":411},{"f":"calabresa-b.webp","x":521,"y":267,"w":272,"h":411}],"bits":[{"f":"calabresa-p0.webp","x":227,"y":372,"w":28,"h":110},{"f":"calabresa-p1.webp","x":82,"y":228,"w":177,"h":314},{"f":"calabresa-p2.webp","x":359,"y":258,"w":212,"h":171},{"f":"calabresa-p3.webp","x":282,"y":172,"w":165,"h":97},{"f":"calabresa-p4.webp","x":499,"y":212,"w":193,"h":239},{"f":"calabresa-p5.webp","x":606,"y":144,"w":223,"h":135},{"f":"calabresa-p6.webp","x":767,"y":365,"w":39,"h":119},{"f":"calabresa-p7.webp","x":730,"y":247,"w":186,"h":265},{"f":"calabresa-p8.webp","x":670,"y":517,"w":159,"h":175},{"f":"calabresa-p9.webp","x":726,"y":508,"w":182,"h":203},{"f":"calabresa-p10.webp","x":514,"y":636,"w":220,"h":147},{"f":"calabresa-p11.webp","x":666,"y":791,"w":11,"h":15},{"f":"calabresa-p12.webp","x":336,"y":663,"w":180,"h":143},{"f":"calabresa-p13.webp","x":288,"y":755,"w":44,"h":51},{"f":"calabresa-p14.webp","x":206,"y":509,"w":139,"h":178},{"f":"calabresa-p15.webp","x":126,"y":569,"w":196,"h":183}]},"queijo":{"core":[{"f":"queijo-a.webp","x":210,"y":280,"w":317,"h":416},{"f":"queijo-b.webp","x":527,"y":280,"w":282,"h":416}],"bits":[{"f":"queijo-p0.webp","x":74,"y":218,"w":184,"h":311},{"f":"queijo-p1.webp","x":331,"y":240,"w":178,"h":194},{"f":"queijo-p2.webp","x":348,"y":175,"w":94,"h":82},{"f":"queijo-p3.webp","x":498,"y":239,"w":183,"h":171},{"f":"queijo-p4.webp","x":560,"y":151,"w":203,"h":135},{"f":"queijo-p5.webp","x":707,"y":291,"w":61,"h":79},{"f":"queijo-p6.webp","x":767,"y":261,"w":182,"h":242},{"f":"queijo-p7.webp","x":712,"y":670,"w":6,"h":6},{"f":"queijo-p8.webp","x":721,"y":510,"w":210,"h":243},{"f":"queijo-p9.webp","x":511,"y":603,"w":208,"h":193},{"f":"queijo-p10.webp","x":652,"y":743,"w":110,"h":63},{"f":"queijo-p11.webp","x":234,"y":616,"w":276,"h":188},{"f":"queijo-p12.webp","x":308,"y":743,"w":23,"h":25},{"f":"queijo-p13.webp","x":246,"y":637,"w":35,"h":21},{"f":"queijo-p14.webp","x":89,"y":516,"w":162,"h":274}]},"churros":{"core":[{"f":"churros-a.webp","x":141,"y":218,"w":355,"h":420},{"f":"churros-b.webp","x":496,"y":218,"w":332,"h":420}],"bits":[{"f":"churros-p0.webp","x":276,"y":365,"w":5,"h":5},{"f":"churros-p1.webp","x":74,"y":323,"w":109,"h":208},{"f":"churros-p2.webp","x":330,"y":229,"w":210,"h":217},{"f":"churros-p3.webp","x":275,"y":175,"w":168,"h":83},{"f":"churros-p4.webp","x":511,"y":238,"w":172,"h":128},{"f":"churros-p5.webp","x":559,"y":150,"w":153,"h":127},{"f":"churros-p6.webp","x":691,"y":337,"w":78,"h":45},{"f":"churros-p7.webp","x":703,"y":208,"w":247,"h":336},{"f":"churros-p8.webp","x":670,"y":622,"w":131,"h":110},{"f":"churros-p9.webp","x":757,"y":509,"w":175,"h":247},{"f":"churros-p10.webp","x":498,"y":568,"w":199,"h":229},{"f":"churros-p11.webp","x":651,"y":742,"w":111,"h":68},{"f":"churros-p12.webp","x":334,"y":603,"w":176,"h":206},{"f":"churros-p13.webp","x":313,"y":758,"w":68,"h":74},{"f":"churros-p14.webp","x":270,"y":646,"w":60,"h":19},{"f":"churros-p15.webp","x":88,"y":516,"w":253,"h":275}]},"prefritos":{"core":[{"f":"prefritos-a.webp","x":86,"y":150,"w":803,"h":721}],"bits":[{"f":"prefritos-p0.webp","x":84,"y":428,"w":5,"h":6},{"f":"prefritos-p1.webp","x":691,"y":278,"w":5,"h":5},{"f":"prefritos-p2.webp","x":709,"y":241,"w":51,"h":28},{"f":"prefritos-p3.webp","x":823,"y":399,"w":82,"h":88},{"f":"prefritos-p4.webp","x":161,"y":628,"w":57,"h":32}]},"sorvete":{"core":[{"f":"sorvete-a.webp","x":360,"y":182,"w":298,"h":758}],"bits":[{"f":"sorvete-p0.webp","x":201,"y":341,"w":149,"h":175},{"f":"sorvete-p1.webp","x":108,"y":221,"w":126,"h":318},{"f":"sorvete-p2.webp","x":352,"y":333,"w":11,"h":9},{"f":"sorvete-p3.webp","x":259,"y":103,"w":234,"h":199},{"f":"sorvete-p4.webp","x":530,"y":98,"w":206,"h":114},{"f":"sorvete-p5.webp","x":624,"y":194,"w":197,"h":434},{"f":"sorvete-p6.webp","x":806,"y":245,"w":106,"h":261},{"f":"sorvete-p7.webp","x":622,"y":535,"w":144,"h":105},{"f":"sorvete-p8.webp","x":735,"y":469,"w":148,"h":279},{"f":"sorvete-p9.webp","x":595,"y":643,"w":129,"h":135},{"f":"sorvete-p10.webp","x":575,"y":800,"w":30,"h":30},{"f":"sorvete-p11.webp","x":339,"y":636,"w":95,"h":174},{"f":"sorvete-p12.webp","x":240,"y":487,"w":165,"h":228},{"f":"sorvete-p13.webp","x":200,"y":562,"w":52,"h":71}]}};
+const P = [
+  {k:'frango',tab:'Frango com catupiry',name:'Coxinha de frango com catupiry',kick:'A mais pedida',bg:'#FFC812',fg:'#1E1208',word:'FRANGO',desc:'Frango desfiado e catupiry cremoso dentro de uma casquinha que estala na primeira mordida.'},
+  {k:'calabresa',tab:'Calabresa',name:'Coxinha de calabresa',kick:'Sabor forte',bg:'#D62828',fg:'#fff',word:'CALABRESA',desc:'Calabresa picadinha com queijo que estica. Tem cliente que pede pelo nome.'},
+  {k:'queijo',tab:'Bolinha de queijo',name:'Bolinha de queijo',kick:'Clássico de festa',bg:'#F59E2E',fg:'#1E1208',word:'QUEIJO',desc:'Crocante por fora e queijo derretendo por dentro. É a primeira a sumir da bandeja.'},
+  {k:'churros',tab:'Churros',name:'Churros com doce de leite',kick:'Para adoçar',bg:'#9A4E1C',fg:'#fff',word:'CHURROS',desc:'Açúcar e canela por fora, doce de leite escorrendo por dentro.'},
+  {k:'prefritos',tab:'Pré-fritos',name:'Pré-fritos para fazer em casa',kick:'Direto da fábrica',bg:'#1E1208',fg:'#fff',word:'FREEZER',desc:'Do freezer da Frits para o seu. Alguns minutos na airfryer ou no óleo e está pronto.'},
+  {k:'sorvete',tab:'Sorvete italiano',name:'Sorvete italiano',kick:'Para o calor',bg:'#F7A8B8',fg:'#1E1208',word:'GELATO',desc:'Sorvete cremoso para fechar o lanche ou passear pelo Centro.'}
+];
+const $ = id => document.getElementById(id);
+const stage = $('stage'), tabs = $('tabs'), giant = $('giant'), info = $('info'), prod = document.querySelector('.prod');
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const pct = v => (v/1024*100)+'%';
+
+// monta as camadas de cada produto (posições originais, em % do palco)
+const layers = P.map((p,i) => {
+  const g = document.createElement('div'); g.className = 'p'; g.style.zIndex = 10;
+  const m = META[p.k], mk = (o, z) => { const im = new Image(); im.src = 'img/'+o.f; im.alt = ''; im.decoding = 'async'; if (i) im.loading = 'lazy';
+    Object.assign(im.style,{left:pct(o.x),top:pct(o.y),width:pct(o.w),height:pct(o.h),zIndex:z}); im._c = o; g.appendChild(im); return im; };
+  const bits = m.bits.map(o => mk(o, o.w*o.h > 30000 ? 1 : 3));
+  const core = m.core.map(o => mk(o, 2));
+  if (i === 0) core.forEach(im => im.alt = p.name);
+  stage.appendChild(g);
+  const s = document.createElement('span'); s.textContent = p.word; giant.appendChild(s);
+  const b = document.createElement('button'); b.setAttribute('role','tab'); b.setAttribute('aria-selected', i ? 'false' : 'true'); b.textContent = p.tab; tabs.appendChild(b);
+  return {g, bits, core, word:s, btn:b};
+});
+$('pT').textContent = String(P.length).padStart(2,'0');
+
+let cur = -1;
+function show(i){
+  if (i === cur) return;
+  const first = cur < 0; cur = i; const p = P[i];
+  layers.forEach((l,j) => l.btn.setAttribute('aria-selected', j===i));
+  const bt=layers[i].btn; tabs.scrollTo({left:bt.offsetLeft-(tabs.clientWidth-bt.offsetWidth)/2,behavior:'smooth'});
+  prod.style.color = p.fg;
+  const set = () => { $('pK').textContent = p.kick; $('pN').textContent = p.name; $('pD').textContent = p.desc; $('pI').textContent = String(i+1).padStart(2,'0'); $('pC').className = 'btn ' + (p.bg==='#1E1208'||p.bg==='#D62828'||p.bg==='#9A4E1C' ? 'b-yel' : 'b-ink'); };
+  if (first) return set();
+  info.classList.add('out'); setTimeout(() => { set(); info.classList.remove('out'); }, 260);
+}
+show(0);
+
+gsap.registerPlugin(ScrollTrigger);
+const W = () => stage.offsetWidth;
+// vetor do centro do palco até o centro de cada pedaço
+const vec = im => { const c = im._c; return [((c.x+c.w/2)-512)/1024, ((c.y+c.h/2)-512)/1024]; };
+const rnd = (a,b) => a + Math.random()*(b-a);
+
+if (reduce) {
+  layers.forEach((l,i) => gsap.set(l.g,{autoAlpha: i?0:1}));
+  gsap.set(layers[0].word,{opacity:1});
+  layers.forEach((l,i) => l.btn.onclick = () => { layers.forEach((x,j)=>gsap.set(x.g,{autoAlpha:j===i?1:0})); layers.forEach((x,j)=>gsap.set(x.word,{opacity:j===i?1:0})); prod.style.background = P[i].bg; show(i); });
+} else {
+  // ---- abertura: título e ilha sobem das nuvens
+  gsap.from('.hero h1 .ln span',{yPercent:110,duration:1.1,ease:'expo.out',stagger:.12,delay:.1});
+  gsap.from('.hero .brand',{y:-30,opacity:0,duration:.8,delay:.1});
+  gsap.from('.hero .brand img',{scale:0,rotation:-360,duration:1.4,ease:'back.out(1.8)',delay:.2});
+  gsap.from('.hero .ilha',{y:'40vh',scale:.8,duration:1.8,ease:'expo.out',delay:.15});
+  gsap.from('.c-front1',{x:'45vw',y:'-35vh',scale:1.6,duration:2.2,ease:'expo.inOut'});
+  gsap.from('.c-front2',{x:'-45vw',y:'-35vh',scale:1.6,duration:2.2,ease:'expo.inOut'});
+
+  // ---- rolando no hero: a câmera mergulha na ilha e as nuvens fecham a tela
+  gsap.timeline({scrollTrigger:{trigger:'.hero',start:'top top',end:'+=130%',scrub:1,pin:true}})
+    .to('.hero .copy',{yPercent:-60,opacity:0,ease:'none',duration:.5},0)
+    .to('.hero .hint',{opacity:0,duration:.1},0)
+    .to('.hero .ilha',{scale:1.45,yPercent:-12,ease:'power1.inOut',duration:.6},0)
+    .to('.hero .ilha',{scale:2.4,yPercent:10,ease:'power2.in',duration:.4},.6)
+    .to('.c-back1',{x:'-30vw',duration:1},0)
+    .to('.c-back2',{x:'30vw',duration:1},0)
+    .to('.c-front1',{x:'-20vw',duration:.6},0)
+    .to('.c-bed',{y:'12vh',scale:1.3,duration:.6},0)
+    .to('.c-front2',{x:'20vw',duration:.6},0)
+    .to('.c-front3',{y:'-95vh',scale:1.6,ease:'power2.in',duration:.45},.55)
+    .to('.hero .cover',{opacity:1,ease:'power1.in',duration:.2},.8);
+
+  // ---- cardápio: cada produto fecha, explode e sai, comandado pela rolagem
+  const N = P.length;
+  layers.forEach((l,i) => { gsap.set(l.g,{autoAlpha: i?0:1}); });
+  const tl = gsap.timeline({defaults:{ease:'none'}, scrollTrigger:{
+    trigger:prod, start:'top top', end:()=>'+='+(N*110)+'%', pin:true, scrub:.6, invalidateOnRefresh:true,
+    onUpdate:s => { const i = Math.min(N-1, Math.floor(s.progress*N*0.999)); show(i); gsap.set('#pBar',{scaleX:(s.progress*N)%1||1}); }
+  }});
+  layers.forEach((l,i) => {
+    const t0 = i, p = P[i];
+    // estado fechado: metades juntas, pedaços escondidos dentro
+    const closed = (im,j,arr) => { const [vx,vy] = vec(im); const isCore = l.core.includes(im);
+      return isCore ? {x:()=> -vx*W()*.55*(arr.length>1?1:0), y:0, rotation:(arr.length>1? (vx<0?8:-8):0), scale:.92}
+                    : {x:()=> -vx*W()*.9, y:()=> -vy*W()*.9, scale:.15, rotation:rnd(-120,120), opacity:0}; };
+    const open = (im) => { const isCore = l.core.includes(im); return isCore ? {x:0,y:0,rotation:0,scale:1} : {x:0,y:0,scale:1,rotation:0,opacity:1}; };
+    const away = (im) => { const [vx,vy] = vec(im); const isCore = l.core.includes(im);
+      return isCore ? {x:()=> vx*W()*.6, y:()=>-W()*.1, rotation:vx<0?-14:14, scale:.7, opacity:0}
+                    : {x:()=> vx*W()*1.3, y:()=> vy*W()*1.3 - W()*.15, scale:1.4, rotation:rnd(-90,90), opacity:0}; };
+    const all = [...l.core, ...l.bits];
+    all.forEach((im,j) => gsap.set(im, closed(im,j,l.core)));
+    if (i) { tl.set(l.g,{autoAlpha:1},t0); tl.fromTo(l.core,{y:()=>W()*.5,opacity:0,scale:.6},{y:0,opacity:1,scale:.92,duration:.18,ease:'back.out(1.6)'},t0); }
+    tl.to(prod,{backgroundColor:p.bg,duration:.15},t0);
+    tl.fromTo(l.word,{opacity:0,scale:.8,xPercent:-50,yPercent:-50},{opacity:1,scale:1,duration:.2},t0);
+    // explosão
+    l.core.forEach(im => tl.to(im, {...open(im), duration:.32, ease:'power3.out'}, t0+.2));
+    l.bits.forEach((im,j) => tl.to(im, {...open(im), duration:.38, ease:'expo.out'}, t0+.2+j*.006));
+    // respiro: os pedaços continuam se afastando de leve
+    l.bits.forEach(im => { const [vx,vy] = vec(im); tl.to(im,{x:()=>vx*W()*.06,y:()=>vy*W()*.06,rotation:'+='+rnd(-14,14),duration:.3},t0+.6); });
+    tl.to(l.core,{y:()=>-W()*.015,duration:.3},t0+.6);
+    if (i < N-1) {
+      all.forEach(im => tl.to(im, {...away(im), duration:.18, ease:'power2.in'}, t0+.9));
+      tl.to(l.word,{opacity:0,scale:1.2,duration:.15},t0+.9);
+      tl.set(l.g,{autoAlpha:0},t0+1.08);
+    } else tl.to({}, {duration:.1}, t0+.9);
+  });
+  layers.forEach((l,i) => l.btn.onclick = () => { const st = tl.scrollTrigger; scrollTo({top: st.start + (st.end-st.start)*((i+.62)/N), behavior:'smooth'}); });
+
+  // ---- fábrica: o vídeo cresce até ocupar a tela
+  gsap.timeline({scrollTrigger:{trigger:'#vidpin',start:'top top',end:'+=120%',pin:true,scrub:.6}})
+    .fromTo('#vid',{clipPath:'inset(22% 24% 22% 24% round 32px)'},{clipPath:'inset(0% 0% 0% 0% round 0px)',ease:'power2.inOut',duration:1})
+    .fromTo('#vid .ph',{scale:1.35},{scale:1,ease:'none',duration:1},0)
+    .fromTo('#vid .in',{scale:.7},{scale:1,ease:'power2.inOut',duration:1},0);
+  gsap.from('.fgrid > div',{y:60,opacity:0,stagger:.08,duration:.7,ease:'power3.out',scrollTrigger:{trigger:'.fgrid',start:'top 88%'}});
+  gsap.from('.fab h2',{yPercent:30,opacity:0,duration:1,ease:'expo.out',scrollTrigger:{trigger:'.fab',start:'top 75%'}});
+  // ---- fotos da loja em paralaxe
+  gsap.utils.toArray('.photos img').forEach((im,i) => gsap.fromTo(im,{y:60*(i%2?1:-.4)},{y:-40*(i%2?1:-.4),ease:'none',scrollTrigger:{trigger:'.photos',start:'top bottom',end:'bottom top',scrub:true}}));
+  gsap.fromTo('.float .f1',{rotation:-18},{rotation:12,ease:'none',scrollTrigger:{trigger:'.order',start:'top bottom',end:'bottom top',scrub:true}});
+  gsap.fromTo('.float .f2',{rotation:16},{rotation:-10,ease:'none',scrollTrigger:{trigger:'.order',start:'top bottom',end:'bottom top',scrub:true}});
+}
+
+// ---- encomenda pelo WhatsApp
+let q = 100;
+const setQ = v => { q = Math.max(50, Math.min(5000, v)); $('qtd').textContent = q; $('qhint').textContent = q >= 1000 ? 'Pedido grande: a Frits combina a produção com você.' : `Serve bem umas ${Math.round(q/9)} pessoas.`; };
+$('menos').onclick = () => setQ(q-50); $('mais').onclick = () => setQ(q+50);
+$('form').addEventListener('submit', e => {
+  e.preventDefault();
+  const tipo = document.querySelector('input[name=tipo]:checked').value;
+  const sab = [...document.querySelectorAll('#sab input:checked')].map(x => x.value).join(', ') || 'a combinar';
+  const d = $('data').value, n = $('nome').value.trim();
+  const msg = `Olá, Frits! Quero fazer uma encomenda pelo site.\n\nPara: ${tipo}\nQuantidade: ${q} salgados\nSabores: ${sab}\nData: ${d ? d.split('-').reverse().join('/') : 'a combinar'}${n ? `\nNome: ${n}` : ''}`;
+  open(`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`, '_blank', 'noopener');
+});
+$('pC').addEventListener('click', () => {
+  const k = P[Math.max(cur,0)].k, map = {frango:'s1',calabresa:'s2',queijo:'s3',churros:'s4'};
+  if (map[k]) $(map[k]).checked = true;
+  if (k === 'prefritos') $('t4').checked = true;
+});
+</script>
+</body>
+</html>
